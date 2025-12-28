@@ -1,0 +1,14 @@
+{
+	"alias": "menu",
+	"name": "Menu",
+	"type": "platformer",
+	"area": {
+		"alias": "area_1"
+	},
+	"player": {
+		"alias": "camera",
+		"position": [0, 0],
+		"mode": "normal",
+		"physics": "plane"
+	}
+}

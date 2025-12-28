@@ -1,0 +1,20 @@
+{
+	"button_entered": {
+		"format": "wav",
+		"count": 0,
+		"rand": true,
+		"pitch": true
+	},
+	"button_exited": {
+		"format": "wav",
+		"count": 0,
+		"rand": true,
+		"pitch": true
+	},
+	"button_pressed": {
+		"format": "wav",
+		"count": 0,
+		"rand": true,
+		"pitch": false
+	}
+}

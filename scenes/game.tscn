@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://by3i83jlyslu"]
+
+[ext_resource type="Script" uid="uid://8argvaq6h41o" path="res://scenes/game.gd" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://c18xx1wuw4jhb" path="res://addons/retrograde/scenes/control/target_camera_2d.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://u14wwf0sx80p" path="res://addons/retrograde/scenes/overlay/player_grid.tscn" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bbfew1a1w6f3" path="res://addons/retrograde/scenes/ambiance/day_night_cycle.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dhmnr36jtyk7s" path="res://addons/retrograde/scenes/controller/hud_controller.tscn" id="5_gee14"]
+[ext_resource type="PackedScene" uid="uid://boga34tcg8dgs" path="res://addons/retrograde/scenes/controller/ui_controller.tscn" id="6_0tnpc"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_p57ef")
+
+[node name="Ambiance" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Level" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Enemies" type="Node2D" parent="Level"]
+unique_name_in_owner = true
+z_index = 10
+y_sort_enabled = true
+
+[node name="Towers" type="Node2D" parent="Level"]
+unique_name_in_owner = true
+z_index = 20
+y_sort_enabled = true
+
+[node name="Camera" parent="Level" instance=ExtResource("2_p57ef")]
+unique_name_in_owner = true
+
+[node name="PlayerGrid" parent="Level" instance=ExtResource("3_p57ef")]
+unique_name_in_owner = true
+
+[node name="DayNightCycle" parent="Level" instance=ExtResource("4_u5sy4")]
+unique_name_in_owner = true
+
+[node name="HUD" parent="." instance=ExtResource("5_gee14")]
+unique_name_in_owner = true
+
+[node name="UI" parent="." instance=ExtResource("6_0tnpc")]
+unique_name_in_owner = true

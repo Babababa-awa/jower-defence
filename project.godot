@@ -1,0 +1,115 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[addons]
+
+retrograde_image={
+"configs": {
+"res://_/retrograde-input-16/retrograde-image.json": {
+"ignore_output_config_path": true,
+"ignore_output_path": true,
+"inputs": Array[String](["Keyboard", "Mouse", "Joypad (Generic)", "Joypad (Steam Deck)", "Joypad (XBox)", "Joypad (PS4)", "Joypad (PS5)", "Joypad (Nintendo Joycons)", "Joypad (Nintendo Pro)"]),
+"output_path": "res://assets/inputs/[[input]]/[[variant]]",
+"outputs": Array[String](["Horizontal Animation"]),
+"padding": -1.0,
+"theme": "Default"
+}
+},
+"selected_config_path": "res://_/retrograde-input-16/retrograde-image.json"
+}
+
+[application]
+
+config/name="Jelly Defence"
+run/main_scene="res://scenes/game.tscn"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://resources/audio_bus_layout.tres"
+
+[autoload]
+
+Core="*res://scripts/core.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/inferred_declaration=2
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/retrograde/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://_/": "teal",
+"res://addons/": "purple",
+"res://addons/retrograde/_/": "teal",
+"res://addons/retrograde/scenes/": "green",
+"res://addons/retrograde/scripts/": "yellow",
+"res://assets/": "orange",
+"res://data/": "blue",
+"res://resources/": "red",
+"res://scenes/": "green",
+"res://scripts/": "yellow"
+}
+
+[global_group]
+
+enemy=""
+navigation=""
+
+[gui]
+
+theme/custom="res://resources/ui.tres"
+theme/custom_font="uid://wbjt133s7u3u"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://data/translations/ui_translations.en.translation", "res://data/translations/input_translations.en.translation", "res://data/translations/translations.en.translation", "res://data/translations/ui_translations.jp.translation", "res://data/translations/input_translations.jp.translation", "res://data/translations/translations.jp.translation")
+
+[layer_names]
+
+2d_physics/layer_1="Solid"
+2d_physics/layer_2="Liquid"
+2d_physics/layer_3="Gas"
+2d_physics/layer_4="Floor"
+2d_physics/layer_5="Wall"
+2d_physics/layer_6="Ceiling"
+2d_physics/layer_7="Roam"
+2d_physics/layer_8="Climb"
+2d_physics/layer_9="Stairs"
+2d_physics/layer_10="Edge"
+2d_physics/layer_11="Elevation"
+2d_physics/layer_12="Rise"
+2d_physics/layer_13="Fall"
+2d_physics/layer_14="Rail"
+2d_physics/layer_15="Win"
+2d_physics/layer_16="Lose"
+2d_physics/layer_17="Modifier"
+2d_physics/layer_18="Status"
+2d_physics/layer_19="Interaction"
+2d_physics/layer_20="Field"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

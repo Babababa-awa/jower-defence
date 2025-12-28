@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=4 uid="uid://dqedfggssk2u2"]
+
+[ext_resource type="Script" uid="uid://b7l1vo1nbxfbr" path="res://scenes/level/menu/area/area_1.gd" id="1_fp3uf"]
+[ext_resource type="TileSet" uid="uid://b00x7koobduiw" path="res://resources/tile_sets/physics.tres" id="2_3e0cu"]
+
+[node name="Area1" type="Node2D"]
+script = ExtResource("1_fp3uf")
+
+[node name="Physics" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAD//wAAAAABAAIAAAD/////AAABAAIAAAAAAP//AAABAAIAAAD///7/AAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAD+//7/AAAAAAAAAAA=")
+tile_set = ExtResource("2_3e0cu")

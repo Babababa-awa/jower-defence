@@ -1,0 +1,543 @@
+{
+	"enabled": [
+		"interact",
+		"item_drop",
+		"item_pick_up",
+		"item_select_1",
+		"item_select_2",
+		"item_select_3",
+		"item_select_4",
+		"item_select_5",
+		"item_select_6",
+		"item_select_7",
+		"item_select_8",
+		"item_select_9",
+		"item_select_10",
+		"item_use",
+		"move_up",
+		"move_down",
+		"move_right",
+		"move_left"
+	],
+	"default": {
+		"climb_on": [
+			{
+				"type": "key",
+				"physical_keycode": 73.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 70.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194312.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 1.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 0.0
+			}
+		],
+		"climb_off": [],
+		"climb_up": [
+			{
+				"type": "key",
+				"physical_keycode": 87.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194320.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 11.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 1.0,
+				"axis_value": -1.0
+			}
+		],
+		"climb_down": [
+			{
+				"type": "key",
+				"physical_keycode": 83.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194322.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 12.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 1.0,
+				"axis_value": 1.0
+			}
+		],
+		"climb_left": [
+			{
+				"type": "key",
+				"physical_keycode": 65.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194319.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 13.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 0.0,
+				"axis_value": -1.0
+			}
+		],
+		"climb_right": [
+			{
+				"type": "key",
+				"physical_keycode": 68.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194321.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 14.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 0.0,
+				"axis_value": 1.0
+			}
+		],
+		"climb_slow": [
+			{
+				"type": "key",
+				"physical_keycode": 4194325.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 5.0,
+				"axis_value": 1.0
+			}
+		],
+		"climb_fast": [],
+		"crouch": [
+			{
+				"type": "key",
+				"physical_keycode": 67.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 88.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 90.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194326.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 4.0,
+				"axis_value": 1.0
+			}
+		],
+		"cursor_left": [],
+		"cursor_right": [],
+		"cursor_up": [],
+		"cursor_down": [],
+		"cursor_fast": [],
+		"cursor_slow": [],
+		"jump": [
+			{
+				"type": "key",
+				"physical_keycode": 32.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194308.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 2.0
+			}
+		],
+		"interact": [
+			{
+				"type": "key",
+				"physical_keycode": 73.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 70.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194312.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 1.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 0.0
+			}
+		],
+		"item_left": [
+			{
+				"type": "key",
+				"physical_keycode": 72.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 81.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 4.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 9.0
+			}
+		],
+		"item_right": [
+			{
+				"type": "key",
+				"physical_keycode": 76.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 69.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 5.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 10.0
+			}
+		],
+		"item_use": [
+			{
+				"type": "key",
+				"physical_keycode": 82.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 75.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 2.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 1.0
+			}
+		],
+		"item_drop": [
+			{
+				"type": "key",
+				"physical_keycode": 86.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 74.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 3.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 3.0
+			}
+		],
+		"item_swap": [],
+		"item_pick_up": [
+			{
+				"type": "key",
+				"physical_keycode": 73.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 70.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194312.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 1.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 0.0
+			}
+		],
+		"item_select_1": [
+			{
+				"type": "key",
+				"physical_keycode": 49.0
+			}
+		],
+		"item_select_2": [
+			{
+				"type": "key",
+				"physical_keycode": 50.0
+			}
+		],
+		"item_select_3": [
+			{
+				"type": "key",
+				"physical_keycode": 51.0
+			}
+		],
+		"item_select_4": [
+			{
+				"type": "key",
+				"physical_keycode": 52.0
+			}
+		],
+		"item_select_5": [
+			{
+				"type": "key",
+				"physical_keycode": 53.0
+			}
+		],
+		"item_select_6": [
+			{
+				"type": "key",
+				"physical_keycode": 54.0
+			}
+		],
+		"item_select_7": [
+			{
+				"type": "key",
+				"physical_keycode": 55.0
+			}
+		],
+		"item_select_8": [
+			{
+				"type": "key",
+				"physical_keycode": 56.0
+			}
+		],
+		"item_select_9": [
+			{
+				"type": "key",
+				"physical_keycode": 57.0
+			}
+		],
+		"item_select_10": [
+			{
+				"type": "key",
+				"physical_keycode": 48.0
+			}
+		],
+		"item_use_1": [
+			{
+				"type": "key",
+				"physical_keycode": 49.0
+			}
+		],
+		"item_use_2": [
+			{
+				"type": "key",
+				"physical_keycode": 50.0
+			}
+		],
+		"item_use_3": [
+			{
+				"type": "key",
+				"physical_keycode": 51.0
+			}
+		],
+		"item_use_4": [
+			{
+				"type": "key",
+				"physical_keycode": 52.0
+			}
+		],
+		"item_use_5": [
+			{
+				"type": "key",
+				"physical_keycode": 53.0
+			}
+		],
+		"item_use_6": [
+			{
+				"type": "key",
+				"physical_keycode": 54.0
+			}
+		],
+		"item_use_7": [
+			{
+				"type": "key",
+				"physical_keycode": 55.0
+			}
+		],
+		"item_use_8": [
+			{
+				"type": "key",
+				"physical_keycode": 56.0
+			}
+		],
+		"item_use_9": [
+			{
+				"type": "key",
+				"physical_keycode": 57.0
+			}
+		],
+		"item_use_10": [
+			{
+				"type": "key",
+				"physical_keycode": 48.0
+			}
+		],
+		"life_kill": [],
+		"life_revive": [],
+		"move_up": [
+			{
+				"type": "key",
+				"physical_keycode": 87.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194320.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 11.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 1.0,
+				"axis_value": -1.0
+			}
+		],
+		"move_down": [
+			{
+				"type": "key",
+				"physical_keycode": 83.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194322.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 12.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 1.0,
+				"axis_value": 1.0
+			}
+		],
+		"move_left": [
+			{
+				"type": "key",
+				"physical_keycode": 65.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194319.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 13.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 0.0,
+				"axis_value": -1.0
+			}
+		],
+		"move_right": [
+			{
+				"type": "key",
+				"physical_keycode": 68.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194321.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 14.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 0.0,
+				"axis_value": 1.0
+			}
+		],
+		"move_slow": [
+			{
+				"type": "key",
+				"physical_keycode": 4194325.0
+			},
+			{
+				"type": "joypad_motion",
+				"axis": 5.0,
+				"axis_value": 1.0
+			}
+		],
+		"move_fast": [],
+		"pause": [
+			{
+				"type": "key",
+				"physical_keycode": 80.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194305.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 4194341.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 6.0
+			}
+		],
+		"weapon_use_1": [
+			{
+				"type": "key",
+				"physical_keycode": 82.0
+			},
+			{
+				"type": "key",
+				"physical_keycode": 75.0
+			},
+			{
+				"type": "mouse_button",
+				"button_index": 2.0
+			},
+			{
+				"type": "joypad_button",
+				"button_index": 1.0
+			}
+		],
+		"weapon_use_2": [],
+		"weapon_use_3": []
+	}
+}

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnot6l0quu5s6"]
+
+[ext_resource type="Texture2D" uid="uid://dq28k3e8qaf0v" path="res://assets/overlay/place_error.png" id="1_ghld2"]
+[ext_resource type="Texture2D" uid="uid://dm2vyvo5jeyqy" path="res://assets/overlay/place_success.png" id="2_2mr8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxbyw"]
+atlas = ExtResource("1_ghld2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feaoi"]
+atlas = ExtResource("2_2mr8l")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1g22m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxbyw")
+}],
+"loop": true,
+"name": &"error",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feaoi")
+}],
+"loop": true,
+"name": &"success",
+"speed": 5.0
+}]
+
+[node name="PlaceAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1g22m")
+animation = &"error"

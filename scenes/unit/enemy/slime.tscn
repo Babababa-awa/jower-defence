@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2vqokupykg1u"]
+
+[ext_resource type="Texture2D" uid="uid://bf61icnr4sl6k" path="res://assets/unit/enemy/slime.png" id="1_rs2fv"]
+[ext_resource type="Script" uid="uid://6u348tet8kjd" path="res://scenes/unit/enemy/slime.gd" id="2_yb0j3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb0j3"]
+atlas = ExtResource("1_rs2fv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_npdif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb0j3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yb0j3"]
+radius = 32.0
+
+[node name="Slime" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_yb0j3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_npdif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yb0j3")

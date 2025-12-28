@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5q1uklmtwoet"]
+
+[ext_resource type="Script" uid="uid://cffe6e8lrgmu8" path="res://scenes/hud/tower_bar.gd" id="1_bhqy0"]
+[ext_resource type="PackedScene" uid="uid://clli1od8kwpni" path="res://scenes/hud/tower_bar_item.tscn" id="2_jjxjx"]
+
+[node name="TowerBar" type="Node2D"]
+script = ExtResource("1_bhqy0")
+
+[node name="TowerBarItem1" parent="." instance=ExtResource("2_jjxjx")]
+unique_name_in_owner = true
+
+[node name="TowerBarItem2" parent="." instance=ExtResource("2_jjxjx")]
+unique_name_in_owner = true
+
+[node name="TowerBarItem3" parent="." instance=ExtResource("2_jjxjx")]
+unique_name_in_owner = true

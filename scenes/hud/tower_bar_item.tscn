@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://clli1od8kwpni"]
+
+[ext_resource type="Script" uid="uid://cy3oswguixkiq" path="res://scenes/hud/tower_bar_item.gd" id="1_2crvk"]
+[ext_resource type="Texture2D" uid="uid://l0yaa0ji7nk5" path="res://assets/hud/towers/jelly.png" id="2_qugqw"]
+[ext_resource type="Texture2D" uid="uid://bm0i836vfpirm" path="res://assets/hud/towers/pippa.png" id="3_cq746"]
+[ext_resource type="Texture2D" uid="uid://d34c8dcudfahj" path="res://assets/hud/towers/shiina.png" id="4_er51y"]
+[ext_resource type="Script" uid="uid://bvexadi7j5afp" path="res://addons/retrograde/scenes/ui/component/ui_label.gd" id="5_cq746"]
+[ext_resource type="Texture2D" uid="uid://c2s6dhmlkxcqo" path="res://assets/hud/money_small.png" id="6_er51y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jxx0"]
+atlas = ExtResource("2_qugqw")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yujx"]
+atlas = ExtResource("3_cq746")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f44b5"]
+atlas = ExtResource("4_er51y")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtmns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jxx0")
+}],
+"loop": true,
+"name": &"jelly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yujx")
+}],
+"loop": true,
+"name": &"pippa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f44b5")
+}],
+"loop": true,
+"name": &"shiina",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq746"]
+size = Vector2(96, 96)
+
+[node name="TowerBarItem" type="Node2D"]
+script = ExtResource("1_2crvk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(48, 48)
+sprite_frames = SubResource("SpriteFrames_mtmns")
+animation = &"shiina"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(16, 80)
+texture = ExtResource("6_er51y")
+
+[node name="UILabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 24
+script = ExtResource("5_cq746")
+metadata/_custom_type_script = "uid://bvexadi7j5afp"
+
+[node name="Area2DRect" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DRect"]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_cq746")
+
+[connection signal="input_event" from="Area2DRect" to="." method="_on_area_2d_rect_input_event"]
+[connection signal="mouse_entered" from="Area2DRect" to="." method="_on_area_2d_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Area2DRect" to="." method="_on_area_2d_rect_mouse_exited"]
