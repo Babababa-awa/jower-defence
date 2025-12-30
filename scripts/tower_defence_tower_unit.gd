@@ -110,9 +110,6 @@ func _input(event: InputEvent) -> void:
 			Core.game.clear_mouse_action(&"set_tower_target", true)
 			is_targeting = false
 			cancel_weapon_target()
-			
-func reset(reset_type_: Core.ResetType) -> void:
-	super.reset(reset_type_)
 
 func _physics_process(delta_: float) -> void:
 	super._physics_process(delta_)

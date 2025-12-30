@@ -99,7 +99,7 @@ func _damage_process(amount: float) -> void:
 	health = max(0.0, health - apply_damage)
 	
 	damage_after.emit(apply_damage)
-
+ 
 func damage(amount: float, independent: bool = false) -> void:
 	if independent:
 		independent_damage += amount
