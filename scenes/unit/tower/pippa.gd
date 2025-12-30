@@ -31,25 +31,8 @@ func _process(delta_: float) -> void:
 		return
 	
 	if target_set:
-		%Gun.attack_from_alias(equiped_weapon)
-	
-	if is_targeting:
-		%Line2DTarget.points[1] = get_local_mouse_position()
+		%Weapon.attack_from_alias(equiped_weapon)
 
-
-func set_target() -> void:
-	super.set_target()
-	
-	if is_targeting:
-		if %Line2DTarget.points.size() == 0:
-			%Line2DTarget.add_point(Vector2.ZERO)
-			%Line2DTarget.add_point(get_local_mouse_position())
-		%Line2DTarget.visible = true
-
-func set_weapon_target(position_: Vector2) -> void:
+func set_weapon_target(points_: PackedVector2Array) -> void:
 	target_set = true
-	%Gun.target_position = position_
-	%Line2DTarget.visible = false
-
-func cancel_weapon_target() -> void:
-	%Line2DTarget.visible = false
+	%Weapon.target_position = points_[points_.size() - 1]

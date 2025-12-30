@@ -2,31 +2,66 @@ extends BaseUnit
 class_name TowerDefenceTowerUnit
 
 var is_placing: bool = false
-var is_targeting: bool = false
 var is_tower_command: bool = false
-var set_target_delay: float = 0.0
 
 var has_weapon_modifier_speed: bool = false
 var has_weapon_modifier_spread: bool = false
 var has_weapon_modifier_cluster: bool = false
-var equiped_weapon_modifier: Core.WeaponModifier = Core.WeaponModifier.NONE
+var equiped_weapon_modifier: Core.WeaponModifier = Core.WeaponModifier.NONE:
+	set(value):
+		equiped_weapon_modifier = value
+		var weapon_: TowerDefenceWeaponUnit = get_node_or_null("%Weapon")
+		if weapon_:
+			weapon_.weapon_modifier = value
 
 var has_projectile_modifier_speed: bool = false
 var has_projectile_modifier_wave: bool = false
 var has_projectile_modifier_spiral: bool = false
-var equiped_projectile_modifier: Core.ProjectileModifier = Core.ProjectileModifier.NONE
-
+var equiped_projectile_modifier: Core.ProjectileModifier = Core.ProjectileModifier.NONE:
+	set(value):
+		equiped_projectile_modifier = value
+		var weapon_: TowerDefenceWeaponUnit = get_node_or_null("%Weapon")
+		if weapon_:
+			weapon_.projectile_modifier = value
+			
 var has_damage_modifier_heavy: bool = false
 var has_damage_modifier_piercing: bool = false
 var has_damage_modifier_explosive: bool = false
-var equiped_damage_modifier: Core.DamageModifier = Core.DamageModifier.NONE
+var equiped_damage_modifier: Core.DamageModifier = Core.DamageModifier.NONE:
+	set(value):
+		equiped_damage_modifier = value
+		var weapon_: TowerDefenceWeaponUnit = get_node_or_null("%Weapon")
+		if weapon_:
+			weapon_.damage_modifier = value
 
 func _init(alias_: StringName) -> void:
 	super._init(alias_, Core.UnitType.FRIEND)
 	
 	alignment = Core.Alignment.CENTER_CENTER
-	Core.game.tower_command_changed.connect(_on_tower_command_changed)
 
+func _ready() -> void:
+	super._ready()
+	
+	var tower_area_: Area2D = get_node_or_null("%Area2DTower")
+	if tower_area_ != null:
+		tower_area_.mouse_entered.connect(_on_mouse_entered)
+		tower_area_.mouse_exited.connect(_on_mouse_exited)
+		tower_area_.input_event.connect(_on_input_event)
+		
+	
+	if get_node_or_null("%TargetLine2D") != null:
+		%TargetLine2D.target_complete.connect(_on_target_complete)
+		%TargetLine2D.target_error.connect(_on_target_error)
+
+	Core.game.tower_command_changed.connect(_on_tower_command_changed)
+	
+func _on_target_complete(points_: PackedVector2Array) -> void:
+	set_weapon_target(points_)
+	Core.game.clear_mouse_action(&"set_tower_target", true)
+
+func _on_target_error(_reason_: StringName, _error_: Core.Error) -> void:
+	Core.game.clear_mouse_action(&"set_tower_target", true)
+	
 func _on_tower_command_changed(tower_: TowerDefenceTowerUnit) -> void:
 	if tower_ == self:
 		is_tower_command = true
@@ -43,9 +78,10 @@ func reset(reset_type_: Core.ResetType) -> void:
 		reset_type_ == Core.ResetType.RESTART
 	):
 		is_placing = false
-		is_targeting = false
 		is_tower_command = false
-		set_target_delay = 0.0
+		
+		if get_node_or_null("%TargetLine2D") != null:
+			%TargetLine2D.is_targeting = false
 
 		has_weapon_modifier_speed = false
 		has_weapon_modifier_spread = false
@@ -61,16 +97,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 		has_damage_modifier_piercing = false
 		has_damage_modifier_explosive = false
 		equiped_damage_modifier = Core.DamageModifier.NONE
-		
-func _ready() -> void:
-	super._ready()
 	
-	var tower_area_: Area2D = get_node_or_null("%Area2DTower")
-	if tower_area_ != null:
-		tower_area_.mouse_entered.connect(_on_mouse_entered)
-		tower_area_.mouse_exited.connect(_on_mouse_exited)
-		tower_area_.input_event.connect(_on_input_event)
-
 func _on_mouse_entered() -> void:
 	if not Core.game.is_tower_command_visible():
 		%PlaceAnimation.play(&"select")
@@ -95,30 +122,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		elif event.button_index == MouseButton.MOUSE_BUTTON_RIGHT:
 			Core.game.hide_tower_command()
 
-func _input(event: InputEvent) -> void:
-	if (is_targeting and
-		set_target_delay > Core.MIN_COLLISION_WAIT_DELTA and
-		event is InputEventMouseButton and 
-		event.pressed
-	):
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			var target_: Vector2 = get_global_mouse_position()
-			set_weapon_target(target_)
-			Core.game.clear_mouse_action(&"set_tower_target", true)
-			is_targeting = false
-		elif event.button_index == MouseButton.MOUSE_BUTTON_RIGHT:
-			Core.game.clear_mouse_action(&"set_tower_target", true)
-			is_targeting = false
-			cancel_weapon_target()
-
 func _physics_process(delta_: float) -> void:
 	super._physics_process(delta_)
 	
 	if not is_running():
 		return
-		
-	if is_targeting:
-		set_target_delay += delta_
 		
 	if is_placing:
 		var position_: Vector2 = get_global_mouse_position() + (Vector2(Core.TILE_SIZE, Core.TILE_SIZE) / 2)
@@ -145,11 +153,10 @@ func set_target() -> void:
 	
 	Core.game.hide_tower_command()
 	Core.game.set_mouse_action(&"set_tower_target")
-	is_targeting = true
-	set_target_delay = 0.0
+	%TargetLine2D.is_targeting = true
 
-func set_weapon_target(position_: Vector2) -> void:
+func set_weapon_target(points_: PackedVector2Array) -> void:
 	pass
-
-func cancel_weapon_target() -> void:
+	
+func _update_weapon() -> void:
 	pass

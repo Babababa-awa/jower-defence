@@ -1,22 +1,8 @@
-extends WeaponUnit
+extends TowerDefenceWeaponUnit
 
 var target_position: Vector2 = Vector2.ZERO
 
-var weapon_modifier: Core.WeaponModifier = Core.WeaponModifier.NONE:
-	set(value):
-		weapon_modifier = value
-		if is_node_ready():
-			_update_weapon()
-		
-var projectile_modifier: Core.ProjectileModifier = Core.ProjectileModifier.NONE:
-	set(value):
-		projectile_modifier = value
-		if is_node_ready():
-			_update_weapon()
-
 var bullet_speed: float = 200
-
-var owner_group: StringName = &"tower"
 
 var _semi_automatic_cooldown: CooldownTimer = CooldownTimer.new()
 var semi_automatic_cooldown_delta: float = 0.2
@@ -38,10 +24,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 	if (reset_type_ == Core.ResetType.START or
 		reset_type_ == Core.ResetType.RESTART
 	):
-		weapon_modifier = Core.WeaponModifier.NONE
-		projectile_modifier = Core.ProjectileModifier.NONE
 		_semi_automatic_cooldown.reset()
-		_update_weapon()
 		
 func _ready() -> void:
 	attack_after.connect(_on_attack_after)

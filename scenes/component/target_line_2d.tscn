@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://451savacft1t"]
+
+[ext_resource type="Script" uid="uid://dp3wryp3cr4gi" path="res://scenes/component/target_line_2d.gd" id="1_ekypv"]
+
+[node name="TargetLine2D" type="Node2D"]
+script = ExtResource("1_ekypv")
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+visible = false
+width = 8.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2

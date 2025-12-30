@@ -28,7 +28,9 @@ func _on_kill_after(reason_: StringName) -> void:
 	%Area2DAttack.monitoring = false
 	%Area2DAttack.monitorable = false
 	%CollisionShape2D.disabled = true
-	Core.level.add_money(kill_money)
+	
+	if Core.level is TowerDefenceLevel:
+		Core.level.add_money(kill_money)
 	
 func _on_kill_complete(reason_: StringName) -> void:
 	Core.nodes.free_node(self)

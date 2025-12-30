@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bowd0p0e6wi1w"]
+[gd_scene load_steps=10 format=3 uid="uid://bowd0p0e6wi1w"]
 
 [ext_resource type="Texture2D" uid="uid://bnqqcbt3o6lv3" path="res://assets/unit/tower/pippa.png" id="1_ct28p"]
 [ext_resource type="Script" uid="uid://bc3kld2bfk0wa" path="res://scenes/unit/tower/pippa.gd" id="1_geld7"]
 [ext_resource type="PackedScene" uid="uid://0solwkljxwx2" path="res://scenes/unit/weapons/gun.tscn" id="2_em548"]
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_gcrmy"]
+[ext_resource type="PackedScene" uid="uid://451savacft1t" path="res://scenes/component/target_line_2d.tscn" id="4_wm0c7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_geld7"]
 atlas = ExtResource("1_ct28p")
@@ -31,7 +32,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_geld7")
 
-[node name="Gun" parent="." instance=ExtResource("2_em548")]
+[node name="Weapon" parent="." instance=ExtResource("2_em548")]
 unique_name_in_owner = true
 
 [node name="PlaceAnimation" parent="." instance=ExtResource("2_gcrmy")]
@@ -39,11 +40,8 @@ unique_name_in_owner = true
 visible = false
 animation = &"success"
 
-[node name="Line2DTarget" type="Line2D" parent="."]
+[node name="TargetLine2D" parent="." instance=ExtResource("4_wm0c7")]
 unique_name_in_owner = true
-visible = false
-width = 4.0
-default_color = Color(1, 0, 0, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)

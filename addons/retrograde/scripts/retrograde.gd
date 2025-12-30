@@ -525,6 +525,7 @@ enum Error {
 	GAME_RESTRICTION,
 	UNHANDLED,
 	UNIT_RESTRICTION,
+	CANCELED,
 }
 
 enum SpeechStyle {

@@ -242,6 +242,24 @@ unique_name_in_owner = true
 price = 200
 label = "Machine Gun"
 
+[node name="LaserUpgrades" parent="." instance=ExtResource("3_1sy3o")]
+unique_name_in_owner = true
+
+[node name="TowerCommandButtonLaserShot" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+icon = &"check"
+label = "Laser Shot"
+
+[node name="TowerCommandButtonLaserBeam" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 100
+label = "Laser Beam"
+
+[node name="TowerCommandButtonJorb" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 200
+label = "Jorb"
+
 [node name="WeaponModifiers" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
@@ -319,6 +337,9 @@ label = "Explosive"
 [connection signal="pressed" from="GunUpgrades/TowerCommandButtonPistol" to="." method="_on_tower_command_button_pistol_pressed"]
 [connection signal="pressed" from="GunUpgrades/TowerCommandButtonSemiAutomatic" to="." method="_on_tower_command_button_semi_automatic_pressed"]
 [connection signal="pressed" from="GunUpgrades/TowerCommandButtonMachineGun" to="." method="_on_tower_command_button_machine_gun_pressed"]
+[connection signal="pressed" from="LaserUpgrades/TowerCommandButtonLaserShot" to="." method="_on_tower_command_button_laser_pressed"]
+[connection signal="pressed" from="LaserUpgrades/TowerCommandButtonLaserBeam" to="." method="_on_tower_command_button_beam_pressed"]
+[connection signal="pressed" from="LaserUpgrades/TowerCommandButtonJorb" to="." method="_on_tower_command_button_jorb_pressed"]
 [connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponSpeed" to="." method="_on_tower_command_button_weapon_speed_pressed"]
 [connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponSpread" to="." method="_on_tower_command_button_weapon_spread_pressed"]
 [connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponCluster" to="." method="_on_tower_command_button_weapon_cluster_pressed"]

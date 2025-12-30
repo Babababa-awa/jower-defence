@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb1jy3pa1b4tk"]
+
+[ext_resource type="Script" uid="uid://dmmrrihhi1hyo" path="res://scenes/component/laser_2d.gd" id="1_r87jj"]
+
+[node name="Laser2D" type="Node2D"]
+script = ExtResource("1_r87jj")
+burst_length = 0.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 0)
+
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 0.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 8.0
