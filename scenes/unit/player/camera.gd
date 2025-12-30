@@ -2,7 +2,9 @@ extends PlayerUnit
 
 func _init() -> void:
 	super._init(&"camera")
-		
+	
+	collision.is_enabled_default = false
+	damage.is_enabled_default = false
 	jump.is_enabled_default = false
 	climb.is_enabled_default = false
 	fall.is_enabled_default = false

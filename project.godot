@@ -75,7 +75,7 @@ folder_colors={
 [global_group]
 
 enemy=""
-navigation=""
+command_tower=""
 
 [gui]
 
@@ -108,6 +108,11 @@ locale/translations=PackedStringArray("res://data/translations/ui_translations.e
 2d_physics/layer_18="Status"
 2d_physics/layer_19="Interaction"
 2d_physics/layer_20="Field"
+2d_physics/layer_21="Enemy"
+2d_physics/layer_22="Projectile"
+2d_physics/layer_23="Damage"
+2d_physics/layer_24="Command Tower"
+2d_physics/layer_32="Camera Bounds"
 
 [rendering]
 

@@ -38,7 +38,9 @@ func start() -> void:
 	for child: Node in get_children(): 
 		if child is BaseNode2D or child is BaseCharacterBody2D:
 			await child.start()
-			
+	
+	process_mode = Node.PROCESS_MODE_INHERIT
+
 	started.emit()
 
 func restart() -> void:
@@ -50,6 +52,8 @@ func restart() -> void:
 		if child is BaseNode2D or child is BaseCharacterBody2D:
 			await child.restart()
 		
+	process_mode = Node.PROCESS_MODE_INHERIT
+	
 	restarted.emit()
 	
 func refresh() -> void:
@@ -70,6 +74,8 @@ func stop() -> void:
 	for child: Node in get_children():
 		if child is BaseNode2D or child is BaseCharacterBody2D:
 			await child.stop()
+
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 	stopped.emit()
 	

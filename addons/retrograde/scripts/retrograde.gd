@@ -71,7 +71,7 @@ var ENABLE_LEVEL_NEXT: bool = false
 var ENABLE_PLAY_AGAIN: bool = false
 
 # Minimum amount of time for killables to wait after death before being hidden and disabled
-var MIN_COLLISION_WAIT_DELTA: float = 0.1
+var MIN_COLLISION_WAIT_DELTA: float = 0.05
 
 # Used to move unit a slight amount to change collision state
 var MIN_COLLISION_OFFSET: float = 0.01

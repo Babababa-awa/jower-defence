@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnot6l0quu5s6"]
+[gd_scene load_steps=8 format=3 uid="uid://cnot6l0quu5s6"]
 
 [ext_resource type="Texture2D" uid="uid://dq28k3e8qaf0v" path="res://assets/overlay/place_error.png" id="1_ghld2"]
 [ext_resource type="Texture2D" uid="uid://dm2vyvo5jeyqy" path="res://assets/overlay/place_success.png" id="2_2mr8l"]
+[ext_resource type="Texture2D" uid="uid://chm6fyxl88obb" path="res://assets/overlay/place_select.png" id="2_cxbyw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxbyw"]
 atlas = ExtResource("1_ghld2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_236s2"]
+atlas = ExtResource("2_cxbyw")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_feaoi"]
@@ -23,6 +28,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_236s2")
+}],
+"loop": true,
+"name": &"select",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_feaoi")
 }],
 "loop": true,
@@ -32,4 +45,4 @@ animations = [{
 
 [node name="PlaceAnimation" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_1g22m")
-animation = &"error"
+animation = &"select"

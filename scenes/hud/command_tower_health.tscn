@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhc8h66sjw3i4"]
+
+[ext_resource type="Script" uid="uid://dcwmg5jenj0rv" path="res://scenes/hud/command_tower_health.gd" id="1_3mgdg"]
+[ext_resource type="Texture2D" uid="uid://y57wo6eo7j3n" path="res://assets/hud/command_tower_health.png" id="2_d22gt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vh24"]
+atlas = ExtResource("2_d22gt")
+region = Rect2(0, 0, 768, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bku6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vh24")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d22gt"]
+atlas = ExtResource("2_d22gt")
+region = Rect2(0, 64, 768, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gf2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d22gt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CommandTowerHealth" type="Node2D"]
+script = ExtResource("1_3mgdg")
+
+[node name="AnimatedSprite2DBacground" type="AnimatedSprite2D" parent="."]
+position = Vector2(384, 32)
+sprite_frames = SubResource("SpriteFrames_bku6y")
+autoplay = "default"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(4, 32)
+
+[node name="Line2DCurrent" type="Line2D" parent="Marker2D"]
+unique_name_in_owner = true
+points = PackedVector2Array(0, 0, 760, 0)
+width = 56.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="AnimatedSprite2DForeground" type="AnimatedSprite2D" parent="."]
+position = Vector2(384, 32)
+sprite_frames = SubResource("SpriteFrames_6gf2m")
+autoplay = "default"

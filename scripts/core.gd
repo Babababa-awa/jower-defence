@@ -5,7 +5,7 @@ func _init() -> void:
 	PHYSICS_TILE_SIZE = 64
 	FIELD_TILE_SIZE = 32
 
-	ENABLE_MOUSE_CAPTURE = true
+	ENABLE_MOUSE_CAPTURE = false
 	MOUSE_CURSOR_SIZE = 32
 
 	START_LEVEL = &"level_1"
@@ -23,9 +23,14 @@ enum WeaponModifier {
 
 enum ProjectileModifier {
 	NONE,
+	SPEED,
 	SPIRAL,
 	WAVE,
-	DAMAGE,
+}
+
+enum DamageModifier {
+	NONE,
+	HEAVY,
 	PIERCING,
 	EXPLOSIVE
 }

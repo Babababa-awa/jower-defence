@@ -80,6 +80,8 @@ func get_node(path_: String, reset_method_: Callable = Callable()) -> Node:
 		
 	nodes[path_].push_back(node_instance_)
 	
+	node_instance_.position = Core.DEAD_ZONE
+	
 	Core.game.add_level_child(node_instance_)
 	
 	_in_use.push_back(node_instance_.get_instance_id())
@@ -118,12 +120,13 @@ func _remove_node(node_: Node) -> void:
 func free_node(node: Node, reset_method_: Callable = Callable()) -> void:
 	if _in_use.has(node.get_instance_id()):
 		_in_use.erase(node.get_instance_id())
-		node.position = Core.DEAD_ZONE
 		
 		if node is BaseNode2D or node is BaseCharacterBody2D:
 			if not reset_method_.is_null():
 				reset_method_.call(node, Core.ResetType.STOP)
 			await node.stop()
+		
+		node.position = Core.DEAD_ZONE
 
 func free_nodes(nodes_: Array[Node], reset_method_: Callable = Callable()) -> void:
 	for node: Node in nodes_:
@@ -132,11 +135,13 @@ func free_nodes(nodes_: Array[Node], reset_method_: Callable = Callable()) -> vo
 func free_all(reset_method_: Callable = Callable()) -> void:
 	for path: String in nodes:
 		for node: Node in nodes[path]:
-			node.position = Core.DEAD_ZONE
 			if node is BaseNode2D or node is BaseCharacterBody2D:
 				if not reset_method_.is_null():
 					reset_method_.call(node, Core.ResetType.STOP)
 				await node.stop()
+				
+			node.position = Core.DEAD_ZONE
+			
 	_in_use = []
 
 func _threaded_load(path: String, count: int) -> Dictionary:

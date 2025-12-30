@@ -39,27 +39,33 @@ func get_damage_value() -> DamageValue:
 
 	return damage_value_
 
-func can_damage(unit_: BaseUnit) -> bool:
+func can_damage(node_: Node2D) -> bool:
+	if node_ is BaseUnit:
+		var life_: BaseActor = node_.get_actor_or_null(&"life")
+		if life_.is_killed:
+			return false
+	
 	if groups.size() == 0:
 		return true
 		
 	for group_: StringName in groups:
-		if unit_.is_in_group(group_):
+		if node_.is_in_group(group_):
 			return true
 	
 	return false
-	
-func process_frame(
-	animation_: StringName, 
-	frame_: int = 0,
-	flip_h_: bool = false,
-	flip_v_: bool = false,
-) -> void:
-	for child: Node in get_children():
-		if child is AnimationCollisionShape2D:
-			child.process_frame(
-				animation_, 
-				frame_, 
-				flip_h_,
-				flip_v_
-			)
+
+# TODO: Move to child AnimatedArea2DAttack class
+#func process_frame(
+	#animation_: StringName, 
+	#frame_: int = 0,
+	#flip_h_: bool = false,
+	#flip_v_: bool = false,
+#) -> void:
+	#for child: Node in get_children():
+		#if child is AnimationCollisionShape2D:
+			#child.process_frame(
+				#animation_, 
+				#frame_, 
+				#flip_h_,
+				#flip_v_
+			#)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://blqr6m4m3rxxy"]
+
+[ext_resource type="Script" uid="uid://d1oeuwtdubkti" path="res://scenes/component/command_box.gd" id="1_otgik"]
+[ext_resource type="Texture2D" uid="uid://d56rabnnh4di" path="res://assets/hud/command_box.png" id="2_8807d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8807d"]
+
+[node name="CommandBox" type="Node2D"]
+script = ExtResource("1_otgik")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+offset_right = 163.0
+offset_bottom = 96.0
+texture = ExtResource("2_8807d")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Area2DCommandBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DCommandBox"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_8807d")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="input_event" from="Area2DCommandBox" to="." method="_on_area_2d_command_box_input_event"]
+[connection signal="mouse_entered" from="Area2DCommandBox" to="." method="_on_area_2d_command_box_mouse_entered"]
+[connection signal="mouse_exited" from="Area2DCommandBox" to="." method="_on_area_2d_command_box_mouse_exited"]

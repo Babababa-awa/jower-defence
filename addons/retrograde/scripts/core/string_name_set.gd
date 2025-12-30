@@ -26,7 +26,8 @@ func add(name_: StringName) -> bool:
 		return false
 	
 	names.push_back(name_)
-	updated.emit([name_], [])
+	
+	updated.emit([name_] as Array[StringName], [] as Array[StringName])
 	return true
 
 func add_all(names_: Array[StringName]) -> void:
@@ -64,11 +65,12 @@ func replace(names_: Array[StringName]) -> void:
 			added.push_back(name)
 	
 	names = names_
+	
 	updated.emit(added, removed)
 
 func clear() -> void:
 	names = []
-	updated.emit([], names)
+	updated.emit([] as Array[StringName], names)
 
 func filter(method_: Callable) -> void:
 	var names_: Array[StringName] = names.filter(method_)

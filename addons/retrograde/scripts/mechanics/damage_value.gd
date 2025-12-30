@@ -4,6 +4,7 @@ var type: Core.DamageType
 var damage: float
 var independent: bool
 var meta: Dictionary
+var one_shot: bool = false
 var movement: bool = false
 var min_speed: Core.UnitSpeed = Core.UnitSpeed.SLOW
 var max_speed: Core.UnitSpeed = Core.UnitSpeed.FAST

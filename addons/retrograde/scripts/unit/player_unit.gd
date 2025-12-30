@@ -1,6 +1,14 @@
 extends BaseUnit 
 class_name PlayerUnit
 
+var collision: BaseActor:
+	get:
+		return actors.use(&"collision")
+
+var damage: BaseActor:
+	get:
+		return actors.use(&"damage")
+		
 var health: BaseActor:
 	get:
 		return actors.use(&"health")

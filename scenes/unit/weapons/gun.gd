@@ -14,7 +14,7 @@ var projectile_modifier: Core.ProjectileModifier = Core.ProjectileModifier.NONE:
 		if is_node_ready():
 			_update_weapon()
 
-var bullet_speed: float = 100
+var bullet_speed: float = 200
 
 var owner_group: StringName = &"tower"
 
@@ -26,8 +26,8 @@ func _init() -> void:
 		&"gun", 
 		Core.WeaponType.PROJECTILE,
 		[
-			WeaponAttack.new(&"pistal", 1.0),
-			WeaponAttack.new(&"semi_automatic", 1.0),
+			WeaponAttack.new(&"pistol", 1.5),
+			WeaponAttack.new(&"semi_automatic", 1.5),
 			WeaponAttack.new(&"machine_gun", 0.2)
 		]
 	)
@@ -56,7 +56,7 @@ func _update_weapon() -> void:
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 	shoot_gun()
 	
-	if attack_.alias == &"semi_automatic":
+	if attack_.meta.weapon_attack_alias == &"semi_automatic":
 		_semi_automatic_cooldown.start()
 	
 func shoot_gun() -> void:
@@ -77,7 +77,7 @@ func _process(delta_: float) -> void:
 		
 	if _semi_automatic_cooldown.is_stopped:
 		return
-		
+
 	_semi_automatic_cooldown.process(delta_)
 
 	if _semi_automatic_cooldown.is_on_step(&"second_bullet"):

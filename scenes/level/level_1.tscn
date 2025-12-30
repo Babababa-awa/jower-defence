@@ -5,8 +5,12 @@
 
 [sub_resource type="Resource" id="Resource_ybxn4"]
 script = ExtResource("2_2lb6k")
+start_money = 800
+pippa_price = 250
 can_purchase_shiina = true
+shiina_price = 250
 can_purchase_jelly = true
+jelly_price = 250
 metadata/_custom_type_script = "uid://daug4hllmm77h"
 
 [node name="Level1" type="Node2D"]

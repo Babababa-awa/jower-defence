@@ -442,14 +442,14 @@ func _show_mouse() -> void:
 		if Core.cursor:
 			Core.cursor.visible = false
 
-func _input(input_event_: InputEvent) -> void:
+func _input(event_: InputEvent) -> void:
 	if Core.inputs == null:
-		if input_event_ is InputEventJoypadButton or input_event_ is InputEventJoypadMotion:
+		if event_ is InputEventJoypadButton or event_ is InputEventJoypadMotion:
 			Core.last_input_device = Core.InputDevice.JOYPAD
-			Core.last_joypad_device = input_event_.device
-		elif input_event_ is InputEventKey:
+			Core.last_joypad_device = event_.device
+		elif event_ is InputEventKey:
 			Core.last_input_device = Core.InputDevice.KEYBOARD
-		elif input_event_ is InputEventMouseButton or input_event_ is InputEventMouseMotion:
+		elif event_ is InputEventMouseButton or event_ is InputEventMouseMotion:
 			Core.last_input_device = Core.InputDevice.MOUSE
 	else:
-		Core.inputs.update(input_event_)
+		Core.inputs.update(event_)

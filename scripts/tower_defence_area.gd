@@ -24,8 +24,11 @@ func _input(event: InputEvent) -> void:
 				is_placing_tower = false
 				%Place.visible = false
 				active_tower.stop_place()
-				active_tower = null
+				active_tower.set_target()
 				tower_coords.push_back(coords_)
+				Core.game.clear_mouse_action(&"place_tower")
+				active_tower.set_target()
+				active_tower = null
 		elif event.button_index == MouseButton.MOUSE_BUTTON_RIGHT:
 			is_placing_tower = false
 			%Place.visible = false
@@ -33,6 +36,7 @@ func _input(event: InputEvent) -> void:
 			active_tower.stop_place()
 			Core.nodes.free_node(active_tower)
 			active_tower = null
+			Core.game.clear_mouse_action(&"place_tower", true)
 
 func _on_spawn(unit_: Node2D) -> void:
 	if unit_ is TowerDefenceEnemyUnit:
@@ -48,11 +52,17 @@ func _get_path() -> Path2D:
 	return paths_.get_child(index_)
 
 func place_tower(alias_: StringName) -> void:
+	if not Core.game.can_mouse_action(&"place_tower"):
+		return
+	
+	Core.game.hide_tower_command()
+	Core.game.set_mouse_action(&"place_tower")
+	
 	is_placing_tower = true
 	%Place.visible = true
 	
 	var tower_: TowerDefenceTowerUnit = await Core.nodes.get_node("res://scenes/unit/tower/" + alias_ + ".tscn")
-	
+	tower_.position = Vector2.ZERO
 	tower_.start_place()
 	active_tower = tower_
 

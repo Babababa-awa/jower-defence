@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b83phhmxg3ibh"]
+[gd_scene load_steps=7 format=3 uid="uid://b83phhmxg3ibh"]
 
 [ext_resource type="Texture2D" uid="uid://ddavmkcgxsqr7" path="res://assets/unit/tower/sakana.png" id="1_osipj"]
 [ext_resource type="Script" uid="uid://c7hfducokvobj" path="res://scenes/unit/tower/sakana.gd" id="1_yff8q"]
@@ -19,9 +19,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5hu5"]
+size = Vector2(128, 128)
 
-[node name="Sakana" type="CharacterBody2D"]
-collision_layer = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yff8q"]
+size = Vector2(128, 128)
+
+[node name="Sakana" type="CharacterBody2D" groups=["command_tower"]]
+collision_layer = 8388608
 collision_mask = 0
 script = ExtResource("1_yff8q")
 
@@ -30,3 +34,11 @@ sprite_frames = SubResource("SpriteFrames_kfhtr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i5hu5")
+
+[node name="Area2DDamage" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDamage"]
+shape = SubResource("RectangleShape2D_yff8q")

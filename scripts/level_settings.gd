@@ -1,10 +1,10 @@
 extends Resource
 class_name LevelSettings
 
-@export_subgroup("Start Conditions")
+@export_group("Start Conditions")
 @export var start_money: int = 200
 
-@export_subgroup("Towers")
+@export_group("Towers")
 @export var can_purchase_pippa: bool = true
 @export var pippa_price: int = 100
 
@@ -13,3 +13,7 @@ class_name LevelSettings
 
 @export var can_purchase_jelly: bool = false
 @export var jelly_price: int = 400
+
+@export_group("Win Conditions")
+## The amount of time the command tower needs to stay alive for in minutes.
+@export var survival_time: float = 10

@@ -1,13 +1,21 @@
 extends BaseCursor
 class_name WeaponCursor
 
-var weapon_type: Global.WeaponType = Global.WeaponType.PISTOL
-var current_target: BaseUnit
-var current_target_time: float
+var weapon: WeaponUnit = null
+var current_target: BaseUnit = null
+var current_target_time: float = 0.0
 
 func _init() -> void:
 	super._init(&"weapon")
 	
+func reset(reset_type_: Core.ResetType) -> void:
+	if (reset_type_ == Core.ResetType.START or
+		reset_type_ == Core.ResetType.RESTART
+	):
+		weapon = null
+		current_target = null
+		current_target_time = 0.0
+		
 func _ready() -> void:
 	super._ready()
 
@@ -23,8 +31,8 @@ func _process(delta: float) -> void:
 	if current_target != null:
 		current_target_time += delta
 
-func set_weapon(weapon_type_: Core.WeaponType) -> void:
-	weapon_type = weapon_type_
+func set_weapon(weapon_: WeaponUnit) -> void:
+	weapon = weapon_
 	current_target_time = 0.0
 	_update_cursor()
 	

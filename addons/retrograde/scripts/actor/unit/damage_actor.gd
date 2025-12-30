@@ -8,6 +8,7 @@ var is_in_kill_area: bool = false
 var area_damage_amount: float = 10.0
 
 var _damage_nodes: Dictionary = {}
+var _handled_damage_nodes: Dictionary = {}
 
 func _init(unit_: BaseUnit, enabled: bool = true) -> void:
 	super._init(unit_, &"damage", enabled)
@@ -38,16 +39,16 @@ func _on_damage_body_exited(body_: Node2D) -> void:
 func _on_damage_area_entered(area_: Area2D) -> void:
 	if unit.is_ancestor_of(area_):
 		return
-	
+		
 	if _damage_nodes.has(area_.get_instance_id()):
 		return
 	
 	if area_ is Area2DAttack:
 		if not area_.can_damage(unit):
 			return
-			
+		
 		_damage_nodes[area_.get_instance_id()] = area_.get_damage_value()
-
+	
 	is_in_damage_area = true
 
 func _on_damage_area_exited(area_: Area2D) -> void:
@@ -55,6 +56,7 @@ func _on_damage_area_exited(area_: Area2D) -> void:
 		return
 		
 	_damage_nodes.erase(area_.get_instance_id())
+	_handled_damage_nodes.erase(area_.get_instance_id())
 	
 	if _damage_nodes.is_empty():
 		is_in_damage_area = false
@@ -111,48 +113,51 @@ func _add_areas() -> void:
 	areas_.add_area(&"Kill", Core.Edge.NONE)
 
 func _connect_events() -> void:
-	var damage_area: Area2D = unit.get_area_or_null(&"Damage")
-	if damage_area != null:
-		damage_area.connect(&"body_entered", _on_damage_body_entered)
-		damage_area.connect(&"body_exited", _on_damage_body_exited)
-		damage_area.connect(&"area_entered", _on_damage_area_entered)
-		damage_area.connect(&"area_exited", _on_damage_area_exited)
+	var damage_area_: Area2D = unit.get_area_or_null(&"Damage")
+	if damage_area_ != null:
+		damage_area_.connect(&"body_entered", _on_damage_body_entered)
+		damage_area_.connect(&"body_exited", _on_damage_body_exited)
+		damage_area_.connect(&"area_entered", _on_damage_area_entered)
+		damage_area_.connect(&"area_exited", _on_damage_area_exited)
 
-	var kill_area: Area2D = unit.get_area_or_null(&"Kill")
-	if kill_area != null:
-		kill_area.connect(&"body_entered", _on_kill_body_entered)
-		kill_area.connect(&"body_exited", _on_kill_body_exited)
-		kill_area.connect(&"area_entered", _on_kill_area_entered)
-		kill_area.connect(&"area_exited", _on_kill_area_exited)
+	var kill_area_: Area2D = unit.get_area_or_null(&"Kill")
+	if kill_area_ != null:
+		kill_area_.connect(&"body_entered", _on_kill_body_entered)
+		kill_area_.connect(&"body_exited", _on_kill_body_exited)
+		kill_area_.connect(&"area_entered", _on_kill_area_entered)
+		kill_area_.connect(&"area_exited", _on_kill_area_exited)
 	
 func _disconnect_events() -> void:
-	var damage_area: Area2D = unit.get_area_or_null(&"Damage")
-	if damage_area != null:
-		damage_area.disconnect(&"body_entered", _on_damage_body_entered)
-		damage_area.disconnect(&"body_exited", _on_damage_body_exited)
-		damage_area.disconnect(&"area_entered", _on_damage_area_entered)
-		damage_area.disconnect(&"area_exited", _on_damage_area_exited)
+	var damage_area_: Area2D = unit.get_area_or_null(&"Damage")
+	if damage_area_ != null:
+		damage_area_.disconnect(&"body_entered", _on_damage_body_entered)
+		damage_area_.disconnect(&"body_exited", _on_damage_body_exited)
+		damage_area_.disconnect(&"area_entered", _on_damage_area_entered)
+		damage_area_.disconnect(&"area_exited", _on_damage_area_exited)
 
-	var kill_area: Area2D = unit.get_area_or_null(&"Kill")
-	if kill_area != null:
-		kill_area.disconnect(&"body_entered", _on_kill_body_entered)
-		kill_area.disconnect(&"body_exited", _on_kill_body_exited)
-		kill_area.disconnect(&"area_entered", _on_kill_area_entered)
-		kill_area.disconnect(&"area_exited", _on_kill_area_exited)
+	var kill_area_: Area2D = unit.get_area_or_null(&"Kill")
+	if kill_area_ != null:
+		kill_area_.disconnect(&"body_entered", _on_kill_body_entered)
+		kill_area_.disconnect(&"body_exited", _on_kill_body_exited)
+		kill_area_.disconnect(&"area_entered", _on_kill_area_entered)
+		kill_area_.disconnect(&"area_exited", _on_kill_area_exited)
 	
 func process(delta: float) -> void:
 	super.process(delta)
 
 	if not can_process():
 		return
-		
+	
 	if not can_unit_process():
 		return
-		
+	
 	if is_in_damage_area:
 		for instance_id_: int in _damage_nodes:
-			var value: Variant = _damage_nodes[instance_id_]
+			if _handled_damage_nodes.has(instance_id_):
+				continue
 			
+			var value: Variant = _damage_nodes[instance_id_]
+
 			if value is DamageValue:
 				if value.movement and not unit.is_moving():
 					continue
@@ -172,6 +177,9 @@ func process(delta: float) -> void:
 					Core.UnitSpeed.NORMAL:
 						if unit.unit_speed == Core.UnitSpeed.FAST:
 							continue
+				
+				if value.independent:
+					_handled_damage_nodes.set(instance_id_, true)
 				
 				# TODO: Damage area alias, and way to specify health actor not to die if 0
 				# so that the object doing the damage can handle the kill reason

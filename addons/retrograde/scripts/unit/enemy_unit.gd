@@ -1,6 +1,14 @@
 extends BaseUnit
 class_name EnemyUnit
 
+var collision: BaseActor:
+	get:
+		return actors.use(&"collision")
+
+var damage: BaseActor:
+	get:
+		return actors.use(&"damage")
+		
 var health: BaseActor:
 	get:
 		return actors.use(&"health")
@@ -21,6 +29,10 @@ var fall: BaseActor:
 	get:
 		return actors.use(&"fall")
 
+var roam: BaseActor:
+	get:
+		return actors.use(&"roam")
+		
 var weapons: BaseActor:
 	get:
 		return actors.use(&"weapons")
@@ -29,9 +41,6 @@ var move: BaseActor:
 	get:
 		return actors.use(&"move")
 		
-var roam: BaseActor:
-	get:
-		return actors.use(&"roam")
 		
 func _init(alias_: StringName) -> void:
 	super._init(alias_, Core.UnitType.ENEMY)

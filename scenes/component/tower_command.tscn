@@ -1,0 +1,330 @@
+[gd_scene load_steps=25 format=3 uid="uid://ctmuegd6blnu0"]
+
+[ext_resource type="Script" uid="uid://b7qvoec7lij8o" path="res://scenes/component/tower_command.gd" id="1_dm4w8"]
+[ext_resource type="Texture2D" uid="uid://b4rt7ptupj3pi" path="res://assets/hud/tower_command.png" id="2_alm3x"]
+[ext_resource type="PackedScene" uid="uid://blqr6m4m3rxxy" path="res://scenes/component/command_box.tscn" id="3_1sy3o"]
+[ext_resource type="PackedScene" uid="uid://cal7thrqynpmy" path="res://scenes/component/command_button.tscn" id="3_n3e8h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qj66"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxa6x"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ular1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qj66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxa6x")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alm3x"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3e8h"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dm4w8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alm3x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3e8h")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sy3o"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te83m"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_alm3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sy3o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te83m")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ular1"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljvea"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgl8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ular1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljvea")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h00t"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi7dh"]
+atlas = ExtResource("2_alm3x")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n3e8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h00t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi7dh")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0h00t"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alm3x"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3e8h"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sy3o"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te83m"]
+size = Vector2(64, 64)
+
+[node name="TowerCommand" type="Node2D"]
+script = ExtResource("1_dm4w8")
+
+[node name="Menu" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2DUpgrade" type="AnimatedSprite2D" parent="Menu"]
+unique_name_in_owner = true
+position = Vector2(72, 64)
+sprite_frames = SubResource("SpriteFrames_ular1")
+autoplay = "default"
+
+[node name="AnimatedSprite2DWeaponModifier" type="AnimatedSprite2D" parent="Menu"]
+unique_name_in_owner = true
+position = Vector2(-72, -8)
+sprite_frames = SubResource("SpriteFrames_dm4w8")
+autoplay = "default"
+
+[node name="AnimatedSprite2DProjectileModifier" type="AnimatedSprite2D" parent="Menu"]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_alm3x")
+autoplay = "default"
+
+[node name="AnimatedSprite2DDamageModifier" type="AnimatedSprite2D" parent="Menu"]
+unique_name_in_owner = true
+position = Vector2(-72, 64)
+sprite_frames = SubResource("SpriteFrames_hgl8g")
+autoplay = "default"
+
+[node name="AnimatedSprite2DTarget" type="AnimatedSprite2D" parent="Menu"]
+unique_name_in_owner = true
+position = Vector2(72, -8)
+sprite_frames = SubResource("SpriteFrames_n3e8h")
+animation = &"hover"
+autoplay = "default"
+
+[node name="Area2DUpgrade" type="Area2D" parent="Menu"]
+position = Vector2(72, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DUpgrade"]
+shape = SubResource("RectangleShape2D_0h00t")
+
+[node name="Area2DWeaponModifier" type="Area2D" parent="Menu"]
+position = Vector2(-72, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DWeaponModifier"]
+shape = SubResource("RectangleShape2D_alm3x")
+
+[node name="Area2DProjectileModifier" type="Area2D" parent="Menu"]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DProjectileModifier"]
+shape = SubResource("RectangleShape2D_n3e8h")
+
+[node name="Area2DTarget" type="Area2D" parent="Menu"]
+position = Vector2(72, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DTarget"]
+shape = SubResource("RectangleShape2D_1sy3o")
+
+[node name="Area2DDamageModifier" type="Area2D" parent="Menu"]
+position = Vector2(-72, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DDamageModifier"]
+shape = SubResource("RectangleShape2D_te83m")
+
+[node name="GunUpgrades" parent="." instance=ExtResource("3_1sy3o")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(40, 32)
+
+[node name="TowerCommandButtonPistol" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+icon = &"check"
+label = "Pistol"
+
+[node name="TowerCommandButtonSemiAutomatic" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 100
+label = "Semi Automatic"
+
+[node name="TowerCommandButtonMachineGun" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 200
+label = "Machine Gun"
+
+[node name="WeaponModifiers" parent="." instance=ExtResource("3_1sy3o")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-104, -40)
+
+[node name="TowerCommandButtonWeaponSpeed" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 50
+label = "Speed"
+
+[node name="TowerCommandButtonWeaponSpread" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 100
+label = "Spread"
+
+[node name="TowerCommandButtonWeaponCluster" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 100
+label = "Cluster"
+
+[node name="ProjectileModifiers" parent="." instance=ExtResource("3_1sy3o")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-32, -40)
+
+[node name="TowerCommandButtonProjectileSpeed" parent="ProjectileModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 50
+label = "Speed"
+
+[node name="TowerCommandButtonProjectileWave" parent="ProjectileModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 100
+label = "Wave"
+
+[node name="TowerCommandButtonProjectileSpiral" parent="ProjectileModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 200
+label = "Spiral"
+
+[node name="DamageModifiers" parent="." instance=ExtResource("3_1sy3o")]
+unique_name_in_owner = true
+position = Vector2(-104, 32)
+
+[node name="TowerCommandButtonDamageHeavy" parent="DamageModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 50
+label = "Heavy"
+
+[node name="TowerCommandButtonDamagePiercing" parent="DamageModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 100
+label = "Piercing"
+
+[node name="TowerCommandButtonDamageExplosive" parent="DamageModifiers" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 200
+label = "Explosive"
+
+[connection signal="input_event" from="Menu/Area2DUpgrade" to="." method="_on_area_2d_upgrade_input_event"]
+[connection signal="mouse_entered" from="Menu/Area2DUpgrade" to="." method="_on_area_2d_upgrade_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Area2DUpgrade" to="." method="_on_area_2d_upgrade_mouse_exited"]
+[connection signal="input_event" from="Menu/Area2DWeaponModifier" to="." method="_on_area_2d_weapon_modifier_input_event"]
+[connection signal="mouse_entered" from="Menu/Area2DWeaponModifier" to="." method="_on_area_2d_weapon_modifier_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Area2DWeaponModifier" to="." method="_on_area_2d_weapon_modifier_mouse_exited"]
+[connection signal="input_event" from="Menu/Area2DProjectileModifier" to="." method="_on_area_2d_projectile_modifier_input_event"]
+[connection signal="mouse_entered" from="Menu/Area2DProjectileModifier" to="." method="_on_area_2d_projectile_modifier_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Area2DProjectileModifier" to="." method="_on_area_2d_projectile_modifier_mouse_exited"]
+[connection signal="input_event" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_input_event"]
+[connection signal="mouse_entered" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_mouse_exited"]
+[connection signal="input_event" from="Menu/Area2DDamageModifier" to="." method="_on_area_2d_damage_modifier_input_event"]
+[connection signal="mouse_entered" from="Menu/Area2DDamageModifier" to="." method="_on_area_2d_damage_modifier_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Area2DDamageModifier" to="." method="_on_area_2d_damage_modifier_mouse_exited"]
+[connection signal="pressed" from="GunUpgrades/TowerCommandButtonPistol" to="." method="_on_tower_command_button_pistol_pressed"]
+[connection signal="pressed" from="GunUpgrades/TowerCommandButtonSemiAutomatic" to="." method="_on_tower_command_button_semi_automatic_pressed"]
+[connection signal="pressed" from="GunUpgrades/TowerCommandButtonMachineGun" to="." method="_on_tower_command_button_machine_gun_pressed"]
+[connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponSpeed" to="." method="_on_tower_command_button_weapon_speed_pressed"]
+[connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponSpread" to="." method="_on_tower_command_button_weapon_spread_pressed"]
+[connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponCluster" to="." method="_on_tower_command_button_weapon_cluster_pressed"]
+[connection signal="pressed" from="ProjectileModifiers/TowerCommandButtonProjectileSpeed" to="." method="_on_tower_command_button_projectile_speed_pressed"]
+[connection signal="pressed" from="ProjectileModifiers/TowerCommandButtonProjectileWave" to="." method="_on_tower_command_button_projectile_wave_pressed"]
+[connection signal="pressed" from="ProjectileModifiers/TowerCommandButtonProjectileSpiral" to="." method="_on_tower_command_button_projectile_spiral_pressed"]
+[connection signal="pressed" from="DamageModifiers/TowerCommandButtonDamageHeavy" to="." method="_on_tower_command_button_damage_heavy_pressed"]
+[connection signal="pressed" from="DamageModifiers/TowerCommandButtonDamagePiercing" to="." method="_on_tower_command_button_damage_piercing_pressed"]
+[connection signal="pressed" from="DamageModifiers/TowerCommandButtonDamageExplosive" to="." method="_on_tower_command_button_damage_explosive_pressed"]

@@ -42,17 +42,21 @@ func start() -> void:
 		if child is BaseNode2D or child is BaseCharacterBody2D:
 			child.start()
 
+	process_mode = Node.PROCESS_MODE_INHERIT
+	
 	started.emit()
 
 func restart() -> void:
 	reset(Core.ResetType.RESTART)
-
+	
 	is_started = true
 
 	for child: Node in get_children():
 		if child is BaseNode2D or child is BaseCharacterBody2D:
 			child.restart()
 
+	process_mode = Node.PROCESS_MODE_INHERIT
+	
 	restarted.emit()
 
 func refresh() -> void:
@@ -73,7 +77,9 @@ func stop() -> void:
 	for child: Node in get_children():
 		if child is BaseNode2D or child is BaseCharacterBody2D:
 			child.stop()
-
+	
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
 	stopped.emit()
 	
 func _process(_delta: float) -> void:
@@ -85,7 +91,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	pass
 
-func _handle_ready() -> void:
+func _handle_ready() -> void:	
 	if is_ready:
 		return
 
@@ -107,7 +113,7 @@ func is_running() -> bool:
 
 	if not is_enabled or not is_started or not is_ready:
 		return false
-
+		
 	return true
 	
 func add_mode(mode_: StringName, add_to_children: bool = false) -> void:

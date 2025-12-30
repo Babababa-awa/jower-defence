@@ -1,6 +1,89 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc6alu7m2c60y"]
+[gd_scene load_steps=13 format=3 uid="uid://cc6alu7m2c60y"]
 
 [ext_resource type="Script" uid="uid://c5ma10qgjoo63" path="res://scenes/unit/projectile/bullet.gd" id="1_nvf5h"]
+[ext_resource type="Texture2D" uid="uid://b5uccqttl166d" path="res://assets/unit/projectile/bullet.png" id="2_60dx6"]
+[ext_resource type="PackedScene" uid="uid://cxx07r8g5gvut" path="res://addons/retrograde/scenes/control/area_2d_attack.tscn" id="3_yxx7l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxx7l"]
+atlas = ExtResource("2_60dx6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft5u8"]
+atlas = ExtResource("2_60dx6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg8qf"]
+atlas = ExtResource("2_60dx6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxm8c"]
+atlas = ExtResource("2_60dx6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqc1o"]
+atlas = ExtResource("2_60dx6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwcwf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxx7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft5u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg8qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxm8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqc1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0wcp"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxx7l"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_60dx6"]
+radius = 8.0
 
 [node name="Bullet" type="CharacterBody2D"]
+collision_layer = 2097152
+collision_mask = 1048577
 script = ExtResource("1_nvf5h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_jwcwf")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n0wcp")
+
+[node name="Area2DSolid" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSolid"]
+shape = SubResource("CircleShape2D_yxx7l")
+
+[node name="Area2DAttack" parent="." instance=ExtResource("3_yxx7l")]
+unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 50.0
+independent = true
+groups = Array[StringName]([&"enemy"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DAttack"]
+shape = SubResource("CircleShape2D_60dx6")
+
+[connection signal="body_exited" from="Area2DSolid" to="." method="_on_area_2d_solid_body_exited"]
