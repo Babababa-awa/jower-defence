@@ -28,7 +28,7 @@ y_sort_enabled = true
 
 [node name="Projectiles" type="Node2D" parent="Level"]
 unique_name_in_owner = true
-z_index = 30
+z_index = 15
 
 [node name="Camera" parent="Level" instance=ExtResource("2_p57ef")]
 unique_name_in_owner = true

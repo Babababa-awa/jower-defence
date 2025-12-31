@@ -1,6 +1,7 @@
 extends TowerDefenceTowerUnit
 
 var target_set: bool = false
+var jorb_target_set: bool = false
 
 var has_laser_beam: bool = false
 var has_jorb: bool = false
@@ -30,9 +31,36 @@ func _process(delta_: float) -> void:
 	if is_placing:
 		return
 	
-	if target_set:
-		%Weapon.attack_from_alias(equiped_weapon)
+	if equiped_weapon == &"jorb":
+		if %Weapon.current_attack_value != null:
+			%Weapon.clear_queue()
+		else:
+			if jorb_target_set:
+				%Weapon2.attack()
+			elif not %TargetLine2D.is_targeting and not Core.game.is_tower_command_visible():
+				set_target()
+	elif target_set:
+		if %Weapon2.current_attack_value != null:
+			%Weapon2.clear_queue()
+		else:
+			%Weapon.attack_from_alias(equiped_weapon)
+
+
+func set_target() -> void:
+	if equiped_weapon == &"jorb":
+		jorb_target_set = false
+		%TargetLine2D.max_points = 4
+		%Weapon2.stop_jorb()
+	else:
+		target_set = false
+		%TargetLine2D.max_points = 2
+		
+	super.set_target()
 
 func set_weapon_target(points_: PackedVector2Array) -> void:
-	target_set = true
-	%Weapon.target_position = points_[points_.size() - 1]
+	if equiped_weapon == &"jorb":
+		jorb_target_set = true
+		%Weapon2.target_points = points_
+	else:
+		target_set = true
+		%Weapon.target_position = points_[points_.size() - 1]

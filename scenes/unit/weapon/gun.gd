@@ -7,6 +7,10 @@ var bullet_speed: float = 200
 var _semi_automatic_cooldown: CooldownTimer = CooldownTimer.new()
 var semi_automatic_cooldown_delta: float = 0.2
 
+var _attack: AttackValue = null
+
+signal bullet_after(_weapon: WeaponUnit, attack_: AttackValue)
+
 func _init() -> void:
 	super._init(
 		&"gun", 
@@ -37,6 +41,8 @@ func _update_weapon() -> void:
 	pass
 	
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
+	_attack = attack_
+	
 	shoot_gun()
 	
 	if attack_.meta.weapon_attack_alias == &"semi_automatic":
@@ -51,6 +57,8 @@ func shoot_gun() -> void:
 	node.global_position = global_position
 	node.direction = rad_to_deg(global_position.angle_to_point(target_position)) + 90
 	node.speed = bullet_speed
+	
+	bullet_after.emit(self, _attack)
 
 func _process(delta_: float) -> void:
 	super._process(delta_)

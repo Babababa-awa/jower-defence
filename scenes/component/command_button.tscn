@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cal7thrqynpmy"]
+[gd_scene load_steps=17 format=3 uid="uid://cal7thrqynpmy"]
 
 [ext_resource type="Script" uid="uid://xny3we1bv7ff" path="res://scenes/component/command_button.gd" id="1_as5t4"]
 [ext_resource type="Texture2D" uid="uid://cb5ad5kryfv71" path="res://assets/hud/command_button.png" id="2_l6wky"]
 [ext_resource type="Texture2D" uid="uid://58kjcxamghj2" path="res://assets/hud/check_icon.png" id="3_3oggo"]
 [ext_resource type="Texture2D" uid="uid://c2s6dhmlkxcqo" path="res://assets/hud/money_icon.png" id="4_m14wx"]
 [ext_resource type="Script" uid="uid://bvexadi7j5afp" path="res://addons/retrograde/scenes/ui/component/ui_label.gd" id="5_p6j7g"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_as5t4"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_as5t4"]
 atlas = ExtResource("2_l6wky")
@@ -33,6 +36,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l6wky"]
+light_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_doqe3"]
 atlas = ExtResource("3_3oggo")
 region = Rect2(0, 0, 24, 24)
@@ -47,7 +53,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_doqe3")
 }],
-"loop": true,
+"loop": false,
 "name": &"check",
 "speed": 5.0
 }, {
@@ -55,10 +61,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a33vc")
 }],
-"loop": true,
+"loop": false,
 "name": &"money",
 "speed": 5.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3oggo"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m14wx"]
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a33vc"]
 size = Vector2(248, 48)
@@ -68,12 +80,14 @@ script = ExtResource("1_as5t4")
 
 [node name="AnimatedSprite2DButton" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_as5t4")
 position = Vector2(124, 24)
 sprite_frames = SubResource("SpriteFrames_npf6l")
 autoplay = "default"
 
 [node name="AnimatedSprite2DIcon" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_l6wky")
 position = Vector2(16, 24)
 sprite_frames = SubResource("SpriteFrames_jua76")
 animation = &"money"
@@ -81,6 +95,7 @@ autoplay = "money"
 
 [node name="UILabelPrice" type="Label" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_3oggo")
 offset_left = 32.0
 offset_top = 6.0
 offset_right = 72.0
@@ -90,6 +105,7 @@ metadata/_custom_type_script = "uid://bvexadi7j5afp"
 
 [node name="UILabelName" type="Label" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_m14wx")
 offset_right = 40.0
 offset_bottom = 18.0
 script = ExtResource("5_p6j7g")

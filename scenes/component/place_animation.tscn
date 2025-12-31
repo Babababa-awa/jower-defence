@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnot6l0quu5s6"]
+[gd_scene load_steps=9 format=3 uid="uid://cnot6l0quu5s6"]
 
 [ext_resource type="Texture2D" uid="uid://dq28k3e8qaf0v" path="res://assets/overlay/place_error.png" id="1_ghld2"]
 [ext_resource type="Texture2D" uid="uid://dm2vyvo5jeyqy" path="res://assets/overlay/place_success.png" id="2_2mr8l"]
 [ext_resource type="Texture2D" uid="uid://chm6fyxl88obb" path="res://assets/overlay/place_select.png" id="2_cxbyw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2mr8l"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxbyw"]
 atlas = ExtResource("1_ghld2")
@@ -44,5 +47,6 @@ animations = [{
 }]
 
 [node name="PlaceAnimation" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_2mr8l")
 sprite_frames = SubResource("SpriteFrames_1g22m")
 animation = &"select"

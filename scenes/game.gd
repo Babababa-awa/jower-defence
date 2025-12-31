@@ -47,6 +47,16 @@ func add_level_child(node: Node2D) -> void:
 	else:
 		super.add_level_child(node)
 
+func remove_level_child(node: Node2D) -> void:
+	if node is TowerDefenceEnemyUnit:
+		%Enemies.remove_child(node)
+	elif node is TowerDefenceTowerUnit:
+		%Towers.remove_child(node)
+	elif node is TowerDefenceProjectileUnit:
+		%Projectiles.remove_child(node)
+	else:
+		super.remove_level_child(node)
+	
 func get_command_tower() -> TowerDefenceCommandTowerUnit:
 	if Core.level is TowerDefenceLevel:
 		return Core.level.get_command_tower()

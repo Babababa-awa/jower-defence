@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmm1j5dq3xkfp"]
+
+[ext_resource type="Script" uid="uid://cmisk035fs5a6" path="res://scenes/component/tower_sprite_2d.gd" id="1_3myaa"]
+
+[node name="TowerSprite2D" type="Sprite2D"]
+script = ExtResource("1_3myaa")

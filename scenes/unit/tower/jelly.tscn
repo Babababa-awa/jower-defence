@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bovrqpp2qrn77"]
+[gd_scene load_steps=11 format=3 uid="uid://bovrqpp2qrn77"]
 
 [ext_resource type="Script" uid="uid://o14ln5qcw4nj" path="res://scenes/unit/tower/jelly.gd" id="1_j81yg"]
-[ext_resource type="PackedScene" uid="uid://dh2dmg66au2sp" path="res://scenes/unit/weapons/laser.tscn" id="2_1gxid"]
+[ext_resource type="PackedScene" uid="uid://dh2dmg66au2sp" path="res://scenes/unit/weapon/laser.tscn" id="2_1gxid"]
+[ext_resource type="PackedScene" uid="uid://b8iepl55t1nh8" path="res://scenes/unit/weapon/jorb.tscn" id="2_b4yga"]
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_pwv1u"]
 [ext_resource type="Texture2D" uid="uid://bvd3i577cwyah" path="res://assets/unit/tower/jelly.png" id="3_j81yg"]
 [ext_resource type="PackedScene" uid="uid://451savacft1t" path="res://scenes/component/target_line_2d.tscn" id="4_1gxid"]
@@ -32,12 +33,13 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_j81yg")
 
-[node name="Weapon" parent="." instance=ExtResource("2_1gxid")]
-unique_name_in_owner = true
-
 [node name="PlaceAnimation" parent="." instance=ExtResource("2_pwv1u")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Weapon" parent="." instance=ExtResource("2_1gxid")]
+unique_name_in_owner = true
+position = Vector2(0, -16)
 
 [node name="TargetLine2D" parent="." instance=ExtResource("4_1gxid")]
 unique_name_in_owner = true
@@ -45,6 +47,10 @@ unique_name_in_owner = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_gcrmy")
+
+[node name="Weapon2" parent="." instance=ExtResource("2_b4yga")]
+unique_name_in_owner = true
+position = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_em548")

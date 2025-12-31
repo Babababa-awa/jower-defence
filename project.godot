@@ -69,7 +69,8 @@ folder_colors={
 "res://data/": "blue",
 "res://resources/": "red",
 "res://scenes/": "green",
-"res://scripts/": "yellow"
+"res://scripts/": "yellow",
+"res://shaders/": "pink"
 }
 
 [global_group]
@@ -116,5 +117,6 @@ locale/translations=PackedStringArray("res://data/translations/ui_translations.e
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

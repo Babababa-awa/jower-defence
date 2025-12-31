@@ -19,7 +19,6 @@ func reset(reset_type_: Core.ResetType) -> void:
 	if (reset_type_ == Core.ResetType.START or 
 		reset_type_ == Core.ResetType.RESTART
 	):
-		modes.add(&"RAR")
 		_can_collide = false
 		collision_mask = 0
 		%AnimatedSprite2D.visible = true

@@ -16,7 +16,6 @@ func _init() -> void:
 		[
 			WeaponAttack.new(&"laser_shot", 2),
 			WeaponAttack.new(&"laser_beam", 2),
-			WeaponAttack.new(&"jorb", 0)
 		]
 	)
 

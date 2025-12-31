@@ -10,9 +10,10 @@ var has_weapon_modifier_cluster: bool = false
 var equiped_weapon_modifier: Core.WeaponModifier = Core.WeaponModifier.NONE:
 	set(value):
 		equiped_weapon_modifier = value
-		var weapon_: TowerDefenceWeaponUnit = get_node_or_null("%Weapon")
-		if weapon_:
-			weapon_.weapon_modifier = value
+		if get_node_or_null("%Weapon") != null:
+			%Weapon.weapon_modifier = value
+		if get_node_or_null("%Weapon2") != null:
+			%Weapon2.weapon_modifier = value
 
 var has_projectile_modifier_speed: bool = false
 var has_projectile_modifier_wave: bool = false
@@ -20,9 +21,10 @@ var has_projectile_modifier_spiral: bool = false
 var equiped_projectile_modifier: Core.ProjectileModifier = Core.ProjectileModifier.NONE:
 	set(value):
 		equiped_projectile_modifier = value
-		var weapon_: TowerDefenceWeaponUnit = get_node_or_null("%Weapon")
-		if weapon_:
-			weapon_.projectile_modifier = value
+		if get_node_or_null("%Weapon") != null:
+			%Weapon.projectile_modifier = value
+		if get_node_or_null("%Weapon2") != null:
+			%Weapon2.projectile_modifier = value
 			
 var has_damage_modifier_heavy: bool = false
 var has_damage_modifier_piercing: bool = false
@@ -30,9 +32,10 @@ var has_damage_modifier_explosive: bool = false
 var equiped_damage_modifier: Core.DamageModifier = Core.DamageModifier.NONE:
 	set(value):
 		equiped_damage_modifier = value
-		var weapon_: TowerDefenceWeaponUnit = get_node_or_null("%Weapon")
-		if weapon_:
-			weapon_.damage_modifier = value
+		if get_node_or_null("%Weapon") != null:
+			%Weapon.damage_modifier = value
+		if get_node_or_null("%Weapon2") != null:
+			%Weapon2.damage_modifier = value
 
 func _init(alias_: StringName) -> void:
 	super._init(alias_, Core.UnitType.FRIEND)

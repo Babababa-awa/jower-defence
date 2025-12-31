@@ -1,9 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctmuegd6blnu0"]
+[gd_scene load_steps=30 format=3 uid="uid://ctmuegd6blnu0"]
 
 [ext_resource type="Script" uid="uid://b7qvoec7lij8o" path="res://scenes/component/tower_command.gd" id="1_dm4w8"]
 [ext_resource type="Texture2D" uid="uid://b4rt7ptupj3pi" path="res://assets/hud/tower_command.png" id="2_alm3x"]
 [ext_resource type="PackedScene" uid="uid://blqr6m4m3rxxy" path="res://scenes/component/command_box.tscn" id="3_1sy3o"]
 [ext_resource type="PackedScene" uid="uid://cal7thrqynpmy" path="res://scenes/component/command_button.tscn" id="3_n3e8h"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1sy3o"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qj66"]
 atlas = ExtResource("2_alm3x")
@@ -32,6 +35,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0h00t"]
+light_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_alm3x"]
 atlas = ExtResource("2_alm3x")
 region = Rect2(64, 0, 64, 64)
@@ -58,6 +64,9 @@ animations = [{
 "name": &"hover",
 "speed": 5.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_te83m"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1sy3o"]
 atlas = ExtResource("2_alm3x")
@@ -86,6 +95,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vi7dh"]
+light_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ular1"]
 atlas = ExtResource("2_alm3x")
 region = Rect2(192, 0, 64, 64)
@@ -112,6 +124,9 @@ animations = [{
 "name": &"hover",
 "speed": 5.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6qj66"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h00t"]
 atlas = ExtResource("2_alm3x")
@@ -163,30 +178,35 @@ unique_name_in_owner = true
 
 [node name="AnimatedSprite2DUpgrade" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_1sy3o")
 position = Vector2(72, 64)
 sprite_frames = SubResource("SpriteFrames_ular1")
 autoplay = "default"
 
 [node name="AnimatedSprite2DWeaponModifier" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_0h00t")
 position = Vector2(-72, -8)
 sprite_frames = SubResource("SpriteFrames_dm4w8")
 autoplay = "default"
 
 [node name="AnimatedSprite2DProjectileModifier" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_te83m")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_alm3x")
 autoplay = "default"
 
 [node name="AnimatedSprite2DDamageModifier" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_vi7dh")
 position = Vector2(-72, 64)
 sprite_frames = SubResource("SpriteFrames_hgl8g")
 autoplay = "default"
 
 [node name="AnimatedSprite2DTarget" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_6qj66")
 position = Vector2(72, -8)
 sprite_frames = SubResource("SpriteFrames_n3e8h")
 animation = &"hover"
@@ -244,6 +264,7 @@ label = "Machine Gun"
 
 [node name="LaserUpgrades" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
+visible = false
 
 [node name="TowerCommandButtonLaserShot" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -302,6 +323,7 @@ label = "Spiral"
 
 [node name="DamageModifiers" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-104, 32)
 
 [node name="TowerCommandButtonDamageHeavy" parent="DamageModifiers" instance=ExtResource("3_n3e8h")]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8iepl55t1nh8"]
+
+[ext_resource type="Script" uid="uid://c0l5u0g1iu405" path="res://scenes/unit/weapon/jorb.gd" id="1_2wqb4"]
+[ext_resource type="Texture2D" uid="uid://b3xjl77uc0qxe" path="res://assets/unit/weapon/orb.png" id="2_cbx04"]
+[ext_resource type="Shader" uid="uid://blm8gsrmjlk" path="res://shaders/jorb.gdshader" id="2_r1otw"]
+[ext_resource type="Texture2D" uid="uid://dioxva5eyrc4p" path="res://assets/unit/weapon/jorb.png" id="3_8b7g0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1otw"]
+radius = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_so3ev"]
+shader = ExtResource("2_r1otw")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/sphere_tex = ExtResource("3_8b7g0")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b7g0"]
+radius = 32.0
+
+[sub_resource type="Curve2D" id="Curve2D_r1otw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[node name="Jorb" type="CharacterBody2D"]
+script = ExtResource("1_2wqb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_r1otw")
+
+[node name="Jorb" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Jorb"]
+unique_name_in_owner = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_so3ev")
+texture = ExtResource("2_cbx04")
+
+[node name="Area2DSolid" type="Area2D" parent="Jorb"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jorb/Area2DSolid"]
+shape = SubResource("CircleShape2D_8b7g0")
+
+[node name="Path2D" type="Path2D" parent="."]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_r1otw")
+
+[connection signal="body_entered" from="Jorb/Area2DSolid" to="." method="_on_area_2d_solid_body_entered"]
+[connection signal="body_exited" from="Jorb/Area2DSolid" to="." method="_on_area_2d_solid_body_exited"]

@@ -1,25 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bowd0p0e6wi1w"]
+[gd_scene load_steps=8 format=3 uid="uid://bowd0p0e6wi1w"]
 
-[ext_resource type="Texture2D" uid="uid://bnqqcbt3o6lv3" path="res://assets/unit/tower/pippa.png" id="1_ct28p"]
 [ext_resource type="Script" uid="uid://bc3kld2bfk0wa" path="res://scenes/unit/tower/pippa.gd" id="1_geld7"]
-[ext_resource type="PackedScene" uid="uid://0solwkljxwx2" path="res://scenes/unit/weapons/gun.tscn" id="2_em548"]
+[ext_resource type="PackedScene" uid="uid://0solwkljxwx2" path="res://scenes/unit/weapon/gun.tscn" id="2_em548"]
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_gcrmy"]
 [ext_resource type="PackedScene" uid="uid://451savacft1t" path="res://scenes/component/target_line_2d.tscn" id="4_wm0c7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_geld7"]
-atlas = ExtResource("1_ct28p")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gcrmy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_geld7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://6cso0wlg3pc5" path="res://scenes/unit/tower/Animations/pippa_animations.tscn" id="5_4e2sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em548"]
 size = Vector2(128, 128)
@@ -34,6 +19,7 @@ script = ExtResource("1_geld7")
 
 [node name="Weapon" parent="." instance=ExtResource("2_em548")]
 unique_name_in_owner = true
+position = Vector2(0, -16)
 
 [node name="PlaceAnimation" parent="." instance=ExtResource("2_gcrmy")]
 unique_name_in_owner = true
@@ -43,9 +29,10 @@ animation = &"success"
 [node name="TargetLine2D" parent="." instance=ExtResource("4_wm0c7")]
 unique_name_in_owner = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PippaAnimations" parent="." instance=ExtResource("5_4e2sg")]
+unique_name_in_owner = true
 position = Vector2(0, -32)
-sprite_frames = SubResource("SpriteFrames_gcrmy")
+scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_em548")
