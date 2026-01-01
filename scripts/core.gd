@@ -21,11 +21,11 @@ enum WeaponModifier {
 	CLUSTER,
 }
 
-enum ProjectileModifier {
+enum AttackModifier {
 	NONE,
-	SPEED,
-	SPIRAL,
-	WAVE,
+	SLOW,
+	STUN,
+	POISON,
 }
 
 enum DamageModifier {
@@ -33,4 +33,10 @@ enum DamageModifier {
 	HEAVY,
 	PIERCING,
 	EXPLOSIVE
+}
+
+enum DamageEffect {
+	NONE,
+	WEAK,
+	STRONG,
 }

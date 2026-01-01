@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bcjvm0hb7yvtf"]
+[gd_scene load_steps=15 format=4 uid="uid://bcjvm0hb7yvtf"]
 
 [ext_resource type="Script" uid="uid://ddhijfmoc61fq" path="res://scenes/level/level_1/area/area_1.gd" id="1_mashh"]
 [ext_resource type="TileSet" uid="uid://b00x7koobduiw" path="res://resources/tile_sets/physics.tres" id="2_ief27"]
@@ -7,11 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://cqkprjk4po4sh" path="res://scenes/unit/enemy/spawner.tscn" id="4_xmelq"]
 [ext_resource type="Script" uid="uid://dqvdlkpknoelw" path="res://scripts/unit_spawner.gd" id="5_sx5m4"]
 [ext_resource type="PackedScene" uid="uid://b2vqokupykg1u" path="res://scenes/unit/enemy/slime.tscn" id="6_sx5m4"]
+[ext_resource type="Script" uid="uid://cb4q0qvmkoe8b" path="res://scripts/unit_settings.gd" id="8_h3hhn"]
+
+[sub_resource type="Resource" id="Resource_srpga"]
+script = ExtResource("8_h3hhn")
+attack_slow = true
+attack_stun = true
+attack_poison = true
+damage_heavy = 1
+damage_piercing = 1
+damage_explosive = 1
+metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
 [sub_resource type="Resource" id="Resource_356t2"]
 script = ExtResource("5_sx5m4")
 unit = ExtResource("6_sx5m4")
 spawn_rate = 0.5
+unit_settings = SubResource("Resource_srpga")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
 
 [sub_resource type="Curve2D" id="Curve2D_356t2"]

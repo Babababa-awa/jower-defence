@@ -1,6 +1,6 @@
 extends TowerDefenceProjectileUnit
 
-var speed: float = 600
+var speed: float = 300
 var direction: float = 0.0
 var _can_collide: bool = false
 var _collision_mask_default: int

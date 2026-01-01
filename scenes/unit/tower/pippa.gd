@@ -49,4 +49,4 @@ func _process(delta_: float) -> void:
 
 func set_weapon_target(points_: PackedVector2Array) -> void:
 	target_set = true
-	%Weapon.target_position = points_[points_.size() - 1]
+	%Weapon.target_position = to_global(points_[points_.size() - 1])

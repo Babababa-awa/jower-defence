@@ -60,7 +60,12 @@ func set_target() -> void:
 func set_weapon_target(points_: PackedVector2Array) -> void:
 	if equiped_weapon == &"jorb":
 		jorb_target_set = true
-		%Weapon2.target_points = points_
+		
+		var global_points_: PackedVector2Array = []
+		for point_: Vector2 in points_:
+			global_points_.append(to_global(point_))
+			
+		%Weapon2.target_points = global_points_
 	else:
 		target_set = true
-		%Weapon.target_position = points_[points_.size() - 1]
+		%Weapon.target_position = to_global(points_[points_.size() - 1])

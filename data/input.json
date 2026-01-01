@@ -1,23 +1,10 @@
 {
 	"enabled": [
-		"interact",
-		"item_drop",
-		"item_pick_up",
-		"item_select_1",
-		"item_select_2",
-		"item_select_3",
-		"item_select_4",
-		"item_select_5",
-		"item_select_6",
-		"item_select_7",
-		"item_select_8",
-		"item_select_9",
-		"item_select_10",
-		"item_use",
 		"move_up",
 		"move_down",
 		"move_right",
-		"move_left"
+		"move_left",
+		"pause"
 	],
 	"default": {
 		"climb_on": [

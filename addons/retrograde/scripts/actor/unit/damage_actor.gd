@@ -10,6 +10,13 @@ var area_damage_amount: float = 10.0
 var _damage_nodes: Dictionary = {}
 var _handled_damage_nodes: Dictionary = {}
 
+var signal_can_damage = false
+var signal_damage_handled = false
+
+signal damage_error(reason_: StringName, error_: Core.Error) 
+signal damage_before(reason_: StringName, damage_value_: DamageValue)
+signal damage_after(reason_: StringName, damage_value_: DamageValue)
+
 func _init(unit_: BaseUnit, enabled: bool = true) -> void:
 	super._init(unit_, &"damage", enabled)
 	unit_modes.push_back(Core.UnitMode.NORMAL)
@@ -23,7 +30,10 @@ func _on_damage_body_entered(body_: Node2D) -> void:
 	if _damage_nodes.has(body_.get_instance_id()):
 		return
 	
-	_damage_nodes[body_.get_instance_id()] = area_damage_amount
+	_damage_nodes[body_.get_instance_id()] = DamageValue.new(
+		Core.DamageType.NONE,
+		area_damage_amount
+	)
 	
 	is_in_damage_area = true
 
@@ -158,35 +168,48 @@ func process(delta: float) -> void:
 			
 			var value: Variant = _damage_nodes[instance_id_]
 
-			if value is DamageValue:
-				if value.movement and not unit.is_moving():
-					continue
-				
-				match value.min_speed:
-					Core.UnitSpeed.NORMAL:
-						if unit.unit_speed == Core.UnitSpeed.SLOW:
-							continue
-					Core.UnitSpeed.FAST:
-						if unit.unit_speed != Core.UnitSpeed.FAST:
-							continue
-							
-				match value.max_speed:
-					Core.UnitSpeed.SLOW:
-						if unit.unit_speed != Core.UnitSpeed.SLOW:
-							continue
-					Core.UnitSpeed.NORMAL:
-						if unit.unit_speed == Core.UnitSpeed.FAST:
-							continue
-				
-				if value.independent:
-					_handled_damage_nodes.set(instance_id_, true)
-				
-				# TODO: Damage area alias, and way to specify health actor not to die if 0
-				# so that the object doing the damage can handle the kill reason
-				damage_unit(value.damage, value.independent)
-			else:
-				damage_unit(value)
+			if value.movement and not unit.is_moving():
+				continue
+			
+			match value.min_speed:
+				Core.UnitSpeed.NORMAL:
+					if unit.unit_speed == Core.UnitSpeed.SLOW:
+						continue
+				Core.UnitSpeed.FAST:
+					if unit.unit_speed != Core.UnitSpeed.FAST:
+						continue
+						
+			match value.max_speed:
+				Core.UnitSpeed.SLOW:
+					if unit.unit_speed != Core.UnitSpeed.SLOW:
+						continue
+				Core.UnitSpeed.NORMAL:
+					if unit.unit_speed == Core.UnitSpeed.FAST:
+						continue
+			
+			if value.independent:
+				_handled_damage_nodes.set(instance_id_, true)
+			
+			signal_can_damage = true
+			signal_damage_handled = false
+			
+			damage_before.emit(&"damage_area", value)
+	
+			if signal_can_damage == false:
+				damage_error.emit(&"damage_area", Core.Error.GAME_RESTRICTION)
+				continue
+			
+			if not signal_damage_handled and not _damage(value):
+				damage_error.emit(&"damage_area", Core.Error.UNHANDLED)
+				continue
+			# TODO: Damage area alias, and way to specify health actor not to die if 0
+			# so that the object doing the damage can handle the kill reason
+			damage_after.emit(&"damage_area", value)
 	
 	if is_in_kill_area:
 		# TODO: Kill area similar to damage area with alias to know how to kill
 		kill_unit(&"kill_area")
+
+func _damage(damage_value_: DamageValue) -> bool:
+	damage_unit(damage_value_.damage, damage_value_.independent)
+	return true

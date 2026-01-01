@@ -47,8 +47,8 @@ func get_available_towers() -> Array[StringName]:
 	if settings.can_purchase_pippa:
 		towers_.push_back(&"pippa")
 	
-	if settings.can_purchase_shiina:
-		towers_.push_back(&"shiina")
+	if settings.can_purchase_nitya:
+		towers_.push_back(&"nitya")
 	
 	if settings.can_purchase_jelly:
 		towers_.push_back(&"jelly")
@@ -74,8 +74,8 @@ func get_tower_price(alias_: StringName) -> int:
 	match alias_:
 		&"pippa":
 			return settings.pippa_price
-		&"shiina":
-			return settings.shiina_price
+		&"nitya":
+			return settings.nitya_price
 		&"jelly":
 			return settings.jelly_price
 			

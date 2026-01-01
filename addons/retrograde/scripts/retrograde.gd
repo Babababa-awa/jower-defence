@@ -493,7 +493,9 @@ enum PlatformerBehavior {
 }
 
 enum WeaponType {
+	NONE,
 	MELEE,
+	LASER,
 	PROJECTILE,
 }
 

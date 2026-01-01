@@ -15,16 +15,17 @@ var equiped_weapon_modifier: Core.WeaponModifier = Core.WeaponModifier.NONE:
 		if get_node_or_null("%Weapon2") != null:
 			%Weapon2.weapon_modifier = value
 
-var has_projectile_modifier_speed: bool = false
-var has_projectile_modifier_wave: bool = false
-var has_projectile_modifier_spiral: bool = false
-var equiped_projectile_modifier: Core.ProjectileModifier = Core.ProjectileModifier.NONE:
+var has_attack_modifier_speed: bool = false
+var has_attack_modifier_slow: bool = false
+var has_attack_modifier_stun: bool = false
+var has_attack_modifier_poison: bool = false
+var equiped_attack_modifier: Core.AttackModifier = Core.AttackModifier.NONE:
 	set(value):
-		equiped_projectile_modifier = value
+		equiped_attack_modifier = value
 		if get_node_or_null("%Weapon") != null:
-			%Weapon.projectile_modifier = value
+			%Weapon.attack_modifier = value
 		if get_node_or_null("%Weapon2") != null:
-			%Weapon2.projectile_modifier = value
+			%Weapon2.attack_modifier = value
 			
 var has_damage_modifier_heavy: bool = false
 var has_damage_modifier_piercing: bool = false
@@ -55,6 +56,9 @@ func _ready() -> void:
 	if get_node_or_null("%TargetLine2D") != null:
 		%TargetLine2D.target_complete.connect(_on_target_complete)
 		%TargetLine2D.target_error.connect(_on_target_error)
+	elif get_node_or_null("%TargetCone2D") != null:
+		%TargetCone2D.target_complete.connect(_on_target_complete)
+		%TargetCone2D.target_error.connect(_on_target_error)
 
 	Core.game.tower_command_changed.connect(_on_tower_command_changed)
 	
@@ -91,10 +95,11 @@ func reset(reset_type_: Core.ResetType) -> void:
 		has_weapon_modifier_cluster = false
 		equiped_weapon_modifier = Core.WeaponModifier.NONE
 
-		has_projectile_modifier_speed = false
-		has_projectile_modifier_wave = false
-		has_projectile_modifier_spiral = false
-		equiped_projectile_modifier = Core.ProjectileModifier.NONE
+		has_attack_modifier_speed = false
+		has_attack_modifier_slow = false
+		has_attack_modifier_stun = false
+		has_attack_modifier_poison = false
+		equiped_attack_modifier = Core.AttackModifier.NONE
 
 		has_damage_modifier_heavy = false
 		has_damage_modifier_piercing = false
@@ -156,7 +161,11 @@ func set_target() -> void:
 	
 	Core.game.hide_tower_command()
 	Core.game.set_mouse_action(&"set_tower_target")
-	%TargetLine2D.is_targeting = true
+	
+	if get_node_or_null("%TargetLine2D"):
+		%TargetLine2D.is_targeting = true
+	elif get_node_or_null("%TargetCone2D"):
+		%TargetCone2D.is_targeting = true
 
 func set_weapon_target(points_: PackedVector2Array) -> void:
 	pass

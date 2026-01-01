@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cy3oswguixkiq" path="res://scenes/hud/tower_bar_item.gd" id="1_2crvk"]
 [ext_resource type="Texture2D" uid="uid://l0yaa0ji7nk5" path="res://assets/hud/towers/jelly.png" id="2_qugqw"]
 [ext_resource type="Texture2D" uid="uid://bm0i836vfpirm" path="res://assets/hud/towers/pippa.png" id="3_cq746"]
-[ext_resource type="Texture2D" uid="uid://d34c8dcudfahj" path="res://assets/hud/towers/shiina.png" id="4_er51y"]
+[ext_resource type="Texture2D" uid="uid://d34c8dcudfahj" path="res://assets/hud/towers/nitya.png" id="4_er51y"]
 [ext_resource type="Script" uid="uid://bvexadi7j5afp" path="res://addons/retrograde/scenes/ui/component/ui_label.gd" id="5_cq746"]
 [ext_resource type="Texture2D" uid="uid://c2s6dhmlkxcqo" path="res://assets/hud/money_icon.png" id="6_er51y"]
 

@@ -23,6 +23,8 @@ _data = {
 point_count = 2
 
 [node name="Jorb" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_2wqb4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

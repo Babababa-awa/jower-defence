@@ -12,9 +12,13 @@ class_name Laser2D
 @export var color: Color = Color.WHITE:
 	set(value):
 		color = value
-		
 		if get_node_or_null("%Line2D") != null:
 			%Line2D.modulate = value
+
+var _collision_accuracy: float = 8.0
+var _current_position: Vector2 = Vector2.ZERO
+var _end_position: Vector2 = Vector2.ZERO
+var _is_colliding: bool = false
 
 var is_on: bool = false: 
 	set(value):
@@ -46,31 +50,73 @@ func _ready() -> void:
 		set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
-	%RayCast2D.target_position = %RayCast2D.target_position.move_toward(
+	_end_position = get_end_position()
+	
+	_current_position = _current_position.move_toward(
 		Vector2(max_length, 0), 
 		beam_speed * delta
 	)
 
-	var end_position_: Vector2 = %RayCast2D.target_position
+	var end_position_: Vector2 = _current_position
 	
-	%RayCast2D.force_raycast_update()
-
-	if %RayCast2D.is_colliding():
-		end_position_ = to_local(%RayCast2D.get_collision_point())
+	if end_position_.x > _end_position.x:
+		end_position_ = _end_position
+		_is_colliding = true
 	
 	%Line2D.points[1] = end_position_
 		
 	if shot_length > 0:
-		if %RayCast2D.is_colliding() or end_position_.x == max_length:
+		if _is_colliding or end_position_.x == max_length:
 			%Line2D.points[0].x = max(%Line2D.points[0].x + (beam_speed * delta), end_position_.x)
 		elif end_position_.x - start_offset > shot_length:
 			%Line2D.points[0].x = max(start_offset, end_position_.x - shot_length)
 
 		if %Line2D.points[0].x == %Line2D.points[1].x:
 			stop()
+			
+func get_end_position() -> Vector2:
+	var x_: float = 0
+	
+	var is_in_solid_: bool = true
+	
+	while (true):
+		%RayCast2D.position = Vector2(x_, 0)
+		%RayCast2D.target_position = Vector2(x_ + _collision_accuracy, 0)
+		%RayCast2D.force_raycast_update()
+
+		var has_solid_: bool = false
+		
+		var collision_point_: Vector2 = %RayCast2D.get_collision_point()
+		var collider_: Node2D = %RayCast2D.get_collider()
+		
+		if collider_ is TileMapLayer:
+			var tile_coords_: Vector2i = collider_.local_to_map(
+				collider_.to_local(collision_point_)
+			)
+			var tile_data_: TileData = collider_.get_cell_tile_data(tile_coords_)
+			
+			if tile_data_ == null:
+				continue
+			
+			if tile_data_.get_collision_polygons_count(0):
+				has_solid_ = true
+
+		if not has_solid_:
+			is_in_solid_ = false
+		elif not is_in_solid_ and has_solid_:
+			return Vector2(%RayCast2D.target_position.x - _collision_accuracy, 0)
+			
+		x_ += _collision_accuracy
+		
+		if x_ > max_length:
+			break
+	
+	return Vector2(max_length, 0)
 	
 func start() -> void:
 	is_on = true
+	_is_colliding = false
+	_current_position = Vector2.ZERO
 	
 	set_physics_process(true)
 
@@ -84,7 +130,7 @@ func stop() -> void:
 	
 	set_physics_process(false)
 	
-	%RayCast2D.target_position = Vector2.ZERO
+	#%ShapeCast2D.target_position = Vector2.ZERO
 	
 	_hide_laser()
 

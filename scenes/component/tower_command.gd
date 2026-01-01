@@ -11,7 +11,7 @@ func _ready() -> void:
 	%GunUpgrades.closed.connect(_close_command_box)
 	%LaserUpgrades.closed.connect(_close_command_box)
 	%WeaponModifiers.closed.connect(_close_command_box)
-	%ProjectileModifiers.closed.connect(_close_command_box)
+	%AttackModifiers.closed.connect(_close_command_box)
 	%DamageModifiers.closed.connect(_close_command_box)
 		
 func _update() -> void:
@@ -19,7 +19,7 @@ func _update() -> void:
 	%GunUpgrades.hide()
 	%LaserUpgrades.hide()
 	%WeaponModifiers.hide()
-	%ProjectileModifiers.hide()
+	%AttackModifiers.hide()
 	%DamageModifiers.hide()
 
 func _close_command_box(command_box_: CommandBox) -> void:
@@ -41,13 +41,13 @@ func _on_area_2d_weapon_modifier_mouse_exited() -> void:
 	Core.game.clear_mouse_action(&"button_hover", true)
 	%AnimatedSprite2DWeaponModifier.play(&"default")
 
-func _on_area_2d_projectile_modifier_mouse_entered() -> void:
+func _on_area_2d_attack_modifier_mouse_entered() -> void:
 	Core.game.set_mouse_action(&"button_hover")
-	%AnimatedSprite2DProjectileModifier.play(&"hover")
+	%AnimatedSprite2DAttackModifier.play(&"hover")
 
-func _on_area_2d_projectile_modifier_mouse_exited() -> void:
+func _on_area_2d_attack_modifier_mouse_exited() -> void:
 	Core.game.clear_mouse_action(&"button_hover", true)
-	%AnimatedSprite2DProjectileModifier.play(&"default")
+	%AnimatedSprite2DAttackModifier.play(&"default")
 
 func _on_area_2d_target_mouse_entered() -> void:
 	Core.game.set_mouse_action(&"button_hover")
@@ -183,7 +183,7 @@ func _show_weapon_modifiers() -> void:
 	else:
 		%WeaponModifiers.show()
 
-func _on_area_2d_projectile_modifier_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_attack_modifier_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if tower == null:
 		return
 		
@@ -195,34 +195,39 @@ func _on_area_2d_projectile_modifier_input_event(viewport: Node, event: InputEve
 		
 		%Menu.hide()
 		
-		_show_projectile_modifiers()
+		_show_attack_modifiers()
 
-func _show_projectile_modifiers() -> void:
-	if tower.equiped_projectile_modifier == Core.ProjectileModifier.SPEED:
-		%TowerCommandButtonProjectileSpeed.icon = &"check"
-	elif not tower.has_projectile_modifier_speed:
-		%TowerCommandButtonProjectileSpeed.icon = &"money"
+func _show_attack_modifiers() -> void:
+	if tower.equiped_attack_modifier == Core.AttackModifier.SLOW:
+		%TowerCommandButtonAttackSlow.icon = &"check"
+	elif not tower.has_attack_modifier_slow:
+		%TowerCommandButtonAttackSlow.icon = &"money"
 	else:
-		%TowerCommandButtonProjectileSpeed.icon = &""
+		%TowerCommandButtonAttackSlow.icon = &""
 	
-	if tower.equiped_projectile_modifier == Core.ProjectileModifier.WAVE:
-		%TowerCommandButtonProjectileWave.icon = &"check"
-	elif not tower.has_projectile_modifier_wave:
-		%TowerCommandButtonProjectileWave.icon = &"money"
+	if tower.equiped_attack_modifier == Core.AttackModifier.STUN:
+		%TowerCommandButtonAttackStun.icon = &"check"
+	elif not tower.has_attack_modifier_stun:
+		%TowerCommandButtonAttackStun.icon = &"money"
 	else:
-		%TowerCommandButtonProjectileWave.icon = &""
+		%TowerCommandButtonAttackStun.icon = &""
+		
+	if tower.equiped_attack_modifier == Core.AttackModifier.POISON:
+		%TowerCommandButtonAttackPoison.icon = &"check"
+	elif not tower.has_attack_modifier_poison:
+		%TowerCommandButtonAttackPoison.icon = &"money"
+	else:
+		%TowerCommandButtonAttackPoison.icon = &""
 	
-	if tower.equiped_projectile_modifier == Core.ProjectileModifier.SPIRAL:
-		%TowerCommandButtonProjectileSpiral.icon = &"check"
-	elif not tower.has_projectile_modifier_spiral:
-		%TowerCommandButtonProjectileSpiral.icon = &"money"
+	if tower.has_attack_modifier_slow:
+		%TowerCommandButtonAttackStun.show()
 	else:
-		%TowerCommandButtonProjectileSpiral.icon = &""
+		%TowerCommandButtonAttackStun.hide()
 	
-	if %ProjectileModifiers.visible:
-		%ProjectileModifiers.refresh()
+	if %AttackModifiers.visible:
+		%AttackModifiers.refresh()
 	else:
-		%ProjectileModifiers.show()
+		%AttackModifiers.show()
 
 func _on_area_2d_damage_modifier_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if tower == null:
@@ -431,59 +436,59 @@ func _on_tower_command_button_weapon_cluster_pressed() -> void:
 		# TODO: Play failure sfx
 		pass
 
-func _on_tower_command_button_projectile_speed_pressed() -> void:
+func _on_tower_command_button_attack_slow_pressed() -> void:
 	if tower == null:
 		return
 		
-	if tower.has_projectile_modifier_speed:
-		if tower.equiped_projectile_modifier == Core.ProjectileModifier.SPEED:
-			%ProjectileModifiers.hide()
+	if tower.has_attack_modifier_slow:
+		if tower.equiped_attack_modifier == Core.AttackModifier.SLOW:
+			%AttackModifiers.hide()
 			%Menu.show()
 		else:
-			tower.equiped_projectile_modifier = Core.ProjectileModifier.SPEED
-			_show_projectile_modifiers() # Rrefresh
-	elif Core.level.current_money >= %TowerCommandButtonProjectileSpeed.price:
-		tower.has_projectile_modifier_speed = true
-		Core.level.remove_money(%TowerCommandButtonProjectileSpeed.price)
-		_show_projectile_modifiers() # Rrefresh
+			tower.equiped_attack_modifier = Core.AttackModifier.SLOW
+			_show_attack_modifiers() # Rrefresh
+	elif Core.level.current_money >= %TowerCommandButtonAttackSlow.price:
+		tower.has_attack_modifier_slow = true
+		Core.level.remove_money(%TowerCommandButtonAttackSlow.price)
+		_show_attack_modifiers() # Rrefresh
 	else:
 		# TODO: Play failure sfx
 		pass
 
-func _on_tower_command_button_projectile_wave_pressed() -> void:
+func _on_tower_command_button_attack_stun_pressed() -> void:
 	if tower == null:
 		return
 		
-	if tower.has_projectile_modifier_wave:
-		if tower.equiped_projectile_modifier == Core.ProjectileModifier.WAVE:
-			%ProjectileModifiers.hide()
+	if tower.has_attack_modifier_stun:
+		if tower.equiped_attack_modifier == Core.AttackModifier.STUN:
+			%AttackModifiers.hide()
 			%Menu.show()
 		else:
-			tower.equiped_projectile_modifier = Core.ProjectileModifier.WAVE
-			_show_projectile_modifiers() # Rrefresh
-	elif Core.level.current_money >= %TowerCommandButtonProjectileWave.price:
-		tower.has_projectile_modifier_wave = true
-		Core.level.remove_money(%TowerCommandButtonProjectileWave.price)
-		_show_projectile_modifiers() # Rrefresh
+			tower.equiped_attack_modifier = Core.AttackModifier.STUN
+			_show_attack_modifiers() # Rrefresh
+	elif Core.level.current_money >= %TowerCommandButtonAttackStun.price:
+		tower.has_attack_modifier_stun = true
+		Core.level.remove_money(%TowerCommandButtonAttackStun.price)
+		_show_attack_modifiers() # Rrefresh
 	else:
 		# TODO: Play failure sfx
 		pass
-
-func _on_tower_command_button_projectile_spiral_pressed() -> void:
+		
+func _on_tower_command_button_attack_poison_pressed() -> void:
 	if tower == null:
 		return
 		
-	if tower.has_projectile_modifier_spiral:
-		if tower.equiped_projectile_modifier == Core.ProjectileModifier.SPIRAL:
-			%ProjectileModifiers.hide()
+	if tower.has_attack_modifier_poison:
+		if tower.equiped_attack_modifier == Core.AttackModifier.POISON:
+			%AttackModifiers.hide()
 			%Menu.show()
 		else:
-			tower.equiped_projectile_modifier = Core.ProjectileModifier.SPIRAL
-			_show_projectile_modifiers() # Rrefresh
-	elif Core.level.current_money >= %TowerCommandButtonProjectileSpiral.price:
-		tower.has_projectile_modifier_spiral = true
-		Core.level.remove_money(%TowerCommandButtonProjectileSpiral.price)
-		_show_projectile_modifiers() # Rrefresh
+			tower.equiped_attack_modifier = Core.AttackModifier.POISON
+			_show_attack_modifiers() # Rrefresh
+	elif Core.level.current_money >= %TowerCommandButtonAttackPoison.price:
+		tower.has_attack_modifier_poison = true
+		Core.level.remove_money(%TowerCommandButtonAttackPoison.price)
+		_show_attack_modifiers() # Rrefresh
 	else:
 		# TODO: Play failure sfx
 		pass

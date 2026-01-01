@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://du35lnv4h7qe"]
+
+[ext_resource type="Script" uid="uid://byo33jem3fpjs" path="res://scenes/unit/tower/nitya.gd" id="1_77pkq"]
+[ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_bxjio"]
+[ext_resource type="PackedScene" uid="uid://baxnrrp63wkjp" path="res://scenes/unit/weapon/swipe.tscn" id="2_vwu2d"]
+[ext_resource type="PackedScene" uid="uid://dxjtgfm3nk7ii" path="res://scenes/unit/tower/Animations/nitya_animation.tscn" id="3_7ejsc"]
+[ext_resource type="PackedScene" uid="uid://dws48s1sgevc4" path="res://scenes/component/target_cone_2d.tscn" id="4_gaj65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em548"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ejsc"]
+size = Vector2(128, 128)
+
+[node name="Nitya" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_77pkq")
+
+[node name="Weapon" parent="." instance=ExtResource("2_vwu2d")]
+unique_name_in_owner = true
+
+[node name="PlaceAnimation" parent="." instance=ExtResource("2_bxjio")]
+unique_name_in_owner = true
+visible = false
+
+[node name="TargetCone2D" parent="." instance=ExtResource("4_gaj65")]
+unique_name_in_owner = true
+
+[node name="NityaAnimation" parent="." instance=ExtResource("3_7ejsc")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_em548")
+
+[node name="Area2DTower" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DTower"]
+shape = SubResource("RectangleShape2D_7ejsc")

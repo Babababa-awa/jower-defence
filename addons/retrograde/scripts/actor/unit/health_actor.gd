@@ -16,6 +16,7 @@ var _damage_cooldown: CooldownTimer
 var group_damage: float = 0
 var independent_damage: float = 0
 
+#TODO: Revisit signals so not damage
 signal damage_after(damage: float)
 
 func _init(unit_: BaseUnit, enabled: bool = true) -> void:

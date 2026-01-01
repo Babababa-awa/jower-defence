@@ -4,11 +4,12 @@
 
 [node name="Laser2D" type="Node2D"]
 script = ExtResource("1_r87jj")
-burst_length = 0.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true
 target_position = Vector2(0, 0)
+collision_mask = 5
+hit_from_inside = true
 
 [node name="Line2D" type="Line2D" parent="."]
 unique_name_in_owner = true

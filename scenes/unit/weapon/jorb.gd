@@ -36,6 +36,8 @@ func reset(reset_type_: Core.ResetType) -> void:
 		target_points.clear()
 
 func _ready() -> void:
+	super._ready()
+	
 	attack_after.connect(_on_attack_after)
 	
 	_laser_cooldown = CooldownTimer.new(laser_cooldown_delta)
@@ -81,7 +83,7 @@ func _update_path() -> void:
 	%Path2D.curve.clear_points()
 	
 	for index_: int in target_points.size():
-		var point_: Vector2 = target_points[index_]
+		var point_: Vector2 = to_local(target_points[index_])
 		
 		if index_ == 0 or index_ == target_points.size() - 1:
 			%Path2D.curve.add_point(point_)
@@ -95,8 +97,6 @@ func _update_path() -> void:
 
 			var in_: Vector2 = -tangent * path_smoothness
 			var out_: Vector2 = tangent * path_smoothness
-			
-			print(in_, " ", out_)
 			
 			%Path2D.curve.add_point(point_, in_, out_)
 

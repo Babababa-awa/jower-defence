@@ -6,6 +6,9 @@ class_name UnitSpawner
 @export var count: int = -1
 @export var delay: float = 0
 
+@export_group("Unit Settings")
+@export var unit_settings: UnitSettings = UnitSettings.new()
+
 var current_delta: float = 0.0
 var total_delta: float = 0.0
 
@@ -30,4 +33,5 @@ func process(delta_: float) -> void:
 		
 func spawn_unit() -> void:
 	var unit_: Node2D = await Core.nodes.get_node(unit.resource_path)
+	unit_.unit_settings = unit_settings
 	spawn.emit(unit_)
