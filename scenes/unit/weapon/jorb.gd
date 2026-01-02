@@ -7,14 +7,16 @@ var target_points: PackedVector2Array = []:
 
 var path_smoothness: float = 45.0
 var movement_speed: float = 200.0
+var movement_speed_fast: float = 250.0
+var rotate_speed: float = 90.0
+var rotate_speed_fast: float = 120.0
 var progress: float = 0.0
 var _jorb_active: bool = false
 var show_speed: float = 4.0
 var hide_speed: float = 4.0
 
-var _laser_cooldown: CooldownTimer
-var laser_cooldown_delta: float = 0.2
 var is_on_solid: bool = false
+var _current_weapon_modifier = Core.WeaponModifier.NONE
 
 func _init() -> void:
 	super._init(
@@ -31,22 +33,48 @@ func reset(reset_type_: Core.ResetType) -> void:
 	if (reset_type_ == Core.ResetType.START or
 		reset_type_ == Core.ResetType.RESTART
 	):
-		_laser_cooldown.reset()
 		is_on_solid = false
+		%Jorb.visible = false
+		stop_lasers()
 		target_points.clear()
+		
+	elif reset_type_ == Core.ResetType.STOP:
+		stop_lasers()
+		%Jorb.visible = false
 
 func _ready() -> void:
 	super._ready()
 
 	attack_after.connect(_on_attack_after)
 
-	_laser_cooldown = CooldownTimer.new(laser_cooldown_delta)
-
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
+	_current_weapon_modifier = weapon_modifier
+	
+	if _current_weapon_modifier == Core.WeaponModifier.SPREAD:
+		%Laser2D1.max_length = 160
+		%Laser2D2.max_length = 160
+		%Laser2D3.max_length = 160
+		%Area2DAttack1.position = Vector2(160.0, 0)
+		%Area2DAttack2.position = Vector2(160.0, 0)
+		%Area2DAttack3.position = Vector2(160.0, 0)
+	elif _current_weapon_modifier == Core.WeaponModifier.CLUSTER:
+		%Laser2D1.max_length = 96
+		%Laser2D2.max_length = 96
+		%Laser2D3.max_length = 96
+		%Area2DAttack1.position = Vector2(96.0, 0)
+		%Area2DAttack2.position = Vector2(96.0, 0)
+		%Area2DAttack3.position = Vector2(96.0, 0)
+	else:
+		%Laser2D1.max_length = 128
+		%Laser2D2.max_length = 128
+		%Laser2D3.max_length = 128
+		%Area2DAttack1.position = Vector2(128.0, 0)
+		%Area2DAttack2.position = Vector2(128.0, 0)
+		%Area2DAttack3.position = Vector2(128.0, 0)
+		
 	start_jorb()
 
-func _update_weapon() -> void:
-	#TODO: Modifiers
+func _update_weapon_modifier() -> void:
 	pass
 
 func _physics_process(delta_: float) -> void:
@@ -61,15 +89,31 @@ func _physics_process(delta_: float) -> void:
 		else:
 			%Sprite2D.material.set_shader_parameter(&"offset", %Jorb.global_position / -(32 * PI))
 			%Jorb.position = $Path2D.curve.get_point_position(0)
-			progress += movement_speed * delta_
+			
+			if _current_weapon_modifier == Core.WeaponModifier.SPEED:
+				progress += movement_speed_fast * delta_
+				
+				%Laser2D1.rotation_degrees += rotate_speed_fast * delta_
+				%Laser2D2.rotation_degrees += rotate_speed_fast * delta_
+				%Laser2D3.rotation_degrees += rotate_speed_fast * delta_
+			else:
+				progress += movement_speed * delta_
+				
+				%Laser2D1.rotation_degrees += rotate_speed * delta_
+				%Laser2D2.rotation_degrees += rotate_speed * delta_
+				%Laser2D3.rotation_degrees += rotate_speed * delta_
+			
 			progress = min(progress, %Path2D.curve.get_baked_length())
 			var position_: Vector2 = %Path2D.curve.sample_baked(progress, true)
 			%Jorb.global_position = %Path2D.to_global(position_)
 
 			if progress == %Path2D.curve.get_baked_length():
 				stop_jorb()
+				stop_lasers()
 			elif not is_on_solid:
-				pass
+				start_lasers()
+			else:
+				stop_lasers()
 	elif %Jorb.visible:
 		if not is_equal_approx(%Jorb.scale.x, 0.1):
 			%Jorb.scale = %Jorb.scale.move_toward(Vector2(0.1, 0.1), hide_speed * delta_)
@@ -77,6 +121,40 @@ func _physics_process(delta_: float) -> void:
 			%Jorb.visible = false
 			# Manually trigger completion
 			_attack_cooldown.delta = _attack_cooldown.current_delta + 0.25
+
+func start_lasers() -> void:
+	if %Laser2D1.is_on:
+		return
+		
+	%Laser2D1.start()
+	%Laser2D2.start()
+	%Laser2D3.start()
+	
+	%Laser2D1.rotation_degrees = 0.0
+	%Laser2D2.rotation_degrees = 120.0
+	%Laser2D3.rotation_degrees = 240.0
+	
+	%Area2DAttack1.monitorable = true
+	%Area2DAttack1.monitoring = true
+	%Area2DAttack2.monitorable = true
+	%Area2DAttack2.monitoring = true
+	%Area2DAttack3.monitorable = true
+	%Area2DAttack3.monitoring = true
+	
+func stop_lasers() -> void:
+	if not %Laser2D1.is_on:
+		return
+		
+	%Laser2D1.stop()
+	%Laser2D2.stop()
+	%Laser2D3.stop()
+	
+	%Area2DAttack1.monitorable = false
+	%Area2DAttack1.monitoring = false
+	%Area2DAttack2.monitorable = false
+	%Area2DAttack2.monitoring = false
+	%Area2DAttack3.monitorable = false
+	%Area2DAttack3.monitoring = false
 
 func _update_path() -> void:
 	%Path2D.curve.clear_points()

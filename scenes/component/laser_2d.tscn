@@ -20,7 +20,7 @@ curve = SubResource("Curve_pb64p")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8s2df"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(680, 20, 1)
+emission_box_extents = Vector3(800, 20, 1)
 direction = Vector3(-1, 0, 0)
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -2.2351742e-06
@@ -58,7 +58,6 @@ color_ramp = SubResource("2")
 
 [node name="Laser2D" type="Node2D"]
 script = ExtResource("1_r87jj")
-particles_color = null
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true

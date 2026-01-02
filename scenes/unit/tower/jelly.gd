@@ -35,6 +35,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 		reset_type_ == Core.ResetType.RESTART
 	):
 		target_set = false
+		jorb_target_set = false
 
 		has_laser_beam = false
 		has_jorb = false

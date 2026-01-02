@@ -35,8 +35,13 @@ func reset(reset_type_: Core.ResetType) -> void:
 	if (reset_type_ == Core.ResetType.START or
 		reset_type_ == Core.ResetType.RESTART
 	):
+		current_attack_value = null
+		clear_queue()
 		_attack_cooldown.reset()
-		
+
+func get_current_attack_delta() -> float:
+	return _attack_cooldown.current_delta
+
 func clear_queue() -> void:
 	_queue_weapon_attack = null
 	_queue_cooldown_delta = 0.0

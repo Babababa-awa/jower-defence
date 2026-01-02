@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 		end_position_ = _end_position
 		_is_colliding = true
 	
-	if _is_colliding or shot_length > 0:
+	if _is_colliding or shot_length > 0 or max_length < 256:
 		%GPUParticles2DCollision.position = end_position_ + Vector2(beam_width / 2, 0)
 		%GPUParticles2DCollision.rotation_degrees = 180
 		%GPUParticles2DCollision.emitting = true
@@ -137,16 +137,23 @@ func get_end_position() -> Vector2:
 	return Vector2(max_length, 0)
 	
 func start() -> void:
+	if is_on:
+		return
+		
 	is_on = true
 	_is_colliding = false
 	_current_position = Vector2.ZERO
 	
 	set_physics_process(true)
 	
+	%GPUParticles2DCollision.visible = true
+	
 	if shot_length == 0.0:
-		%GPUParticles2DLaser.emitting = true
 		%GPUParticles2DLaser.position = Vector2(start_offset, 0)
 		%GPUParticles2DLaser.process_material.emission_box_extents.x = 0.0
+		%GPUParticles2DLaser.emitting = true
+		%GPUParticles2DLaser.visible = true
+		%GPUParticles2DLaser.restart()
 
 	%Line2D.points[0] = Vector2(start_offset, 0)
 	%Line2D.points[1] = Vector2(start_offset, 0)
@@ -154,11 +161,16 @@ func start() -> void:
 	_show_laser()
 
 func stop() -> void:
+	if not is_on:
+		return
+		
 	is_on = false
-	
 	set_physics_process(false)
 	
+	%GPUParticles2DLaser.visible = false
 	%GPUParticles2DLaser.emitting = false
+	
+	%GPUParticles2DLaser.visible = false
 	%GPUParticles2DCollision.emitting = false
 	
 	_hide_laser()

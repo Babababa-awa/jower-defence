@@ -1,6 +1,6 @@
 {
-	"alias": "level_1",
-	"name": "Level 1",
+	"alias": "level_2",
+	"name": "Level 2",
 	"type": "platformer",
 	"area": {
 		"alias": "area_1"
