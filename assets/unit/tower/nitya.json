@@ -1,0 +1,283 @@
+{ "frames": {
+   "nitya_tower #idle1 0": {
+	"frame": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #idle1 1": {
+	"frame": { "x": 96, "y": 0, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #idle1 2": {
+	"frame": { "x": 192, "y": 0, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #idle1 3": {
+	"frame": { "x": 288, "y": 0, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #idle1 4": {
+	"frame": { "x": 384, "y": 0, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #idle1 5": {
+	"frame": { "x": 480, "y": 0, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot1 0": {
+	"frame": { "x": 0, "y": 48, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #shoot1 1": {
+	"frame": { "x": 96, "y": 48, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot1 2": {
+	"frame": { "x": 192, "y": 48, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot1 3": {
+	"frame": { "x": 288, "y": 48, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot1 4": {
+	"frame": { "x": 384, "y": 48, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #idle2 0": {
+	"frame": { "x": 0, "y": 96, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #idle2 1": {
+	"frame": { "x": 96, "y": 96, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #idle2 2": {
+	"frame": { "x": 192, "y": 96, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #idle2 3": {
+	"frame": { "x": 288, "y": 96, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #idle2 4": {
+	"frame": { "x": 384, "y": 96, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #idle2 5": {
+	"frame": { "x": 480, "y": 96, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #shoot2 0": {
+	"frame": { "x": 0, "y": 144, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #shoot2 1": {
+	"frame": { "x": 96, "y": 144, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot2 2": {
+	"frame": { "x": 192, "y": 144, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot2 3": {
+	"frame": { "x": 288, "y": 144, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot2 4": {
+	"frame": { "x": 384, "y": 144, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #idle3 0": {
+	"frame": { "x": 0, "y": 192, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #idle3 1": {
+	"frame": { "x": 96, "y": 192, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #idle3 2": {
+	"frame": { "x": 192, "y": 192, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #idle3 3": {
+	"frame": { "x": 288, "y": 192, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #idle3 4": {
+	"frame": { "x": 384, "y": 192, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #idle3 5": {
+	"frame": { "x": 480, "y": 192, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 500
+   },
+   "nitya_tower #shoot3 0": {
+	"frame": { "x": 0, "y": 240, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   },
+   "nitya_tower #shoot3 1": {
+	"frame": { "x": 96, "y": 240, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot3 2": {
+	"frame": { "x": 192, "y": 240, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot3 3": {
+	"frame": { "x": 288, "y": 240, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 100
+   },
+   "nitya_tower #shoot3 4": {
+	"frame": { "x": 384, "y": 240, "w": 96, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 48 },
+	"sourceSize": { "w": 96, "h": 48 },
+	"duration": 200
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.21-dev",
+  "image": "nitya_tower.png",
+  "format": "RGBA8888",
+  "size": { "w": 576, "h": 288 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "idle1", "from": 0, "to": 5, "direction": "forward" },
+   { "name": "shoot1", "from": 6, "to": 10, "direction": "forward" },
+   { "name": "idle2", "from": 11, "to": 16, "direction": "forward" },
+   { "name": "shoot2", "from": 17, "to": 21, "direction": "forward" },
+   { "name": "idle3", "from": 22, "to": 27, "direction": "forward" },
+   { "name": "shoot3", "from": 28, "to": 32, "direction": "forward" }
+  ]
+ }
+}

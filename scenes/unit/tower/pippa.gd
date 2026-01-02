@@ -49,4 +49,11 @@ func _process(delta_: float) -> void:
 
 func set_weapon_target(points_: PackedVector2Array) -> void:
 	target_set = true
-	%Weapon.target_position = to_global(points_[points_.size() - 1])
+	var target_position_: Vector2 = points_[points_.size() - 1]
+	
+	if target_position_.x < 0:
+		%PippaAnimations.flip_h = true
+	else:
+		%PippaAnimations.flip_h = false
+	
+	%Weapon.target_position = to_global(target_position_)

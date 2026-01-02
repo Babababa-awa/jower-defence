@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://blqr6m4m3rxxy"]
+[gd_scene load_steps=5 format=3 uid="uid://blqr6m4m3rxxy"]
 
 [ext_resource type="Script" uid="uid://d1oeuwtdubkti" path="res://scenes/component/command_box.gd" id="1_otgik"]
 [ext_resource type="Texture2D" uid="uid://d56rabnnh4di" path="res://assets/hud/command_box.png" id="2_8807d"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8807d"]
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8807d"]
 
@@ -10,6 +13,7 @@ script = ExtResource("1_otgik")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_8807d")
 offset_right = 163.0
 offset_bottom = 96.0
 texture = ExtResource("2_8807d")

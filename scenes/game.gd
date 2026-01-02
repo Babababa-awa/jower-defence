@@ -10,6 +10,7 @@ signal tower_command_changed(tower_: TowerDefenceTowerUnit)
 
 func _ready() -> void:
 	day_night_cycle = %DayNightCycle
+	day_night_cycle.pause_time = true
 
 	super._ready()
 	

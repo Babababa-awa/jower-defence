@@ -1,22 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b83phhmxg3ibh"]
+[gd_scene load_steps=5 format=3 uid="uid://b83phhmxg3ibh"]
 
-[ext_resource type="Texture2D" uid="uid://ddavmkcgxsqr7" path="res://assets/unit/tower/sakana.png" id="1_osipj"]
 [ext_resource type="Script" uid="uid://c7hfducokvobj" path="res://scenes/unit/tower/sakana.gd" id="1_yff8q"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yff8q"]
-atlas = ExtResource("1_osipj")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kfhtr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yff8q")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://bbr8jrlur6ewg" path="res://scenes/unit/tower/Animations/sakana_animations.tscn" id="2_yff8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5hu5"]
 size = Vector2(128, 128)
@@ -25,12 +10,14 @@ size = Vector2(128, 128)
 size = Vector2(128, 128)
 
 [node name="Sakana" type="CharacterBody2D" groups=["command_tower"]]
+z_index = 20
 collision_layer = 8388608
 collision_mask = 0
 script = ExtResource("1_yff8q")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_kfhtr")
+[node name="SakanaAnimations" parent="." instance=ExtResource("2_yff8q")]
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i5hu5")

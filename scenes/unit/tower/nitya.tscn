@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://byo33jem3fpjs" path="res://scenes/unit/tower/nitya.gd" id="1_77pkq"]
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_bxjio"]
 [ext_resource type="PackedScene" uid="uid://baxnrrp63wkjp" path="res://scenes/unit/weapon/swipe.tscn" id="2_vwu2d"]
-[ext_resource type="PackedScene" uid="uid://dxjtgfm3nk7ii" path="res://scenes/unit/tower/Animations/nitya_animation.tscn" id="3_7ejsc"]
+[ext_resource type="PackedScene" uid="uid://dxjtgfm3nk7ii" path="res://scenes/unit/tower/Animations/nitya_animations.tscn" id="3_7ejsc"]
 [ext_resource type="PackedScene" uid="uid://dws48s1sgevc4" path="res://scenes/component/target_cone_2d.tscn" id="4_gaj65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em548"]
@@ -26,9 +26,12 @@ visible = false
 
 [node name="TargetCone2D" parent="." instance=ExtResource("4_gaj65")]
 unique_name_in_owner = true
+start_point = Vector2(0, 0)
 
-[node name="NityaAnimation" parent="." instance=ExtResource("3_7ejsc")]
+[node name="NityaAnimations" parent="." instance=ExtResource("3_7ejsc")]
 unique_name_in_owner = true
+position = Vector2(0, -32)
+scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_em548")

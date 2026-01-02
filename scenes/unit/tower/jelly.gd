@@ -9,7 +9,25 @@ var equiped_weapon: StringName = &"laser_shot"
 
 func _init() -> void:
 	super._init(&"jelly")
+	
+func _ready() -> void:
+	super._ready()
+	
+	%Weapon.attack_after.connect(_on_attack_after)
+	%Weapon2.attack_after.connect(_on_attack_after)
+	%JellyAnimations.animation_finished.connect(_on_animation_finished)
 
+func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
+	if attack_.meta.weapon_attack_alias == &"laser_shot":
+		%JellyAnimations.play("laser_shot_use")
+	elif attack_.meta.weapon_attack_alias == &"laser_beam":
+		%JellyAnimations.play("laser_beam_use")
+	elif attack_.meta.weapon_attack_alias == &"jorb":
+		%JellyAnimations.play("jorb_use")
+		
+func _on_animation_finished() -> void:
+	%JellyAnimations.play("idle")
+		
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)
 	
@@ -58,6 +76,13 @@ func set_target() -> void:
 	super.set_target()
 
 func set_weapon_target(points_: PackedVector2Array) -> void:
+	var target_position_: Vector2 = points_[points_.size() - 1]
+	
+	if target_position_.x < 0:
+		%JellyAnimations.flip_h = true
+	else:
+		%JellyAnimations.flip_h = false
+		
 	if equiped_weapon == &"jorb":
 		jorb_target_set = true
 		
@@ -68,4 +93,4 @@ func set_weapon_target(points_: PackedVector2Array) -> void:
 		%Weapon2.target_points = global_points_
 	else:
 		target_set = true
-		%Weapon.target_position = to_global(points_[points_.size() - 1])
+		%Weapon.target_position = to_global(target_position_)

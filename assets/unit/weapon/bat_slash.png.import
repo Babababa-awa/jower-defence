@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://usrii6hdek1a"
-path="res://.godot/imported/jelly.png-e289178ef7f062ed8c6aa31f85cab7dc.ctex"
+uid="uid://d3xy0dqim0q18"
+path="res://.godot/imported/bat_slash.png-ad1f0ac18a2f99dee3eca7c98d4fd4d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/unit/tower/jelly.png"
-dest_files=["res://.godot/imported/jelly.png-e289178ef7f062ed8c6aa31f85cab7dc.ctex"]
+source_file="res://assets/unit/weapon/bat_slash.png"
+dest_files=["res://.godot/imported/bat_slash.png-ad1f0ac18a2f99dee3eca7c98d4fd4d1.ctex"]
 
 [params]
 

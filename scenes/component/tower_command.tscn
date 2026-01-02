@@ -164,10 +164,10 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3e8h"]
 size = Vector2(64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sy3o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te83m"]
 size = Vector2(64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_te83m"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sy3o"]
 size = Vector2(64, 64)
 
 [node name="TowerCommand" type="Node2D"]
@@ -179,7 +179,7 @@ unique_name_in_owner = true
 [node name="AnimatedSprite2DUpgrade" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_1sy3o")
-position = Vector2(72, 64)
+position = Vector2(72, -8)
 sprite_frames = SubResource("SpriteFrames_ular1")
 autoplay = "default"
 
@@ -207,13 +207,13 @@ autoplay = "default"
 [node name="AnimatedSprite2DTarget" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_6qj66")
-position = Vector2(72, -8)
+position = Vector2(72, 64)
 sprite_frames = SubResource("SpriteFrames_n3e8h")
 animation = &"hover"
 autoplay = "default"
 
 [node name="Area2DUpgrade" type="Area2D" parent="Menu"]
-position = Vector2(72, 64)
+position = Vector2(72, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DUpgrade"]
 shape = SubResource("RectangleShape2D_0h00t")
@@ -230,22 +230,22 @@ position = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DAttackModifier"]
 shape = SubResource("RectangleShape2D_n3e8h")
 
-[node name="Area2DTarget" type="Area2D" parent="Menu"]
-position = Vector2(72, -8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DTarget"]
-shape = SubResource("RectangleShape2D_1sy3o")
-
 [node name="Area2DDamageModifier" type="Area2D" parent="Menu"]
 position = Vector2(-72, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DDamageModifier"]
 shape = SubResource("RectangleShape2D_te83m")
 
+[node name="Area2DTarget" type="Area2D" parent="Menu"]
+position = Vector2(72, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DTarget"]
+shape = SubResource("RectangleShape2D_1sy3o")
+
 [node name="GunUpgrades" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(40, 32)
+position = Vector2(-64, -40)
 
 [node name="TowerCommandButtonPistol" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -265,6 +265,7 @@ label = "Machine Gun"
 [node name="LaserUpgrades" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
+position = Vector2(-64, -40)
 
 [node name="TowerCommandButtonLaserShot" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -281,10 +282,29 @@ unique_name_in_owner = true
 price = 200
 label = "Jorb"
 
+[node name="SwipeUpgrades" parent="." instance=ExtResource("3_1sy3o")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-64, -40)
+
+[node name="TowerCommandButtonTail" parent="SwipeUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+label = "Tail Swipe"
+
+[node name="TowerCommandButtonBat" parent="SwipeUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 100
+label = "Wooden Bun Kisser"
+
+[node name="TowerCommandButtonLargeBat" parent="SwipeUpgrades" instance=ExtResource("3_n3e8h")]
+unique_name_in_owner = true
+price = 200
+label = "Metal Bun Kisser"
+
 [node name="WeaponModifiers" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-104, -40)
+position = Vector2(-208, -40)
 
 [node name="TowerCommandButtonWeaponSpeed" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -304,7 +324,7 @@ label = "Cluster"
 [node name="AttackModifiers" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-32, -40)
+position = Vector2(-136, -40)
 
 [node name="TowerCommandButtonAttackSlow" parent="AttackModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -325,7 +345,7 @@ label = "Poison"
 [node name="DamageModifiers" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-104, 32)
+position = Vector2(-208, 32)
 
 [node name="TowerCommandButtonDamageHeavy" parent="DamageModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -351,18 +371,21 @@ label = "Explosive"
 [connection signal="input_event" from="Menu/Area2DAttackModifier" to="." method="_on_area_2d_attack_modifier_input_event"]
 [connection signal="mouse_entered" from="Menu/Area2DAttackModifier" to="." method="_on_area_2d_attack_modifier_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/Area2DAttackModifier" to="." method="_on_area_2d_attack_modifier_mouse_exited"]
-[connection signal="input_event" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_input_event"]
-[connection signal="mouse_entered" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_mouse_entered"]
-[connection signal="mouse_exited" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_mouse_exited"]
 [connection signal="input_event" from="Menu/Area2DDamageModifier" to="." method="_on_area_2d_damage_modifier_input_event"]
 [connection signal="mouse_entered" from="Menu/Area2DDamageModifier" to="." method="_on_area_2d_damage_modifier_mouse_entered"]
 [connection signal="mouse_exited" from="Menu/Area2DDamageModifier" to="." method="_on_area_2d_damage_modifier_mouse_exited"]
+[connection signal="input_event" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_input_event"]
+[connection signal="mouse_entered" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Area2DTarget" to="." method="_on_area_2d_target_mouse_exited"]
 [connection signal="pressed" from="GunUpgrades/TowerCommandButtonPistol" to="." method="_on_tower_command_button_pistol_pressed"]
 [connection signal="pressed" from="GunUpgrades/TowerCommandButtonSemiAutomatic" to="." method="_on_tower_command_button_semi_automatic_pressed"]
 [connection signal="pressed" from="GunUpgrades/TowerCommandButtonMachineGun" to="." method="_on_tower_command_button_machine_gun_pressed"]
 [connection signal="pressed" from="LaserUpgrades/TowerCommandButtonLaserShot" to="." method="_on_tower_command_button_laser_pressed"]
 [connection signal="pressed" from="LaserUpgrades/TowerCommandButtonLaserBeam" to="." method="_on_tower_command_button_beam_pressed"]
 [connection signal="pressed" from="LaserUpgrades/TowerCommandButtonJorb" to="." method="_on_tower_command_button_jorb_pressed"]
+[connection signal="pressed" from="SwipeUpgrades/TowerCommandButtonTail" to="." method="_on_tower_command_button_tail_pressed"]
+[connection signal="pressed" from="SwipeUpgrades/TowerCommandButtonBat" to="." method="_on_tower_command_button_bat_pressed"]
+[connection signal="pressed" from="SwipeUpgrades/TowerCommandButtonLargeBat" to="." method="_on_tower_command_button_large_bat_pressed"]
 [connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponSpeed" to="." method="_on_tower_command_button_weapon_speed_pressed"]
 [connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponSpread" to="." method="_on_tower_command_button_weapon_spread_pressed"]
 [connection signal="pressed" from="WeaponModifiers/TowerCommandButtonWeaponCluster" to="." method="_on_tower_command_button_weapon_cluster_pressed"]

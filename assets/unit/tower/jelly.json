@@ -1,0 +1,225 @@
+{ "frames": {
+   "jelly_tower #idle1 0": {
+	"frame": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 500
+   },
+   "jelly_tower #idle1 1": {
+	"frame": { "x": 45, "y": 0, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 200
+   },
+   "jelly_tower #idle1 2": {
+	"frame": { "x": 90, "y": 0, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #idle1 3": {
+	"frame": { "x": 135, "y": 0, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 200
+   },
+   "jelly_tower #idle1 4": {
+	"frame": { "x": 180, "y": 0, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 200
+   },
+   "jelly_tower #idle1 5": {
+	"frame": { "x": 225, "y": 0, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot1 0": {
+	"frame": { "x": 0, "y": 48, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 500
+   },
+   "jelly_tower #shoot1 1": {
+	"frame": { "x": 45, "y": 48, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot1 2": {
+	"frame": { "x": 90, "y": 48, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 500
+   },
+   "jelly_tower #shoot1 3": {
+	"frame": { "x": 135, "y": 48, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 0": {
+	"frame": { "x": 0, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 500
+   },
+   "jelly_tower #shoot2 1": {
+	"frame": { "x": 45, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 2": {
+	"frame": { "x": 90, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 3": {
+	"frame": { "x": 135, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 4": {
+	"frame": { "x": 180, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 5": {
+	"frame": { "x": 225, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 6": {
+	"frame": { "x": 270, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 7": {
+	"frame": { "x": 315, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 300
+   },
+   "jelly_tower #shoot2 8": {
+	"frame": { "x": 360, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 9": {
+	"frame": { "x": 405, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot2 10": {
+	"frame": { "x": 450, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 500
+   },
+   "jelly_tower #shoot2 11": {
+	"frame": { "x": 495, "y": 96, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot3 0": {
+	"frame": { "x": 0, "y": 144, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot3 1": {
+	"frame": { "x": 45, "y": 144, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot3 2": {
+	"frame": { "x": 90, "y": 144, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   },
+   "jelly_tower #shoot3 3": {
+	"frame": { "x": 135, "y": 144, "w": 45, "h": 48 },
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": { "x": 0, "y": 0, "w": 45, "h": 48 },
+	"sourceSize": { "w": 45, "h": 48 },
+	"duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.2.21-dev",
+  "image": "jelly_tower.png",
+  "format": "RGBA8888",
+  "size": { "w": 540, "h": 192 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "idle1", "from": 0, "to": 5, "direction": "forward" },
+   { "name": "shoot1", "from": 6, "to": 9, "direction": "forward" },
+   { "name": "shoot2", "from": 10, "to": 21, "direction": "forward" },
+   { "name": "shoot3", "from": 22, "to": 25, "direction": "forward" }
+  ]
+ }
+}

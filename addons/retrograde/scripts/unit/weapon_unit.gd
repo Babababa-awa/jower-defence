@@ -108,7 +108,6 @@ func _attack_from_weapon_attack(weapon_attack_: WeaponAttack, meta_: Dictionary 
 		current_attack_value = attack_value_
 		
 		if weapon_attack_.delta > 0:
-			
 			_attack_cooldown.delta = weapon_attack_.delta
 		else:
 			# Any number larger than the max animation length

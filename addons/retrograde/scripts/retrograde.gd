@@ -581,7 +581,7 @@ enum AttackType {
 	WEAPON,
 }
 
-func apply_difficulty_modifier(value: int, inverse: bool = false, safe: bool = false) -> int:
+func apply_difficulty_modifier(value: int, inverse: bool = false, safe: int = 0) -> int:
 	if inverse:
 		if Core.game_difficulty == Core.GameDifficulty.EASY:
 			value *= 2
@@ -596,12 +596,12 @@ func apply_difficulty_modifier(value: int, inverse: bool = false, safe: bool = f
 	if value == 0:
 		value = 1
 
-	if safe and value >= 100:
-		value = 99
+	if safe > 0 and value >= safe:
+		value = safe - 1
 
 	return value
 
-func apply_difficulty_modifier_float(value: float, inverse: bool = false, safe: bool = false) -> float:
+func apply_difficulty_modifier_float(value: float, inverse: bool = false, safe: float = 0.0) -> float:
 	if inverse:
 		if Core.game_difficulty == Core.GameDifficulty.EASY:
 			value *= 2.0
@@ -616,8 +616,8 @@ func apply_difficulty_modifier_float(value: float, inverse: bool = false, safe: 
 	if value == 0:
 		value = 1.0
 
-	if safe and value >= 100.0:
-		value = 99.0
+	if safe > 0.0 and value >= safe:
+		value = safe - 1.0
 
 	return value
 

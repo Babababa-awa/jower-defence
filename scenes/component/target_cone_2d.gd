@@ -1,4 +1,3 @@
-@tool
 extends BaseNode2D
 class_name TargetCone2D
 

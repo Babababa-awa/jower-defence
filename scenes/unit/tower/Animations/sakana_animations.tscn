@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbr8jrlur6ewg"]
+
+[ext_resource type="Texture2D" uid="uid://ddavmkcgxsqr7" path="res://assets/unit/tower/sakana.png" id="1_077ll"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vospd"]
+atlas = ExtResource("1_077ll")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8bcy"]
+atlas = ExtResource("1_077ll")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p07pm"]
+atlas = ExtResource("1_077ll")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7xae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vospd")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_p8bcy")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_p07pm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[node name="SakanaAnimations" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_n7xae")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5678924

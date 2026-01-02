@@ -47,7 +47,10 @@ func reset(reset_type_: Core.ResetType) -> void:
 		reset_type_ == Core.ResetType.RESTART
 	):
 		_semi_automatic_cooldown.reset()
+		
 		_current_attack = null
+		_current_attack_angle = 0.0
+		
 		_current_pistol_angle_index = 0
 		_current_semi_automatic_angle_index = 0
 		_current_machine_gun_angle_index = 0
@@ -118,12 +121,11 @@ func _update_attack_angle(weapon_alias: StringName) -> void:
 func shoot_gun() -> void:
 	#TODO Play sfx
 	
-	var node: ProjectileUnit = await Core.nodes.get_node("res://scenes/unit/projectile/bullet.tscn")
-	node.attack_modifier = attack_modifier
+	var node: TowerDefenceProjectileUnit = await Core.nodes.get_node("res://scenes/unit/projectile/bullet.tscn")
 	node.add_to_group(owner_group)
 	node.global_position = global_position
 	node.direction = rad_to_deg(global_position.angle_to_point(target_position)) + 90 + _current_attack_angle
-	node.attack_modifer = attack_modifier
+	node.attack_modifier = attack_modifier
 	node.damage_modifier = damage_modifier
 	
 	bullet_after.emit(self, _current_attack)

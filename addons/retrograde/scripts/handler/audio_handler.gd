@@ -7,10 +7,10 @@ var ambiance: Dictionary = {}
 var last: Dictionary = {}
 
 var _current_volume: Dictionary = {
-	Core.AudioType.MASTER: {},
-	Core.AudioType.MUSIC: {},
-	Core.AudioType.SFX: {},
-	Core.AudioType.AMBIANCE: {},
+	Core.AudioType.MASTER: 0.5,
+	Core.AudioType.MUSIC: 0.5,
+	Core.AudioType.SFX: 0.5,
+	Core.AudioType.AMBIANCE: 0.5,
 }
 
 func _init() -> void:

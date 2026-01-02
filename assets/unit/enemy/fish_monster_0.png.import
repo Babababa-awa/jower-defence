@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://usrii6hdek1a"
-path="res://.godot/imported/jelly.png-e289178ef7f062ed8c6aa31f85cab7dc.ctex"
+uid="uid://dylw3t1cwvnnf"
+path="res://.godot/imported/fish_monster_0.png-84a0c555198a4450420378ba5e454742.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/unit/tower/jelly.png"
-dest_files=["res://.godot/imported/jelly.png-e289178ef7f062ed8c6aa31f85cab7dc.ctex"]
+source_file="res://assets/unit/enemy/fish_monster_0.png"
+dest_files=["res://.godot/imported/fish_monster_0.png-84a0c555198a4450420378ba5e454742.ctex"]
 
 [params]
 

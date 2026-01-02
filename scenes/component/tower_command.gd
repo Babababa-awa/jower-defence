@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	%GunUpgrades.closed.connect(_close_command_box)
 	%LaserUpgrades.closed.connect(_close_command_box)
+	%SwipeUpgrades.closed.connect(_close_command_box)
 	%WeaponModifiers.closed.connect(_close_command_box)
 	%AttackModifiers.closed.connect(_close_command_box)
 	%DamageModifiers.closed.connect(_close_command_box)
@@ -18,6 +19,7 @@ func _update() -> void:
 	%Menu.show()
 	%GunUpgrades.hide()
 	%LaserUpgrades.hide()
+	%SwipeUpgrades.hide()
 	%WeaponModifiers.hide()
 	%AttackModifiers.hide()
 	%DamageModifiers.hide()
@@ -81,6 +83,8 @@ func _on_area_2d_upgrade_input_event(viewport: Node, event: InputEvent, shape_id
 			_show_gun_upgrades()
 		elif tower.alias == &"jelly":
 			_show_laser_upgrades()
+		elif tower.alias == &"nitya":
+			_show_swipe_upgrades()
 
 func _show_gun_upgrades() -> void:
 	if tower.equiped_weapon == &"pistol":
@@ -141,6 +145,36 @@ func _show_laser_upgrades() -> void:
 		%LaserUpgrades.refresh()
 	else:
 		%LaserUpgrades.show()
+
+func _show_swipe_upgrades() -> void:
+	if tower.equiped_weapon == &"tail":
+		%TowerCommandButtonTail.icon = &"check"
+	else:
+		%TowerCommandButtonTail.icon = &""
+	
+	if tower.equiped_weapon == &"bat":
+		%TowerCommandButtonBat.icon = &"check"
+	elif not tower.has_bat:
+		%TowerCommandButtonBat.icon = &"money"
+	else:
+		%TowerCommandButtonBat.icon = &""
+	
+	if tower.equiped_weapon == &"large_bat":
+		%TowerCommandButtonLargeBat.icon = &"check"
+	elif not tower.has_large_bat:
+		%TowerCommandButtonLargeBat.icon = &"money"
+	else:
+		%TowerCommandButtonLargeBat.icon = &""
+	
+	if tower.has_bat:
+		%TowerCommandButtonLargeBat.show()
+	else:
+		%TowerCommandButtonLargeBat.hide()
+	
+	if %SwipeUpgrades.visible:
+		%SwipeUpgrades.refresh()
+	else:
+		%SwipeUpgrades.show()
 
 func _on_area_2d_weapon_modifier_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if tower == null:
@@ -375,6 +409,58 @@ func _on_tower_command_button_jorb_pressed() -> void:
 		tower.has_jorb = true
 		Core.level.remove_money(%TowerCommandButtonJorb.price)
 		_show_laser_upgrades() # Rrefresh
+	else:
+		# TODO: Play failure sfx
+		pass
+
+
+func _on_tower_command_button_tail_pressed() -> void:
+	if tower == null:
+		return
+
+	if tower.equiped_weapon == &"tail":
+		%SwipeUpgrades.hide()
+		%Menu.show()
+	else:
+		tower.equiped_weapon = &"tail"
+		_show_laser_upgrades() # Rrefresh
+
+
+func _on_tower_command_button_bat_pressed() -> void:
+	if tower == null:
+		return
+		
+	if tower.has_bat:
+		if tower.equiped_weapon == &"bat":
+			%SwipeUpgrades.hide()
+			%Menu.show()
+		else:
+			tower.equiped_weapon = &"bat"
+			_show_swipe_upgrades() # Rrefresh
+	elif Core.level.current_money >= %TowerCommandButtonBat.price:
+		tower.has_bat = true
+		Core.level.remove_money(%TowerCommandButtonBat.price)
+		_show_swipe_upgrades() # Rrefresh
+	else:
+		# TODO: Play failure sfx
+		pass
+
+
+func _on_tower_command_button_large_bat_pressed() -> void:
+	if tower == null:
+		return
+		
+	if tower.has_large_bat:
+		if tower.equiped_weapon == &"large_bat":
+			%SwipeUpgrades.hide()
+			%Menu.show()
+		else:
+			tower.equiped_weapon = &"large_bat"
+			_show_swipe_upgrades() # Rrefresh
+	elif Core.level.current_money >= %TowerCommandButtonLargeBat.price:
+		tower.has_large_bat = true
+		Core.level.remove_money(%TowerCommandButtonLargeBat.price)
+		_show_swipe_upgrades() # Rrefresh
 	else:
 		# TODO: Play failure sfx
 		pass
