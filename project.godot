@@ -40,6 +40,11 @@ buses/default_bus_layout="res://resources/audio_bus_layout.tres"
 
 Core="*res://scripts/core.gd"
 
+[debug]
+
+shapes/paths/geometry_color=Color(1, 0, 0, 1)
+shapes/paths/geometry_width=10.0
+
 [display]
 
 window/size/viewport_width=1920
@@ -72,6 +77,7 @@ folder_colors={
 
 enemy=""
 command_tower=""
+input=""
 
 [gui]
 

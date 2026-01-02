@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dg3g6jfdrihyb"]
+
+[ext_resource type="Texture2D" uid="uid://dylw3t1cwvnnf" path="res://assets/unit/enemy/fish_monster_1.png" id="1_fvauf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ow1h"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt4g8"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5wx0"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q2e2"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lbww"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en008"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsvrn"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fglk"]
+atlas = ExtResource("1_fvauf")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qfsi"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_4ow1h")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_tt4g8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_s5wx0")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6q2e2")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_8lbww")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_en008")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_rsvrn")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7fglk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 20.0
+}]
+
+[node name="Enemy1Animations" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0qfsi")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.01631289

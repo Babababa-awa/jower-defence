@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://0solwkljxwx2" path="res://scenes/unit/weapon/gun.tscn" id="2_em548"]
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_gcrmy"]
 [ext_resource type="PackedScene" uid="uid://451savacft1t" path="res://scenes/component/target_line_2d.tscn" id="4_wm0c7"]
-[ext_resource type="PackedScene" uid="uid://6cso0wlg3pc5" path="res://scenes/unit/tower/Animations/pippa_animations.tscn" id="5_4e2sg"]
+[ext_resource type="PackedScene" uid="uid://6cso0wlg3pc5" path="res://scenes/unit/tower/animations/pippa_animations.tscn" id="5_4e2sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em548"]
 size = Vector2(128, 128)

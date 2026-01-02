@@ -13,6 +13,9 @@ func _init() -> void:
 	ENABLE_GAME_DIFFICULTY = true
 	ENABLE_LEVEL_SELECT = true
 	ENABLE_PLAY_AGAIN = true
+	
+	LEVEL_CAMERA_ZOOM = 0.8
+	MENU_CAMERA_ZOOM = 0.8
 
 enum WeaponModifier {
 	NONE,

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dylw3t1cwvnnf"
-path="res://.godot/imported/fish_monster_0.png-84a0c555198a4450420378ba5e454742.ctex"
+uid="uid://r7jbgevx1imo"
+path="res://.godot/imported/fish_monster_4.png-01bd207f8ee69fc9f190582170989b98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/unit/enemy/fish_monster_0.png"
-dest_files=["res://.godot/imported/fish_monster_0.png-84a0c555198a4450420378ba5e454742.ctex"]
+source_file="res://assets/unit/enemy/fish_monster_4.png"
+dest_files=["res://.godot/imported/fish_monster_4.png-01bd207f8ee69fc9f190582170989b98.ctex"]
 
 [params]
 

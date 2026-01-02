@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cinml8jhjd8ph"]
+
+[ext_resource type="Texture2D" uid="uid://dmaw1grlhg4o7" path="res://assets/unit/enemy/fish_monster_2.png" id="1_r2hvs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj6yg"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qng8y"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yhaq"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alcnu"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0dfl"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g8iv"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksvws"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7pof"]
+atlas = ExtResource("1_r2hvs")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyk7"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_oj6yg")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_qng8y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5yhaq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_alcnu")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_i0dfl")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0g8iv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ksvws")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_c7pof")
+}],
+"loop": true,
+"name": &"move",
+"speed": 20.0
+}]
+
+[node name="Enemy2Animations" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tuyk7")
+animation = &"move"
+autoplay = "move"

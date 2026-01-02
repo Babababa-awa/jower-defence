@@ -77,7 +77,7 @@ func _on_kill_after(reason_: StringName) -> void:
 	%Area2DDamage.monitorable = false
 	%Area2DAttack.monitoring = false
 	%Area2DAttack.monitorable = false
-	%CollisionShape2D.disabled = true
+	%CollisionPolygon2D.disabled = true
 	
 	if Core.level is TowerDefenceLevel:
 		Core.level.add_money(kill_money)
@@ -115,7 +115,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 		%Area2DDamage.monitorable = true
 		%Area2DAttack.monitoring = true
 		%Area2DAttack.monitorable = true
-		%CollisionShape2D.disabled = false
+		%CollisionPolygon2D.disabled = false
 	elif reset_type_ == Core.ResetType.STOP:
 		path = null
 

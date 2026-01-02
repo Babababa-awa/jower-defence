@@ -12,3 +12,6 @@ func _init() -> void:
 	life.is_enabled_default = false
 	
 	alignment = Core.Alignment.CENTER_CENTER
+	
+	move.normal_move_speed = 1200.0
+	move.normalize_move_speed = true

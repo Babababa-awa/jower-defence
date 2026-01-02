@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://6u5vwcm5arr8"]
+
+[ext_resource type="Script" uid="uid://b4ae7tq1d0768" path="res://scenes/unit/enemy/enemy_4.gd" id="1_c77l7"]
+[ext_resource type="PackedScene" uid="uid://dg3g6jfdrihyb" path="res://scenes/unit/enemy/animations/enemy_1_animations.tscn" id="2_2iejt"]
+[ext_resource type="PackedScene" uid="uid://cxx07r8g5gvut" path="res://addons/retrograde/scenes/control/area_2d_attack.tscn" id="3_o72m3"]
+
+[node name="Enemy4" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(-1, 1)
+collision_layer = 1048576
+script = ExtResource("1_c77l7")
+
+[node name="Enemy1Animations" parent="." instance=ExtResource("2_2iejt")]
+unique_name_in_owner = true
+position = Vector2(-6, -38)
+scale = Vector2(4, 4)
+frame_progress = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+unique_name_in_owner = true
+polygon = PackedVector2Array(-69, 29, -39, 13, -9, -19, 27, -33, 51, -34, 63, 7, 47, 14, 8, 28, -69, 39)
+
+[node name="Area2DDamage" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4194304
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2DDamage"]
+polygon = PackedVector2Array(-73.02199, 26.53629, -41.021984, 10.536289, -11.021983, -22.46371, 25.978016, -36.463715, 53.97802, -38.463715, 68.97802, 7.536289, 51.978012, 16.53629, 10.978016, 31.53629, -72.02199, 42.53629)
+
+[node name="Area2DAttack" parent="." instance=ExtResource("3_o72m3")]
+unique_name_in_owner = true
+position = Vector2(6, 6)
+collision_layer = 4194304
+collision_mask = 8388608
+damage = 10.0
+independent = true
+groups = Array[StringName]([&"command_tower"])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2DAttack"]
+position = Vector2(-6, -6)
+polygon = PackedVector2Array(-73.02199, 26.53629, -41.021984, 10.536289, -11.021983, -22.46371, 25.978016, -36.463715, 53.97802, -38.463715, 68.97802, 7.536289, 51.978012, 16.53629, 10.978016, 31.53629, -72.02199, 42.53629)
