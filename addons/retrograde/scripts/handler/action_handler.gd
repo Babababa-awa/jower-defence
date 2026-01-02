@@ -97,8 +97,11 @@ func is_pressed(action_: StringName, has_: bool = false) -> bool:
 
 	if not unit.is_in_group(&"input"):
 		return false
-
-	return Input.is_action_pressed(action_)
+	
+	if Core.inputs.has_action(action_):
+		return Input.is_action_pressed(action_)
+		
+	return false
 
 func get_axis(negative_action_: StringName, positive_action_: StringName, has_: bool = false) -> float:
 	if not has_:

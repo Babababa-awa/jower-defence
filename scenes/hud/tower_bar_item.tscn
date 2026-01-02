@@ -11,12 +11,12 @@
 atlas = ExtResource("2_qugqw")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4yujx"]
-atlas = ExtResource("3_cq746")
-region = Rect2(0, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_f44b5"]
 atlas = ExtResource("4_er51y")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yujx"]
+atlas = ExtResource("3_cq746")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mtmns"]
@@ -31,18 +31,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4yujx")
+"texture": SubResource("AtlasTexture_f44b5")
 }],
 "loop": true,
-"name": &"pippa",
+"name": &"nitya",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f44b5")
+"texture": SubResource("AtlasTexture_4yujx")
 }],
 "loop": true,
-"name": &"shiina",
+"name": &"pippa",
 "speed": 5.0
 }]
 
@@ -56,7 +56,7 @@ script = ExtResource("1_2crvk")
 unique_name_in_owner = true
 position = Vector2(48, 48)
 sprite_frames = SubResource("SpriteFrames_mtmns")
-animation = &"shiina"
+animation = &"nitya"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

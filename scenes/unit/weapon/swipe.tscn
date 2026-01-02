@@ -64,6 +64,7 @@ shape = SubResource("RectangleShape2D_b78ib")
 
 [node name="AnimatedSprite2DTailSlash" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+modulate = Color(0.4, 0.5764706, 0.11764706, 1)
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_vt6fv")
 
@@ -76,6 +77,7 @@ polygon = PackedVector2Array(-67.58446, 36.70586, -60.58446, 8.70586, -39.58446,
 
 [node name="AnimatedSprite2DBatSlash" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+modulate = Color(0.64705884, 0.4509804, 0.1764706, 1)
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_t6kl0")
 
@@ -88,6 +90,7 @@ polygon = PackedVector2Array(-124.25252, 72.89073, -115.25252, 24.890736, -84.25
 
 [node name="AnimatedSprite2DLargeBatSlash" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+modulate = Color(0.7254902, 0.7254902, 0.87058824, 1)
 position = Vector2(0, -160)
 sprite_frames = SubResource("SpriteFrames_mm6gr")
 

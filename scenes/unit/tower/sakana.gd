@@ -4,7 +4,7 @@ func _init() -> void:
 	super._init(&"sakana")
 
 	health.max_health = 1000
-	life.lose_on_kill = true
+	#life.lose_on_kill = true
 
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)

@@ -7,8 +7,10 @@ var swipe_cooldown_delta: float = 0.75
 
 var tail_delta: float = 1.75
 var tail_delta_fast: float = 1.25
+
 var bat_delta: float = 1.75
 var bat_delta_fast: float = 1.25
+
 var large_bat_delta: float = 1.75
 var large_bat_delta_fast: float = 1.25
 
@@ -173,7 +175,7 @@ func _physics_process(delta_: float) -> void:
 			%Area2DAttackBatSlash.monitorable = false
 			%Area2DAttackBatSlash.monitoring = false
 		elif _current_attack.meta.weapon_attack_alias == &"large_bat":
-			%AnimatedSprite2DTailSlash.visible = false
+			%AnimatedSprite2DLargeBatSlash.visible = false
 			%Area2DAttackLargeBatSlash.monitorable = false
 			%Area2DAttackLargeBatSlash.monitoring = false
 			
@@ -183,19 +185,19 @@ func _physics_process(delta_: float) -> void:
 		
 		var modulate_alpha_: float = 1.0
 		if _swipe_cooldown.current_delta > _swipe_cooldown.delta / 2:
-			modulate_alpha_ = lerpf(1.0, 0, (progress_ - 0.5) / 0.5)
+			modulate_alpha_ = lerpf(1.0, 0, (progress_ - 0.75) / 0.25)
 
 		if _current_attack.meta.weapon_attack_alias == &"tail":
 			%AnimatedSprite2DTailSlash.scale = Vector2(0.05, 0.05).lerp(Vector2(1, 1), progress_)
-			%AnimatedSprite2DTailSlash.position = Vector2.ZERO.lerp(_current_target_position * 224, progress_)
+			%AnimatedSprite2DTailSlash.position = Vector2.ZERO.lerp(_current_target_position * 320, progress_)
 			%AnimatedSprite2DTailSlash.modulate.a = modulate_alpha_
 		elif _current_attack.meta.weapon_attack_alias == &"bat":
 			%AnimatedSprite2DBatSlash.scale = Vector2(0.05, 0.05).lerp(Vector2(1, 1), progress_)
-			%AnimatedSprite2DBatSlash.position = Vector2.ZERO.lerp(_current_target_position * 224, progress_)
+			%AnimatedSprite2DBatSlash.position = Vector2.ZERO.lerp(_current_target_position * 288, progress_)
 			%AnimatedSprite2DBatSlash.modulate.a = modulate_alpha_
 		elif _current_attack.meta.weapon_attack_alias == &"large_bat":
 			%AnimatedSprite2DLargeBatSlash.scale = Vector2(0.05, 0.05).lerp(Vector2(1, 1), progress_)
-			%AnimatedSprite2DLargeBatSlash.position = Vector2.ZERO.lerp(_current_target_position * 224, progress_)
+			%AnimatedSprite2DLargeBatSlash.position = Vector2.ZERO.lerp(_current_target_position * 256, progress_)
 			%AnimatedSprite2DLargeBatSlash.modulate.a = modulate_alpha_
 		
 	

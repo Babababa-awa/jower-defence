@@ -4,7 +4,10 @@ var target_set: bool = false
 
 var has_bat: bool = false
 var has_large_bat: bool = false
-var equiped_weapon: StringName = &"tail"
+var equiped_weapon: StringName = &"tail":
+	set(value):
+		equiped_weapon = value
+		_update_target_cone()
 
 func _init() -> void:
 	super._init(&"nitya")
@@ -55,7 +58,18 @@ func _process(delta_: float) -> void:
 	
 	if target_set:
 		%Weapon.attack_from_alias(equiped_weapon)
-		
+
+func _update_target_cone() -> void:
+	if equiped_weapon == &"tail":
+		%TargetCone2D.radius = 352
+		%TargetCone2D.angle_degrees = 22.5
+	elif equiped_weapon == &"bat":
+		%TargetCone2D.radius = 352
+		%TargetCone2D.angle_degrees = 60.0
+	elif equiped_weapon == &"large_bat":
+		%TargetCone2D.radius = 408
+		%TargetCone2D.angle_degrees = 135.0
+
 func set_weapon_target(points_: PackedVector2Array) -> void:
 	target_set = true
 	

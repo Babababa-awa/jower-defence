@@ -22,6 +22,7 @@ unique_name_in_owner = true
 shot_length = 72.0
 beam_speed = 2000.0
 beam_width = 12.0
+color = Color(0.3882353, 0.60784316, 1, 1)
 
 [node name="Laser2DBeam" parent="." instance=ExtResource("2_ovepf")]
 unique_name_in_owner = true

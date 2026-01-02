@@ -8,6 +8,14 @@ var mouse_action_delta: float = 0.0
 
 signal tower_command_changed(tower_: TowerDefenceTowerUnit)
 
+func reset(reset_type_: Core.ResetType) -> void:
+	super.reset(reset_type_)
+	
+	if (reset_type_ == Core.ResetType.START or
+		reset_type_ == Core.ResetType.RESTART
+	):
+		mouse_action = &""
+
 func _ready() -> void:
 	day_night_cycle = %DayNightCycle
 	day_night_cycle.pause_time = true
@@ -22,7 +30,6 @@ func _process(delta_: float) -> void:
 	
 	if mouse_action_delta < mouse_action_delay:
 		mouse_action_delta += delta_
-
 
 func _input(event_: InputEvent) -> void:
 	super._input(event_)

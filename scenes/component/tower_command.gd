@@ -423,7 +423,7 @@ func _on_tower_command_button_tail_pressed() -> void:
 		%Menu.show()
 	else:
 		tower.equiped_weapon = &"tail"
-		_show_laser_upgrades() # Rrefresh
+		_show_swipe_upgrades() # Rrefresh
 
 
 func _on_tower_command_button_bat_pressed() -> void:

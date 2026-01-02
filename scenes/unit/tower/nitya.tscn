@@ -27,6 +27,7 @@ visible = false
 [node name="TargetCone2D" parent="." instance=ExtResource("4_gaj65")]
 unique_name_in_owner = true
 start_point = Vector2(0, 0)
+radius = 320.0
 
 [node name="NityaAnimations" parent="." instance=ExtResource("3_7ejsc")]
 unique_name_in_owner = true
