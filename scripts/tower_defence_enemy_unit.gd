@@ -25,6 +25,9 @@ var _poison_cooldown: CooldownTimer
 var damage_cooldown_delta: float = 0.25
 var _damage_cooldown: CooldownTimer
 
+var _current_direction: float = -1.0
+var _direction_distance: float = 0.0
+
 func _init(alias_: StringName) -> void:
 	super._init(alias_)
 	
@@ -97,6 +100,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 	):
 		progress = 0.0
 		unit_mode = Core.UnitMode.NORMAL
+		_direction_distance = 0.0
 		
 		is_slowed = false
 		is_stunned = false
@@ -192,16 +196,43 @@ func _physics_process(delta_: float) -> void:
 		progress += movement_speed * delta_
 
 	progress = min(progress, path.curve.get_baked_length())
-	var position_: Vector2 = path.curve.sample_baked(progress, true)
-	global_position = path.to_global(position_)
+	var position_: Vector2 = path.to_global(path.curve.sample_baked(progress, true))
+	if position_.x > global_position.x:
+		if _current_direction != 1.0:
+			_current_direction = 1.0
+			_direction_distance = (position_.x - global_position.x)
+		else:
+			_direction_distance += (position_.x - global_position.x)
+		
+		if _direction_distance > 1:
+			scale.x = 1.0
+	elif position_.x < global_position.x:
+		if _current_direction != -1.0:
+			_current_direction = -1.0
+			_direction_distance = (global_position.x - position_.x)
+		else:
+			_direction_distance += (global_position.x - position_.x)
+		
+		if _direction_distance > 1:
+			scale.x = -1.0
+
+	global_position = position_
 	
 	if progress == path.curve.get_baked_length():
 		path = null
 		Core.nodes.free_node(self)
 	
 func set_path(path_: Path2D) -> void:
-	if path_ == null or path_.curve == null or path_.curve.get_baked_length() == 0:
+	if path_ == null or path_.curve == null or path_.curve.get_baked_length() <= 2:
 		path = null
+		return
+	
+	path = path_
+	position = path_.curve.get_baked_points()[0]
+	if path_.curve.get_baked_points()[1].x < position.x:
+		scale.x = -1.0
 	else:
-		path = path_
-		position = path_.curve.get_baked_points()[0]
+		scale.x = 1.0
+		
+	_current_direction = scale.x
+	
