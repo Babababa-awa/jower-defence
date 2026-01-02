@@ -1,9 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb1jy3pa1b4tk"]
+[gd_scene load_steps=13 format=3 uid="uid://cb1jy3pa1b4tk"]
 
 [ext_resource type="Script" uid="uid://dmmrrihhi1hyo" path="res://scenes/component/laser_2d.gd" id="1_r87jj"]
+[ext_resource type="Texture2D" uid="uid://o2wk0vf5e21s" path="res://assets/effects/glowing_circle.png" id="2_k38ei"]
+
+[sub_resource type="Gradient" id="Gradient_u4xub"]
+offsets = PackedFloat32Array(0, 0.719557, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4t126"]
+gradient = SubResource("Gradient_u4xub")
+
+[sub_resource type="Curve" id="Curve_pb64p"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503614, 0.957505), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="7"]
+curve = SubResource("Curve_pb64p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8s2df"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(680, 20, 1)
+direction = Vector3(-1, 0, 0)
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+scale_min = 0.39999998
+scale_max = 0.39999998
+scale_curve = SubResource("7")
+color_ramp = SubResource("GradientTexture1D_4t126")
+
+[sub_resource type="Gradient" id="Gradient_0ve4k"]
+offsets = PackedFloat32Array(0.582915, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("Gradient_0ve4k")
+
+[sub_resource type="Curve" id="Curve_6yqa8"]
+_data = [Vector2(0.518072, 1), 0.0, -3.53434, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="4"]
+width = 2048
+curve = SubResource("Curve_6yqa8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xtxcr"]
+particle_flag_disable_z = true
+spread = 50.0
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("4")
+color_ramp = SubResource("2")
 
 [node name="Laser2D" type="Node2D"]
 script = ExtResource("1_r87jj")
+particles_color = null
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true
@@ -20,3 +75,22 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 sharp_limit = 8.0
+
+[node name="GPUParticles2DLaser" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 75
+texture = ExtResource("2_k38ei")
+preprocess = 1.0
+randomness = 1.0
+visibility_rect = Rect2(-2500, -2500, 5000, 5000)
+process_material = SubResource("ParticleProcessMaterial_8s2df")
+
+[node name="GPUParticles2DCollision" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 16
+texture = ExtResource("2_k38ei")
+lifetime = 0.3
+visibility_rect = Rect2(-2500, -2500, 5000, 5000)
+process_material = SubResource("ParticleProcessMaterial_xtxcr")

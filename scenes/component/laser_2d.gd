@@ -14,6 +14,17 @@ class_name Laser2D
 		color = value
 		if get_node_or_null("%Line2D") != null:
 			%Line2D.modulate = value
+			
+@export var particles_color: Color = Color.WHITE:
+	set(value):
+		particles_color = value
+		
+		if get_node_or_null("%GPUParticles2DCollision") != null:
+			%GPUParticles2DCollision.modulate = value
+			
+		if get_node_or_null("%GPUParticles2DLaser") != null:
+			%GPUParticles2DLaser.modulate = value
+			
 
 var _collision_accuracy: float = 8.0
 var _current_position: Vector2 = Vector2.ZERO
@@ -40,6 +51,8 @@ func _ready() -> void:
 	%Line2D.visible = false
 
 	%Line2D.modulate = color
+	%GPUParticles2DCollision.modulate = particles_color
+	%GPUParticles2DLaser.modulate = particles_color
 	
 	if is_on:
 		start()
@@ -63,6 +76,13 @@ func _physics_process(delta: float) -> void:
 		end_position_ = _end_position
 		_is_colliding = true
 	
+	if _is_colliding or shot_length > 0:
+		%GPUParticles2DCollision.position = end_position_ + Vector2(beam_width / 2, 0)
+		%GPUParticles2DCollision.rotation_degrees = 180
+		%GPUParticles2DCollision.emitting = true
+	else:
+		%GPUParticles2DCollision.emitting = false
+	
 	%Line2D.points[1] = end_position_
 		
 	if shot_length > 0:
@@ -73,7 +93,10 @@ func _physics_process(delta: float) -> void:
 
 		if %Line2D.points[0].x == %Line2D.points[1].x:
 			stop()
-			
+	else:
+		%GPUParticles2DLaser.position = Vector2(start_offset, 0) + ((end_position_ - %Line2D.points[0]) / 2)
+		%GPUParticles2DLaser.process_material.emission_box_extents.x = end_position_.distance_to(%Line2D.points[0]) / 2
+
 func get_end_position() -> Vector2:
 	var x_: float = 0
 	
@@ -119,6 +142,11 @@ func start() -> void:
 	_current_position = Vector2.ZERO
 	
 	set_physics_process(true)
+	
+	if shot_length == 0.0:
+		%GPUParticles2DLaser.emitting = true
+		%GPUParticles2DLaser.position = Vector2(start_offset, 0)
+		%GPUParticles2DLaser.process_material.emission_box_extents.x = 0.0
 
 	%Line2D.points[0] = Vector2(start_offset, 0)
 	%Line2D.points[1] = Vector2(start_offset, 0)
@@ -130,7 +158,8 @@ func stop() -> void:
 	
 	set_physics_process(false)
 	
-	#%ShapeCast2D.target_position = Vector2.ZERO
+	%GPUParticles2DLaser.emitting = false
+	%GPUParticles2DCollision.emitting = false
 	
 	_hide_laser()
 

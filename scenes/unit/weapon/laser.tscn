@@ -19,14 +19,17 @@ shape = SubResource("RectangleShape2D_st3aa")
 
 [node name="Laser2DShot" parent="." instance=ExtResource("2_ovepf")]
 unique_name_in_owner = true
-shot_length = 72.0
-beam_speed = 2000.0
+shot_length = 92.0
+beam_speed = 1500.0
 beam_width = 12.0
 color = Color(0.3882353, 0.60784316, 1, 1)
+particles_color = Color(0.9411765, 0.9137255, 0.35686275, 1)
 
 [node name="Laser2DBeam" parent="." instance=ExtResource("2_ovepf")]
 unique_name_in_owner = true
 beam_speed = 4000.0
+color = Color(0.3882353, 0.60784316, 1, 1)
+particles_color = Color(0.9411765, 0.9137255, 0.35686275, 1)
 
 [node name="Area2DAttack" parent="." instance=ExtResource("3_nvlsd")]
 unique_name_in_owner = true
