@@ -339,6 +339,7 @@ func _on_tower_command_button_semi_automatic_pressed() -> void:
 			_show_gun_upgrades() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonSemiAutomatic.price:
 		tower.has_semi_automatic = true
+		tower.equiped_weapon = &"semi_automatic"
 		Core.level.remove_money(%TowerCommandButtonSemiAutomatic.price)
 		_show_gun_upgrades() # Rrefresh
 	else:
@@ -358,6 +359,7 @@ func _on_tower_command_button_machine_gun_pressed() -> void:
 			_show_gun_upgrades() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonMachineGun.price:
 		tower.has_machine_gun = true
+		tower.equiped_weapon = &"machine_gun"
 		Core.level.remove_money(%TowerCommandButtonMachineGun.price)
 		_show_gun_upgrades() # Rrefresh
 	else:
@@ -388,6 +390,7 @@ func _on_tower_command_button_beam_pressed() -> void:
 			_show_laser_upgrades() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonLaserBeam.price:
 		tower.has_laser_beam = true
+		tower.equiped_weapon = &"laser_beam"
 		Core.level.remove_money(%TowerCommandButtonLaserBeam.price)
 		_show_laser_upgrades() # Rrefresh
 	else:
@@ -407,6 +410,7 @@ func _on_tower_command_button_jorb_pressed() -> void:
 			_show_laser_upgrades() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonJorb.price:
 		tower.has_jorb = true
+		tower.equiped_weapon = &"jorb"
 		Core.level.remove_money(%TowerCommandButtonJorb.price)
 		_show_laser_upgrades() # Rrefresh
 	else:
@@ -439,6 +443,7 @@ func _on_tower_command_button_bat_pressed() -> void:
 			_show_swipe_upgrades() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonBat.price:
 		tower.has_bat = true
+		tower.equiped_weapon = &"bat"
 		Core.level.remove_money(%TowerCommandButtonBat.price)
 		_show_swipe_upgrades() # Rrefresh
 	else:
@@ -459,6 +464,7 @@ func _on_tower_command_button_large_bat_pressed() -> void:
 			_show_swipe_upgrades() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonLargeBat.price:
 		tower.has_large_bat = true
+		tower.equiped_weapon = &"large_bat"
 		Core.level.remove_money(%TowerCommandButtonLargeBat.price)
 		_show_swipe_upgrades() # Rrefresh
 	else:
@@ -478,6 +484,7 @@ func _on_tower_command_button_weapon_speed_pressed() -> void:
 			_show_weapon_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonWeaponSpeed.price:
 		tower.has_weapon_modifier_speed = true
+		tower.equiped_weapon_modifier = Core.WeaponModifier.SPEED
 		Core.level.remove_money(%TowerCommandButtonWeaponSpeed.price)
 		_show_weapon_modifiers() # Rrefresh
 	else:
@@ -497,6 +504,7 @@ func _on_tower_command_button_weapon_spread_pressed() -> void:
 			_show_weapon_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonWeaponSpread.price:
 		tower.has_weapon_modifier_spread = true
+		tower.equiped_weapon_modifier = Core.WeaponModifier.SPREAD
 		Core.level.remove_money(%TowerCommandButtonWeaponSpread.price)
 		_show_weapon_modifiers() # Rrefresh
 	else:
@@ -516,6 +524,7 @@ func _on_tower_command_button_weapon_cluster_pressed() -> void:
 			_show_weapon_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonWeaponCluster.price:
 		tower.has_weapon_modifier_cluster = true
+		tower.equiped_weapon_modifier = Core.WeaponModifier.CLUSTER
 		Core.level.remove_money(%TowerCommandButtonWeaponCluster.price)
 		_show_weapon_modifiers() # Rrefresh
 	else:
@@ -535,6 +544,7 @@ func _on_tower_command_button_attack_slow_pressed() -> void:
 			_show_attack_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonAttackSlow.price:
 		tower.has_attack_modifier_slow = true
+		tower.equiped_attack_modifier = Core.AttackModifier.SLOW
 		Core.level.remove_money(%TowerCommandButtonAttackSlow.price)
 		_show_attack_modifiers() # Rrefresh
 	else:
@@ -554,6 +564,7 @@ func _on_tower_command_button_attack_stun_pressed() -> void:
 			_show_attack_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonAttackStun.price:
 		tower.has_attack_modifier_stun = true
+		tower.equiped_attack_modifier = Core.AttackModifier.STUN
 		Core.level.remove_money(%TowerCommandButtonAttackStun.price)
 		_show_attack_modifiers() # Rrefresh
 	else:
@@ -573,6 +584,7 @@ func _on_tower_command_button_attack_poison_pressed() -> void:
 			_show_attack_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonAttackPoison.price:
 		tower.has_attack_modifier_poison = true
+		tower.equiped_attack_modifier = Core.AttackModifier.POISON
 		Core.level.remove_money(%TowerCommandButtonAttackPoison.price)
 		_show_attack_modifiers() # Rrefresh
 	else:
@@ -592,6 +604,7 @@ func _on_tower_command_button_damage_heavy_pressed() -> void:
 			_show_damage_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonDamageHeavy.price:
 		tower.has_damage_modifier_heavy = true
+		tower.equiped_damage_modifier = Core.DamageModifier.HEAVY
 		Core.level.remove_money(%TowerCommandButtonDamageHeavy.price)
 		_show_damage_modifiers() # Rrefresh
 	else:
@@ -611,6 +624,7 @@ func _on_tower_command_button_damage_piercing_pressed() -> void:
 			_show_damage_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonDamagePiercing.price:
 		tower.has_damage_modifier_piercing = true
+		tower.equiped_damage_modifier = Core.DamageModifier.PIERCING
 		Core.level.remove_money(%TowerCommandButtonDamagePiercing.price)
 		_show_damage_modifiers() # Rrefresh
 	else:
@@ -630,6 +644,7 @@ func _on_tower_command_button_damage_explosive_pressed() -> void:
 			_show_damage_modifiers() # Rrefresh
 	elif Core.level.current_money >= %TowerCommandButtonDamageExplosive.price:
 		tower.has_damage_modifier_explosive = true
+		tower.equiped_damage_modifier = Core.DamageModifier.EXPLOSIVE
 		Core.level.remove_money(%TowerCommandButtonDamageExplosive.price)
 		_show_damage_modifiers() # Rrefresh
 	else:

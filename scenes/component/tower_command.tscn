@@ -199,6 +199,7 @@ autoplay = "default"
 
 [node name="AnimatedSprite2DDamageModifier" type="AnimatedSprite2D" parent="Menu"]
 unique_name_in_owner = true
+visible = false
 material = SubResource("CanvasItemMaterial_vi7dh")
 position = Vector2(-72, 64)
 sprite_frames = SubResource("SpriteFrames_hgl8g")
@@ -231,6 +232,7 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_n3e8h")
 
 [node name="Area2DDamageModifier" type="Area2D" parent="Menu"]
+visible = false
 position = Vector2(-72, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2DDamageModifier"]
@@ -255,12 +257,12 @@ label = "Pistol"
 [node name="TowerCommandButtonSemiAutomatic" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
 price = 100
-label = "Semi Automatic"
+label = "Rifle"
 
 [node name="TowerCommandButtonMachineGun" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
 price = 200
-label = "Machine Gun"
+label = "Minigun"
 
 [node name="LaserUpgrades" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
