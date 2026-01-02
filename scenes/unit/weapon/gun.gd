@@ -128,6 +128,26 @@ func shoot_gun() -> void:
 	node.attack_modifier = attack_modifier
 	node.damage_modifier = damage_modifier
 	
+	var vfx = VFX.play("muzzle_flash", self)
+	vfx.flip_h = (fmod(node.direction, 360) > 180 or fmod(node.direction, 360) < 0)
+	vfx.z_index = z_index + 1
+	
+	if _current_attack.meta.weapon_attack_alias == &"pistol":
+		if vfx.is_flipped_h():
+			vfx.offset = Vector2(-8, -8)
+		else:
+			vfx.offset = Vector2(8, -8)
+	elif _current_attack.meta.weapon_attack_alias == &"semi_automatic":
+		if vfx.is_flipped_h():
+			vfx.offset = Vector2(-16, -8)
+		else:
+			vfx.offset = Vector2(16, -8)
+	elif _current_attack.meta.weapon_attack_alias == &"machine_gun":
+		if vfx.is_flipped_h():
+			vfx.offset = Vector2(-16, 2)
+		else:
+			vfx.offset = Vector2(16, 2)
+			
 	bullet_after.emit(self, _current_attack)
 
 func _process(delta_: float) -> void:
