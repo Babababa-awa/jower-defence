@@ -11,17 +11,19 @@ var is_slowed: bool = false
 var is_stunned: bool = false
 var is_poisoned: bool = false
 
-
-var slow_cooldown_duration_delta: float = 2000
-var slow_cooldown_delta: float = 5000
+var slow_cooldown_duration_delta: float = 5.0
+var slow_cooldown_delta: float = 8.0
 var _slow_cooldown: CooldownTimer
 
-var stun_cooldown_duration_delta: float = 2000
-var stun_cooldown_delta: float = 5000
+var stun_cooldown_duration_delta: float = 2.5
+var stun_cooldown_delta: float = 8.0
 var _stun_cooldown: CooldownTimer
 
-var poison_cooldown_delta: float = 2000
+var poison_cooldown_delta: float = 2.0
 var _poison_cooldown: CooldownTimer
+
+var damage_cooldown_delta: float = 0.25
+var _damage_cooldown: CooldownTimer
 
 func _init(alias_: StringName) -> void:
 	super._init(alias_)
@@ -60,7 +62,7 @@ func _on_damage_before(reason_: StringName, damage_value_: DamageValue) -> void:
 				damage_value_.damage /= 1.5
 
 func _on_damage_after(reason_: StringName, damage_value_: DamageValue) -> void:
-	if damage_value_.meta.has(&"attack_modifer"):
+	if damage_value_.meta.has(&"attack_modifier"):
 		if damage_value_.meta.attack_modifier == Core.AttackModifier.SLOW:
 			if unit_settings.attack_slow and _slow_cooldown.start():
 				is_slowed = true
@@ -70,6 +72,8 @@ func _on_damage_after(reason_: StringName, damage_value_: DamageValue) -> void:
 		elif damage_value_.meta.attack_modifier == Core.AttackModifier.POISON:
 			if unit_settings.attack_poison and _poison_cooldown.start():
 				is_poisoned = true
+				
+	_damage_cooldown.start()
 
 func _on_kill_after(reason_: StringName) -> void:
 	path = null
@@ -102,20 +106,25 @@ func reset(reset_type_: Core.ResetType) -> void:
 			_slow_cooldown = CooldownTimer.new(slow_cooldown_delta)
 			_slow_cooldown.add_step(&"duration", slow_cooldown_duration_delta)
 			
-			_stun_cooldown = CooldownTimer.new(slow_cooldown_delta)
-			_stun_cooldown.add_step(&"duration", slow_cooldown_duration_delta)
+			_stun_cooldown = CooldownTimer.new(stun_cooldown_delta)
+			_stun_cooldown.add_step(&"duration", stun_cooldown_duration_delta)
 			
 			_poison_cooldown = CooldownTimer.new(poison_cooldown_delta)
+			
+			_damage_cooldown = CooldownTimer.new(damage_cooldown_delta)
 		else:
 			_slow_cooldown.reset()
 			_stun_cooldown.reset()
 			_poison_cooldown.reset()
+			_damage_cooldown.reset()
 		
 		%Area2DDamage.monitoring = true
 		%Area2DDamage.monitorable = true
 		%Area2DAttack.monitoring = true
 		%Area2DAttack.monitorable = true
 		%CollisionPolygon2D.disabled = false
+		
+		modulate = Color.WHITE
 	elif reset_type_ == Core.ResetType.STOP:
 		path = null
 
@@ -131,6 +140,7 @@ func _process(delta_: float) -> void:
 	_slow_cooldown.process(delta_)
 	_stun_cooldown.process(delta_)
 	_poison_cooldown.process(delta_)
+	_damage_cooldown.process(delta_)
 	
 	if _slow_cooldown.is_on_step(&"duration"):
 		is_slowed = false
@@ -144,7 +154,25 @@ func _process(delta_: float) -> void:
 		
 	if _poison_cooldown.is_complete:
 		health.damage(unit_settings.poison_damage, true)
+		_poison_cooldown.stop()
 		_poison_cooldown.start()
+		
+	if _damage_cooldown.is_complete:
+		_damage_cooldown.stop()
+	
+	if _damage_cooldown.is_active:
+		var progress_: float = 1.0 - ((_damage_cooldown.delta - _damage_cooldown.current_delta) / _damage_cooldown.delta)
+		modulate.r = 1.0
+		modulate.g = lerpf(0.5, 1.0, progress_)
+		modulate.b = lerpf(0.5, 1.0, progress_)
+	elif is_poisoned:
+		var progress_: float = 1.0 - ((_poison_cooldown.delta - _poison_cooldown.current_delta) / _poison_cooldown.delta)
+		modulate.r = lerpf(0.25, 1.0, progress_)
+		modulate.g = 1.0
+		modulate.b = lerpf(0.25, 1.0, progress_)
+	else:
+		modulate = Color.WHITE
+		
 		
 func _physics_process(delta_: float) -> void:
 	super._physics_process(delta_)

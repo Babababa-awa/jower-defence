@@ -70,6 +70,10 @@ sprite_frames = SubResource("SpriteFrames_vt6fv")
 
 [node name="Area2DAttackTailSlash" parent="AnimatedSprite2DTailSlash" instance=ExtResource("3_q8ofk")]
 unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 70.0
+independent = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DTailSlash/Area2DAttackTailSlash"]
 position = Vector2(2.5844595, -4.705861)
@@ -83,6 +87,10 @@ sprite_frames = SubResource("SpriteFrames_t6kl0")
 
 [node name="Area2DAttackBatSlash" parent="AnimatedSprite2DBatSlash" instance=ExtResource("3_q8ofk")]
 unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 70.0
+independent = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DBatSlash/Area2DAttackBatSlash"]
 position = Vector2(-4.7474837, -8.890735)
@@ -96,6 +104,10 @@ sprite_frames = SubResource("SpriteFrames_mm6gr")
 
 [node name="Area2DAttackLargeBatSlash" parent="AnimatedSprite2DLargeBatSlash" instance=ExtResource("3_q8ofk")]
 unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 70.0
+independent = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DLargeBatSlash/Area2DAttackLargeBatSlash"]
 position = Vector2(5.4695, -22.367338)
