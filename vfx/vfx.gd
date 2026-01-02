@@ -41,8 +41,9 @@ static func gen_effects_table() -> Dictionary:
 static func acquire(at:Node2D, offset: Vector2=Vector2.ZERO) -> VFXSprite:
 	var vs: VFXSprite = pool.next(at)
 	assert(vs)
-	assert(at and is_instance_valid(at))
-	Core.level.add_child(vs)
+	assert(at and is_instance_valid(at)) 
+	if not vs.is_inside_tree():
+		Core.level.add_child(vs)
 	vs.global_position = at.global_position + offset
 	return vs
 
