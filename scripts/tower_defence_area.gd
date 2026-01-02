@@ -6,9 +6,9 @@ var active_tower: TowerDefenceTowerUnit = null
 var tower_coords: Array[Vector2i] = []
 
 func _ready() -> void:
-	var spawner_: Node2D = get_node_or_null("%Spawner")
-	if spawner_.has_signal(&"spawn"):
-		spawner_.connect(&"spawn", _on_spawn)
+	for child_: Node2D in get_children():
+		if child_ is EnemySpawner:
+			child_.connect(&"spawn", _on_spawn)
 
 func _process(delta_: float) -> void:
 	super._process(delta_)
@@ -38,13 +38,11 @@ func _input(event: InputEvent) -> void:
 			active_tower = null
 			Core.game.clear_mouse_action(&"place_tower", true)
 
-func _on_spawn(unit_: Node2D) -> void:
+func _on_spawn(spawner_: Node2D, unit_: Node2D) -> void:
 	if unit_ is TowerDefenceEnemyUnit:
-		unit_.set_path(_get_path())
+		unit_.set_path(_get_path(spawner_.paths))
 	
-func _get_path() -> Path2D:
-	var paths_: Node = get_node_or_null("%Paths")
-	
+func _get_path(paths_: Node2D) -> Path2D:
 	if paths_ == null or paths_.get_child_count() == 0:
 		return null
 	

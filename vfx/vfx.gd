@@ -42,7 +42,7 @@ static func acquire(at:Node2D, offset: Vector2=Vector2.ZERO) -> VFXSprite:
 	var vs: VFXSprite = pool.next(at)
 	assert(vs)
 	assert(at and is_instance_valid(at))
-	Core.game.add_level_child(vs)
+	Core.level.add_child(vs)
 	vs.global_position = at.global_position + offset
 	return vs
 
@@ -58,7 +58,6 @@ static func play(id: StringName, at:Node2D, offset: Vector2=Vector2.ZERO) -> VFX
 	var vs:VFXSprite = acquire(at, offset)
 	vs.play(get_animation(id))
 	return vs
-
 
 func play_looping(id: StringName, at:Node2D, offset: Vector2=Vector2.ZERO) -> VFXSprite:
 	var vs:VFXSprite = acquire(at, offset)

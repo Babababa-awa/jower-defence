@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqkprjk4po4sh"]
 
-[ext_resource type="Script" uid="uid://bxviviyat6bn8" path="res://scenes/unit/enemy/spawner.gd" id="1_bci6p"]
+[ext_resource type="Script" uid="uid://bxviviyat6bn8" path="res://scenes/unit/enemy/enemy_spawner.gd" id="1_bci6p"]
 [ext_resource type="Texture2D" uid="uid://bgtrdylo03cvh" path="res://assets/unit/enemy/spawner.png" id="2_46f6e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxi1a"]
@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7akjt"]
 size = Vector2(128, 128)
 
-[node name="Spawner" type="CharacterBody2D"]
+[node name="EnemySpawner" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_bci6p")

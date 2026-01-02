@@ -1,10 +1,12 @@
 extends BaseUnit
+class_name EnemySpawner
 
 @export var enemies: Array[UnitSpawner] = []
+@export var paths: Node2D = null
 
 var current_delta: float = 0.0
 
-signal spawn(unit: Node2D)
+signal spawn(spawner: Node2D, unit: Node2D)
 
 func _init() -> void:
 	super._init(&"spawner", Core.UnitType.OBJECT)
@@ -36,4 +38,4 @@ func _physics_process(delta_: float) -> void:
 		enemy.process(delta_)
 
 func _on_spawn(unit_: Node2D) -> void:
-	spawn.emit(unit_)
+	spawn.emit(self, unit_)
