@@ -79,12 +79,6 @@ goto_ui_alias = &"settings"
 style = &"menu_large"
 text = "BUTTON_SETTINGS"
 
-[node name="UIButtonControls" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_a0qvn")]
-layout_mode = 2
-goto_ui_alias = &"controls"
-style = &"menu_large"
-text = "BUTTON_CONTROLS"
-
 [node name="UISeparatorButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_kqp2e")]
 layout_mode = 2
 style = &"button"
@@ -111,6 +105,7 @@ text = "BUTTON_CREDITS"
 
 [node name="UIButtonToggleLocale" parent="MarginContainer" instance=ExtResource("2_a0qvn")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

@@ -128,6 +128,9 @@ func get_play_time() -> int:
 		return Time.get_ticks_msec() - _start_time - round(_pause_delta)
 
 	return _stop_time - _start_time - round(_pause_delta)
+	
+func set_play_time(time_miliseconds_: int) -> void:
+	_stop_time = time_miliseconds_ + _start_time + round(_pause_delta)
 
 func change_player_area(
 	area_alias_: String, 

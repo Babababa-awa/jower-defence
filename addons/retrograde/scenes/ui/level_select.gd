@@ -11,7 +11,7 @@ func show_ui() -> void:
 	
 	_update_button_state()
 	
-	if Core.level != null and Core.level.level_mode == Core.LevelMode.GAME:		
+	if Core.level != null and Core.level.level_mode == Core.LevelMode.GAME:
 		%ColorRect.visible = true
 	else:
 		%ColorRect.visible = false

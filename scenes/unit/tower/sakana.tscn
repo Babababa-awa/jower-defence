@@ -16,6 +16,7 @@ collision_mask = 0
 script = ExtResource("1_yff8q")
 
 [node name="SakanaAnimations" parent="." instance=ExtResource("2_yff8q")]
+unique_name_in_owner = true
 position = Vector2(0, -32)
 scale = Vector2(4, 4)
 

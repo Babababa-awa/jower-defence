@@ -93,6 +93,7 @@ text = "BUTTON_BACK"
 
 [node name="UIButtonCustom" parent="MarginContainer" instance=ExtResource("3_8m16a")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

@@ -27,6 +27,8 @@ func _update() -> void:
 		var play_time_: int = roundi(float(Core.level.get_play_time()) / 1000)
 		var remaining_seconds_: int = survival_time_seconds - play_time_
 		
+		remaining_seconds_ = max(0, remaining_seconds_)
+		
 		var hours: int = floori(remaining_seconds_ / 3600.0)
 		var minutes: int = floori((remaining_seconds_ % 3600) / 60.0)
 		var seconds: int = remaining_seconds_ % 60
@@ -35,11 +37,15 @@ func _update() -> void:
 			%UILabel.text = "%d:%02d:%02d" % [hours, minutes, seconds]
 		else:
 			%UILabel.text = "%2d:%02d" % [minutes, seconds]
+			
+		if remaining_seconds_ == 0:
+			Core.game.is_win = true
 		
 	%UILabel.position = Vector2(
 		256 - %UILabel.size.x,
 		(64 - %UILabel.size.y) / 2
 	)
+	
 
 func _on_timer_timeout() -> void:
 	_update()

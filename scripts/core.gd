@@ -8,6 +8,7 @@ func _init() -> void:
 	ENABLE_MOUSE_CAPTURE = false
 	MOUSE_CURSOR_SIZE = 32
 
+	LOCALES = ["en"]
 	START_LEVEL = &"level_1"
 	MENU_LEVEL = &"menu"
 	ENABLE_GAME_DIFFICULTY = true

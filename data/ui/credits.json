@@ -2,15 +2,15 @@
 	"order": [
 		{
 			"alias": "programming",
-			"names": ["Nanoha Takamachi"]
+			"names": ["Babababa", "jcomcl"]
 		},
 		{
 			"alias": "graphics",
-			"names": ["Fate Testarossa"]
+			"names": ["Jody", "jcomcl"]
 		},
 		{
 			"alias": "music",
-			"names": ["Hayate Yagami"]
+			"names": ["jcomcl"]
 		}
 	]
 }

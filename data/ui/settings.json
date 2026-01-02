@@ -2,36 +2,17 @@
 	"enabled": [
 		"audio_master",
 		"audio_music",
-		"audio_music",
-		"audio_music",
-		"normal_mouse_speed",
-		"normal_joypad_speed"
+		"audio_sfx",
+		"audio_ambiance"
 	],
 	"layout": [
 		{
-			"alias": "audio",
+			"alias": "",
 			"items": [
 				"audio_master",
 				"audio_music",
 				"audio_sfx",
 				"audio_ambiance"
-			]
-		},
-		{
-			"alias": "mouse",
-			"items": [
-				"normal_mouse_speed",
-				"slow_mouse_speed",
-				"fast_mouse_speed"
-			]
-		},
-		{
-			"alias": "joypad",
-			"items": [
-				"normal_joypad_speed",
-				"slow_joypad_speed",
-				"fast_joypad_speed",
-				"joypad_vibrations"
 			]
 		}
 	],
