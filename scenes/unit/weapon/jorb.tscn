@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8iepl55t1nh8"]
+[gd_scene load_steps=16 format=3 uid="uid://b8iepl55t1nh8"]
 
 [ext_resource type="Script" uid="uid://c0l5u0g1iu405" path="res://scenes/unit/weapon/jorb.gd" id="1_2wqb4"]
 [ext_resource type="Texture2D" uid="uid://b3xjl77uc0qxe" path="res://assets/unit/weapon/orb.png" id="2_cbx04"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dioxva5eyrc4p" path="res://assets/unit/weapon/jorb.png" id="3_8b7g0"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/component/laser_2d.tscn" id="5_8b7g0"]
 [ext_resource type="PackedScene" uid="uid://cxx07r8g5gvut" path="res://addons/retrograde/scenes/control/area_2d_attack.tscn" id="6_75w4t"]
+[ext_resource type="Texture2D" uid="uid://du2u5hgwegj33" path="res://assets/unit/unit-shadow.png" id="7_3hp5j"]
+[ext_resource type="Script" path="res://assets/unit/shadow.gd" id="8_bmrti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r1otw"]
 radius = 16.0
@@ -44,7 +46,6 @@ shape = SubResource("CircleShape2D_r1otw")
 
 [node name="Jorb" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Area2DSolid" type="Area2D" parent="Jorb"]
 collision_mask = 0
@@ -111,6 +112,15 @@ unique_name_in_owner = true
 texture_repeat = 2
 material = SubResource("ShaderMaterial_so3ev")
 texture = ExtResource("2_cbx04")
+
+[node name="Shadow" type="Sprite2D" parent="Jorb/Sprite2D"]
+modulate = Color(1, 1, 1, 0.8)
+z_index = -1
+scale = Vector2(2, 2)
+texture = ExtResource("7_3hp5j")
+offset = Vector2(0, 9)
+hframes = 3
+script = ExtResource("8_bmrti")
 
 [node name="Path2D" type="Path2D" parent="."]
 unique_name_in_owner = true

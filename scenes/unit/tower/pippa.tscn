@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bowd0p0e6wi1w"]
+[gd_scene load_steps=10 format=3 uid="uid://bowd0p0e6wi1w"]
 
 [ext_resource type="Script" uid="uid://bc3kld2bfk0wa" path="res://scenes/unit/tower/pippa.gd" id="1_geld7"]
 [ext_resource type="PackedScene" uid="uid://0solwkljxwx2" path="res://scenes/unit/weapon/gun.tscn" id="2_em548"]
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_gcrmy"]
 [ext_resource type="PackedScene" uid="uid://451savacft1t" path="res://scenes/component/target_line_2d.tscn" id="4_wm0c7"]
 [ext_resource type="PackedScene" uid="uid://6cso0wlg3pc5" path="res://scenes/unit/tower/animations/pippa_animations.tscn" id="5_4e2sg"]
+[ext_resource type="Texture2D" uid="uid://du2u5hgwegj33" path="res://assets/unit/unit-shadow.png" id="6_4e2sg"]
+[ext_resource type="Script" path="res://assets/unit/shadow.gd" id="7_ao7jc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em548"]
 size = Vector2(128, 128)
@@ -32,6 +34,18 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(0, -32)
 scale = Vector2(4, 4)
+
+[node name="Shadow" type="Sprite2D" parent="PippaAnimations"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.8)
+z_index = -1
+texture = ExtResource("6_4e2sg")
+offset = Vector2(0, 9)
+hframes = 3
+frame = 2
+script = ExtResource("7_ao7jc")
+shadow_type = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_em548")

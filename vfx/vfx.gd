@@ -39,7 +39,7 @@ static func gen_effects_table() -> Dictionary:
 	return _effects
 
 static func acquire(at:Node2D, offset: Vector2=Vector2.ZERO) -> VFXSprite:
-	var vs: VFXSprite = pool.next(at)
+	var vs: VFXSprite = pool.next(null)
 	assert(vs)
 	assert(at and is_instance_valid(at)) 
 	if not vs.is_inside_tree():

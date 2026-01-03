@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bovrqpp2qrn77"]
+[gd_scene load_steps=11 format=3 uid="uid://bovrqpp2qrn77"]
 
 [ext_resource type="Script" uid="uid://o14ln5qcw4nj" path="res://scenes/unit/tower/jelly.gd" id="1_j81yg"]
 [ext_resource type="PackedScene" uid="uid://dh2dmg66au2sp" path="res://scenes/unit/weapon/laser.tscn" id="2_1gxid"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_pwv1u"]
 [ext_resource type="PackedScene" uid="uid://451savacft1t" path="res://scenes/component/target_line_2d.tscn" id="4_1gxid"]
 [ext_resource type="PackedScene" uid="uid://clemqshyiau6d" path="res://scenes/unit/tower/animations/jelly_animations.tscn" id="5_b4yga"]
+[ext_resource type="Texture2D" uid="uid://du2u5hgwegj33" path="res://assets/unit/unit-shadow.png" id="6_uxudi"]
+[ext_resource type="Script" path="res://assets/unit/shadow.gd" id="7_3jogj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em548"]
 size = Vector2(128, 128)
@@ -33,6 +35,18 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(0, -32)
 scale = Vector2(4, 4)
+
+[node name="Shadow" type="Sprite2D" parent="JellyAnimations"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.8)
+z_index = -1
+texture = ExtResource("6_uxudi")
+offset = Vector2(0, 9)
+hframes = 3
+frame = 2
+script = ExtResource("7_3jogj")
+shadow_type = 2
 
 [node name="Weapon2" parent="." instance=ExtResource("2_b4yga")]
 unique_name_in_owner = true

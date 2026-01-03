@@ -89,6 +89,9 @@ func reset(reset_type_: Core.ResetType) -> void:
 		
 		if get_node_or_null("%TargetLine2D") != null:
 			%TargetLine2D.is_targeting = false
+			
+		if get_node_or_null("%Shadow") != null:
+			%Shadow.visible = false
 
 		has_weapon_modifier_speed = false
 		has_weapon_modifier_spread = false
@@ -154,6 +157,8 @@ func start_place() -> void:
 func stop_place() -> void:
 	is_placing = false
 	%PlaceAnimation.visible = false
+	if get_node_or_null("%Shadow") != null:
+		%Shadow.visible = true
 
 func set_target() -> void:
 	if not Core.game.can_mouse_action(&"set_tower_target"):

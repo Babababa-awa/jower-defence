@@ -46,7 +46,7 @@ func _input(event_: InputEvent) -> void:
 			
 			
 func add_level_child(node: Node2D) -> void:
-	if node is TowerDefenceEnemyUnit:
+	if node is TowerDefenceEnemyUnit or node is Sakana:
 		%Enemies.add_child(node)
 	elif node is TowerDefenceTowerUnit:
 		%Towers.add_child(node)
@@ -56,7 +56,7 @@ func add_level_child(node: Node2D) -> void:
 		super.add_level_child(node)
 
 func remove_level_child(node: Node2D) -> void:
-	if node is TowerDefenceEnemyUnit:
+	if node is TowerDefenceEnemyUnit or node is Sakana:
 		%Enemies.remove_child(node)
 	elif node is TowerDefenceTowerUnit:
 		%Towers.remove_child(node)

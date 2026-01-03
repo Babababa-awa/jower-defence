@@ -87,7 +87,7 @@ func _physics_process(delta_: float) -> void:
 		if not is_equal_approx(%Jorb.scale.x, 1.0):
 			%Jorb.scale = %Jorb.scale.move_toward(Vector2(1.0, 1.0), show_speed * delta_)
 		else:
-			%Sprite2D.material.set_shader_parameter(&"offset", %Jorb.global_position / -(32 * PI))
+			%Sprite2D.material.set_shader_parameter(&"offset", %Jorb.global_position / -(32 * PI) / global_scale.x)
 			%Jorb.position = $Path2D.curve.get_point_position(0)
 			
 			if _current_weapon_modifier == Core.WeaponModifier.SPEED:

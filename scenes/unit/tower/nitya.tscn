@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://du35lnv4h7qe"]
+[gd_scene load_steps=10 format=3 uid="uid://du35lnv4h7qe"]
 
 [ext_resource type="Script" uid="uid://byo33jem3fpjs" path="res://scenes/unit/tower/nitya.gd" id="1_77pkq"]
 [ext_resource type="PackedScene" uid="uid://cnot6l0quu5s6" path="res://scenes/component/place_animation.tscn" id="2_bxjio"]
 [ext_resource type="PackedScene" uid="uid://baxnrrp63wkjp" path="res://scenes/unit/weapon/swipe.tscn" id="2_vwu2d"]
 [ext_resource type="PackedScene" uid="uid://dxjtgfm3nk7ii" path="res://scenes/unit/tower/animations/nitya_animations.tscn" id="3_7ejsc"]
 [ext_resource type="PackedScene" uid="uid://dws48s1sgevc4" path="res://scenes/component/target_cone_2d.tscn" id="4_gaj65"]
+[ext_resource type="Texture2D" uid="uid://du2u5hgwegj33" path="res://assets/unit/unit-shadow.png" id="6_rcg4w"]
+[ext_resource type="Script" path="res://assets/unit/shadow.gd" id="7_qo6y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_em548"]
 size = Vector2(128, 128)
@@ -33,6 +35,18 @@ radius = 320.0
 unique_name_in_owner = true
 position = Vector2(0, -32)
 scale = Vector2(4, 4)
+
+[node name="Shadow" type="Sprite2D" parent="NityaAnimations"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.8)
+z_index = -1
+texture = ExtResource("6_rcg4w")
+offset = Vector2(0, 9)
+hframes = 3
+frame = 2
+script = ExtResource("7_qo6y4")
+shadow_type = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_em548")

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dnillm7uh0c7o" path="res://resources/tile_sets/camera_bounds.tres" id="2_gxdr0"]
 [ext_resource type="TileSet" uid="uid://b00x7koobduiw" path="res://resources/tile_sets/physics.tres" id="2_roxfx"]
 [ext_resource type="TileSet" uid="uid://bmxraitvsuowi" path="res://resources/tile_sets/place.tres" id="3_kgqwn"]
-[ext_resource type="PackedScene" uid="uid://b83phhmxg3ibh" path="res://scenes/unit/tower/sakana.tscn" id="4_kgqwn"]
+[ext_resource type="PackedScene" uid="uid://b83phhmxg3ibh" path="res://scenes/unit/tower/command_tower.tscn" id="4_kgqwn"]
 [ext_resource type="PackedScene" uid="uid://cqkprjk4po4sh" path="res://scenes/unit/enemy/enemy_spawner.tscn" id="5_gjnvm"]
 
 [sub_resource type="Curve2D" id="Curve2D_xxav7"]
