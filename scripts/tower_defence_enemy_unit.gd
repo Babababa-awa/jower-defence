@@ -3,7 +3,7 @@ class_name TowerDefenceEnemyUnit
 
 var unit_settings: UnitSettings = null
 var movement_speed: float = 500
-var kill_money: int = 5
+var kill_money: int = 10
 var path: Path2D = null
 var progress: float = 0.0
 
@@ -84,7 +84,12 @@ func _on_kill_after(reason_: StringName) -> void:
 	%Area2DDamage.monitorable = false
 	%Area2DAttack.monitoring = false
 	%Area2DAttack.monitorable = false
-	%CollisionPolygon2D.disabled = true
+	
+	if get_node_or_null("%CollisionPolygon2D") != null:
+		%CollisionPolygon2D.disabled = true
+	
+	if get_node_or_null("%CollisionShape2D") != null:
+		%CollisionShape2D.disabled = true
 	
 	if Core.level is TowerDefenceLevel:
 		Core.level.add_money(kill_money)
@@ -126,7 +131,12 @@ func reset(reset_type_: Core.ResetType) -> void:
 		%Area2DDamage.monitorable = true
 		%Area2DAttack.monitoring = true
 		%Area2DAttack.monitorable = true
-		%CollisionPolygon2D.disabled = false
+		
+		if get_node_or_null("%CollisionPolygon2D") != null:
+			%CollisionPolygon2D.disabled = false
+		
+		if get_node_or_null("%CollisionShape2D") != null:
+			%CollisionShape2D.disabled = false
 		
 		modulate = Color.WHITE
 	elif reset_type_ == Core.ResetType.STOP:

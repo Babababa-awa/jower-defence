@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cr17itatonnu5"]
+[gd_scene load_steps=22 format=4 uid="uid://cr17itatonnu5"]
 
 [ext_resource type="Script" uid="uid://diosqabt48ph0" path="res://scenes/level/level_3/area/area_1.gd" id="1_v7dya"]
 [ext_resource type="TileSet" uid="uid://dnillm7uh0c7o" path="res://resources/tile_sets/camera_bounds.tres" id="2_gxdr0"]
@@ -8,6 +8,65 @@
 [ext_resource type="TileSet" uid="uid://btw6jcw4fugmu" path="res://resources/tile_sets/snow.tres" id="4_rx22e"]
 [ext_resource type="PackedScene" uid="uid://cqkprjk4po4sh" path="res://scenes/unit/enemy/enemy_spawner.tscn" id="5_gjnvm"]
 [ext_resource type="TileSet" uid="uid://dnc7e64myy7tg" path="res://resources/tile_sets/shadows.tres" id="5_tha7q"]
+[ext_resource type="Script" uid="uid://dqvdlkpknoelw" path="res://scripts/unit_spawner.gd" id="9_rdbk4"]
+[ext_resource type="PackedScene" uid="uid://bjbtp7ikdxk7n" path="res://scenes/unit/enemy/enemy_fish.tscn" id="10_sj7eu"]
+[ext_resource type="Script" uid="uid://cb4q0qvmkoe8b" path="res://scripts/unit_settings.gd" id="11_gnd3c"]
+[ext_resource type="PackedScene" uid="uid://b2vqokupykg1u" path="res://scenes/unit/enemy/enemy_1.tscn" id="12_m8fwe"]
+
+[sub_resource type="Resource" id="Resource_k2nun"]
+script = ExtResource("11_gnd3c")
+attack_slow = true
+attack_stun = true
+attack_poison = true
+metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
+
+[sub_resource type="Resource" id="Resource_gnd3c"]
+script = ExtResource("9_rdbk4")
+unit = ExtResource("10_sj7eu")
+unit_settings = SubResource("Resource_k2nun")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_fngyv"]
+script = ExtResource("11_gnd3c")
+attack_slow = true
+attack_stun = true
+attack_poison = true
+metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
+
+[sub_resource type="Resource" id="Resource_wl2n0"]
+script = ExtResource("9_rdbk4")
+unit = ExtResource("10_sj7eu")
+delay = 42.0
+unit_settings = SubResource("Resource_fngyv")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_13ooc"]
+script = ExtResource("11_gnd3c")
+attack_slow = true
+attack_stun = true
+attack_poison = true
+metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
+
+[sub_resource type="Resource" id="Resource_hkpus"]
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+delay = 61.0
+unit_settings = SubResource("Resource_13ooc")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_m8fwe"]
+script = ExtResource("11_gnd3c")
+attack_slow = true
+attack_stun = true
+attack_poison = true
+metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
+
+[sub_resource type="Resource" id="Resource_34yg6"]
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+delay = 75.0
+unit_settings = SubResource("Resource_m8fwe")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
 
 [sub_resource type="Curve2D" id="Curve2D_xxav7"]
 _data = {
@@ -60,6 +119,7 @@ unique_name_in_owner = true
 
 [node name="EnemySpawner1" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("5_gjnvm")]
 position = Vector2(1280, 1280)
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_gnd3c"), SubResource("Resource_wl2n0"), SubResource("Resource_hkpus"), SubResource("Resource_34yg6")])
 paths = NodePath("../Paths1")
 
 [node name="EnemySpawner2" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("5_gjnvm")]

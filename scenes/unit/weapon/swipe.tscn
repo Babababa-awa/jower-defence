@@ -62,53 +62,104 @@ script = ExtResource("1_b78ib")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b78ib")
 
-[node name="AnimatedSprite2DTailSlash" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2DTailSlash1" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(0.4, 0.5764706, 0.11764706, 1)
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_vt6fv")
 
-[node name="Area2DAttackTailSlash" parent="AnimatedSprite2DTailSlash" instance=ExtResource("3_q8ofk")]
+[node name="Area2DAttackTailSlash1" parent="AnimatedSprite2DTailSlash1" instance=ExtResource("3_q8ofk")]
 unique_name_in_owner = true
 collision_layer = 4194304
 collision_mask = 1048576
-damage = 70.0
+damage = 100.0
 independent = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DTailSlash/Area2DAttackTailSlash"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DTailSlash1/Area2DAttackTailSlash1"]
 position = Vector2(2.5844595, -4.705861)
 polygon = PackedVector2Array(-67.58446, 36.70586, -60.58446, 8.70586, -39.58446, -15.29414, -18.58446, -25.29414, -2.5844595, -27.29414, 18.41554, -24.29414, 39.41554, -11.294139, 57.41554, 10.70586, 61.41554, 36.70586, 57.41554, 36.70586, 36.41554, 4.705861, -2.5844595, -9.294139, -40.58446, 4.705861, -62.58446, 36.70586)
 
-[node name="AnimatedSprite2DBatSlash" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2DTailSlash2" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.4, 0.5764706, 0.11764706, 1)
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_vt6fv")
+
+[node name="Area2DAttackTailSlash2" parent="AnimatedSprite2DTailSlash2" instance=ExtResource("3_q8ofk")]
+unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 100.0
+independent = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DTailSlash2/Area2DAttackTailSlash2"]
+position = Vector2(2.5844595, -4.705861)
+polygon = PackedVector2Array(-67.58446, 36.70586, -60.58446, 8.70586, -39.58446, -15.29414, -18.58446, -25.29414, -2.5844595, -27.29414, 18.41554, -24.29414, 39.41554, -11.294139, 57.41554, 10.70586, 61.41554, 36.70586, 57.41554, 36.70586, 36.41554, 4.705861, -2.5844595, -9.294139, -40.58446, 4.705861, -62.58446, 36.70586)
+
+[node name="AnimatedSprite2DBatSlash1" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(0.64705884, 0.4509804, 0.1764706, 1)
 position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_t6kl0")
 
-[node name="Area2DAttackBatSlash" parent="AnimatedSprite2DBatSlash" instance=ExtResource("3_q8ofk")]
+[node name="Area2DAttackBatSlash1" parent="AnimatedSprite2DBatSlash1" instance=ExtResource("3_q8ofk")]
 unique_name_in_owner = true
 collision_layer = 4194304
 collision_mask = 1048576
-damage = 70.0
+damage = 300.0
 independent = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DBatSlash/Area2DAttackBatSlash"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DBatSlash1/Area2DAttackBatSlash1"]
 position = Vector2(-4.7474837, -8.890735)
 polygon = PackedVector2Array(-124.25252, 72.89073, -115.25252, 24.890736, -84.25252, -20.109264, -38.252518, -49.109264, 4.7474837, -55.109264, 45.747482, -49.10927, 86.74748, -26.109264, 120.74748, 18.890732, 133.74748, 72.89073, 127.74748, 72.89073, 92.74748, 10.890735, 4.7474837, -24.109264, -79.25252, 7.8907347, -118.25252, 72.89073)
 
-[node name="AnimatedSprite2DLargeBatSlash" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2DBatSlash2" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.64705884, 0.4509804, 0.1764706, 1)
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_t6kl0")
+
+[node name="Area2DAttackBatSlash2" parent="AnimatedSprite2DBatSlash2" instance=ExtResource("3_q8ofk")]
+unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 300.0
+independent = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DBatSlash2/Area2DAttackBatSlash2"]
+position = Vector2(-4.7474837, -8.890735)
+polygon = PackedVector2Array(-124.25252, 72.89073, -115.25252, 24.890736, -84.25252, -20.109264, -38.252518, -49.109264, 4.7474837, -55.109264, 45.747482, -49.10927, 86.74748, -26.109264, 120.74748, 18.890732, 133.74748, 72.89073, 127.74748, 72.89073, 92.74748, 10.890735, 4.7474837, -24.109264, -79.25252, 7.8907347, -118.25252, 72.89073)
+
+[node name="AnimatedSprite2DLargeBatSlash1" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 modulate = Color(0.7254902, 0.7254902, 0.87058824, 1)
 position = Vector2(0, -160)
 sprite_frames = SubResource("SpriteFrames_mm6gr")
 
-[node name="Area2DAttackLargeBatSlash" parent="AnimatedSprite2DLargeBatSlash" instance=ExtResource("3_q8ofk")]
+[node name="Area2DAttackLargeBatSlash1" parent="AnimatedSprite2DLargeBatSlash1" instance=ExtResource("3_q8ofk")]
 unique_name_in_owner = true
 collision_layer = 4194304
 collision_mask = 1048576
 damage = 70.0
 independent = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DLargeBatSlash/Area2DAttackLargeBatSlash"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DLargeBatSlash1/Area2DAttackLargeBatSlash1"]
+position = Vector2(5.4695, -22.367338)
+polygon = PackedVector2Array(-327.4695, 182.36734, -315.4695, 98.36734, -283.4695, 21.367338, -223.4695, -53.63266, -139.4695, -109.63266, -60.4695, -133.63266, -5.4695, -138.63266, 51.5305, -134.63266, 129.5305, -108.63266, 211.5305, -54.63266, 267.5305, 14.367338, 302.5305, 94.36734, 315.5305, 182.36734, 304.5305, 182.36734, 216.5305, 25.367338, -5.4695, -62.63266, -227.4695, 26.367338, -315.4695, 182.36734)
+
+[node name="AnimatedSprite2DLargeBatSlash2" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.7254902, 0.7254902, 0.87058824, 1)
+position = Vector2(0, -160)
+sprite_frames = SubResource("SpriteFrames_mm6gr")
+
+[node name="Area2DAttackLargeBatSlash2" parent="AnimatedSprite2DLargeBatSlash2" instance=ExtResource("3_q8ofk")]
+unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 70.0
+independent = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2DLargeBatSlash2/Area2DAttackLargeBatSlash2"]
 position = Vector2(5.4695, -22.367338)
 polygon = PackedVector2Array(-327.4695, 182.36734, -315.4695, 98.36734, -283.4695, 21.367338, -223.4695, -53.63266, -139.4695, -109.63266, -60.4695, -133.63266, -5.4695, -138.63266, 51.5305, -134.63266, 129.5305, -108.63266, 211.5305, -54.63266, 267.5305, 14.367338, 302.5305, 94.36734, 315.5305, 182.36734, 304.5305, 182.36734, 216.5305, 25.367338, -5.4695, -62.63266, -227.4695, 26.367338, -315.4695, 182.36734)

@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjbtp7ikdxk7n"]
+
+[ext_resource type="Script" uid="uid://dhe2l4t06a74b" path="res://scenes/unit/enemy/enemy_fish.gd" id="1_c3nkq"]
+[ext_resource type="PackedScene" uid="uid://1y170eplloh4" path="res://scenes/unit/enemy/animations/fish_animations.tscn" id="2_ow8vi"]
+[ext_resource type="PackedScene" uid="uid://d0oxgb3c53xmn" path="res://scenes/unit/enemy/animations/fish_shadow_animations.tscn" id="3_7aj1p"]
+[ext_resource type="PackedScene" uid="uid://cxx07r8g5gvut" path="res://addons/retrograde/scenes/control/area_2d_attack.tscn" id="5_1yqv1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7aj1p"]
+radius = 28.0
+height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3nkq"]
+radius = 32.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hcdws"]
+radius = 32.0
+height = 81.0
+
+[node name="EnemyFish" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(-1, 1)
+collision_layer = 1048576
+script = ExtResource("1_c3nkq")
+
+[node name="FishAnimations" parent="." instance=ExtResource("2_ow8vi")]
+position = Vector2(0, -44)
+scale = Vector2(4, 4)
+frame = 2
+
+[node name="FishAnimations2" parent="FishAnimations" instance=ExtResource("3_7aj1p")]
+z_index = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7aj1p")
+
+[node name="Area2DDamage" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDamage"]
+position = Vector2(0, -12)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_c3nkq")
+
+[node name="Area2DAttack" parent="." instance=ExtResource("5_1yqv1")]
+unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 8388608
+damage = 10.0
+independent = true
+groups = Array[StringName]([&"command_tower"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DAttack"]
+position = Vector2(0, -12)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hcdws")

@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0oxgb3c53xmn"]
+
+[ext_resource type="Texture2D" uid="uid://co01dgc5d450h" path="res://assets/unit/fish_shadow.png" id="2_5a2n4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6oa2"]
+atlas = ExtResource("2_5a2n4")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0npyt"]
+atlas = ExtResource("2_5a2n4")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt3il"]
+atlas = ExtResource("2_5a2n4")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrklm"]
+atlas = ExtResource("2_5a2n4")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no6lo"]
+atlas = ExtResource("2_5a2n4")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58psv"]
+atlas = ExtResource("2_5a2n4")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkfx8"]
+atlas = ExtResource("2_5a2n4")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qfsi"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_x6oa2")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0npyt")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_jt3il")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qrklm")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_no6lo")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_58psv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_mkfx8")
+}],
+"loop": true,
+"name": &"shadow",
+"speed": 20.0
+}]
+
+[node name="FishShadowAnimations" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0qfsi")
+animation = &"shadow"
+autoplay = "shadow"

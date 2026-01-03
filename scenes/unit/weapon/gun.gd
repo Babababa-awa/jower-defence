@@ -2,10 +2,10 @@ extends TowerDefenceWeaponUnit
 
 var target_position: Vector2 = Vector2.ZERO
 
-var pistol_delta: float = 1.5
-var pistol_delta_fast: float = 1.0
-var semi_automatic_delta: float = 1.5
-var semi_automatic_delta_fast: float = 1.0
+var pistol_delta: float = 1.45
+var pistol_delta_fast: float = 0.95
+var semi_automatic_delta: float = 1.75
+var semi_automatic_delta_fast: float = 1.25
 var machine_gun_delta: float = 0.2
 var machine_gun_delta_fast: float = 0.125
 

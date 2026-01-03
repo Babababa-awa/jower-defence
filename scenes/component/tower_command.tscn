@@ -256,12 +256,12 @@ label = "Pistol"
 
 [node name="TowerCommandButtonSemiAutomatic" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 100
+price = 200
 label = "Rifle"
 
 [node name="TowerCommandButtonMachineGun" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 200
+price = 300
 label = "Minigun"
 
 [node name="LaserUpgrades" parent="." instance=ExtResource("3_1sy3o")]
@@ -310,17 +310,17 @@ position = Vector2(-208, -40)
 
 [node name="TowerCommandButtonWeaponSpeed" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 50
+price = 250
 label = "Speed"
 
 [node name="TowerCommandButtonWeaponSpread" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 100
+price = 200
 label = "Spread"
 
 [node name="TowerCommandButtonWeaponCluster" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 100
+price = 300
 label = "Cluster"
 
 [node name="AttackModifiers" parent="." instance=ExtResource("3_1sy3o")]

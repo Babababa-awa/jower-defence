@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://clemqshyiau6d"]
+[gd_scene load_steps=31 format=3 uid="uid://clemqshyiau6d"]
 
 [ext_resource type="Texture2D" uid="uid://usrii6hdek1a" path="res://assets/unit/tower/jelly.png" id="1_4uh3w"]
 
@@ -42,6 +42,30 @@ region = Rect2(90, 144, 45, 48)
 atlas = ExtResource("1_4uh3w")
 region = Rect2(135, 144, 45, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdtw8"]
+atlas = ExtResource("1_4uh3w")
+region = Rect2(360, 96, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bta62"]
+atlas = ExtResource("1_4uh3w")
+region = Rect2(405, 96, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by074"]
+atlas = ExtResource("1_4uh3w")
+region = Rect2(450, 96, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uunm1"]
+atlas = ExtResource("1_4uh3w")
+region = Rect2(315, 96, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnj70"]
+atlas = ExtResource("1_4uh3w")
+region = Rect2(45, 96, 45, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u227"]
+atlas = ExtResource("1_4uh3w")
+region = Rect2(495, 96, 45, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ehp3y"]
 atlas = ExtResource("1_4uh3w")
 region = Rect2(0, 96, 45, 48)
@@ -73,22 +97,6 @@ region = Rect2(270, 96, 45, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0p21"]
 atlas = ExtResource("1_4uh3w")
 region = Rect2(315, 96, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxg28"]
-atlas = ExtResource("1_4uh3w")
-region = Rect2(360, 96, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sraam"]
-atlas = ExtResource("1_4uh3w")
-region = Rect2(405, 96, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iwsfn"]
-atlas = ExtResource("1_4uh3w")
-region = Rect2(450, 96, 45, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wskdy"]
-atlas = ExtResource("1_4uh3w")
-region = Rect2(495, 96, 45, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bn7mt"]
 atlas = ExtResource("1_4uh3w")
@@ -150,6 +158,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 2.0,
+"texture": SubResource("AtlasTexture_xdtw8")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_bta62")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_by074")
+}],
+"loop": true,
+"name": &"laser_beam_start",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_uunm1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_rnj70")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5u227")
+}],
+"loop": false,
+"name": &"laser_beam_stop",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_ehp3y")
 }, {
 "duration": 1.0,
@@ -172,18 +208,6 @@ animations = [{
 }, {
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_j0p21")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jxg28")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sraam")
-}, {
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_iwsfn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wskdy")
 }],
 "loop": false,
 "name": &"laser_beam_use",
@@ -209,7 +233,6 @@ animations = [{
 
 [node name="JellyAnimations" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_12w4e")
-animation = &"laser_shot_use"
+animation = &"laser_beam_stop"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
+frame = 2

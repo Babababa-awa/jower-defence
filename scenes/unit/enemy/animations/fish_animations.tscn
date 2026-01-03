@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://1y170eplloh4"]
+
+[ext_resource type="Texture2D" uid="uid://0456oprkinqh" path="res://assets/unit/enemy/fish.png" id="1_k0lm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it2vi"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nwte"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xev7r"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au44v"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqf61"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oglv"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgnse"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x0dp"]
+atlas = ExtResource("1_k0lm0")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qfsi"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_it2vi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7nwte")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xev7r")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_au44v")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lqf61")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0oglv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_pgnse")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3x0dp")
+}],
+"loop": true,
+"name": &"move",
+"speed": 20.0
+}]
+
+[node name="FishAnimations" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0qfsi")
+animation = &"move"
+autoplay = "move"

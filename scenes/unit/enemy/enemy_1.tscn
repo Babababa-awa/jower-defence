@@ -30,12 +30,10 @@ shadow_type = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 unique_name_in_owner = true
-visible = false
 polygon = PackedVector2Array(-69, 29, -39, 13, -9, -19, 27, -33, 51, -34, 63, 7, 47, 14, 8, 28, -69, 39)
 
 [node name="Area2DDamage" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
 collision_layer = 0
 collision_mask = 4194304
 
@@ -44,7 +42,6 @@ polygon = PackedVector2Array(-73.02199, 26.53629, -41.021984, 10.536289, -11.021
 
 [node name="Area2DAttack" parent="." instance=ExtResource("3_npdif")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(6, 6)
 collision_layer = 4194304
 collision_mask = 8388608

@@ -1,10 +1,9 @@
 extends TowerDefenceEnemyUnit
 
 func _init() -> void:
-	super._init(&"enemy_1")
+	super._init(&"enemy_fish")
 	
-	movement_speed = 200
-	health.max_health = 150
+	movement_speed = 100
 	
 func _ready() -> void:
 	super._ready()

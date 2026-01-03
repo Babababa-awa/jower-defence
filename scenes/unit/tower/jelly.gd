@@ -7,6 +7,8 @@ var has_laser_beam: bool = false
 var has_jorb: bool = false
 var equiped_weapon: StringName = &"laser_shot"
 
+var _current_attack: AttackValue = null
+
 func _init() -> void:
 	super._init(&"jelly")
 	
@@ -16,8 +18,11 @@ func _ready() -> void:
 	%Weapon.attack_after.connect(_on_attack_after)
 	%Weapon2.attack_after.connect(_on_attack_after)
 	%JellyAnimations.animation_finished.connect(_on_animation_finished)
+	%Weapon.laser_beam_started.connect(_on_laser_beam_started)
+	%Weapon.laser_beam_stopped.connect(_on_laser_beam_stopped)
 
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
+	_current_attack = attack_
 	if attack_.meta.weapon_attack_alias == &"laser_shot":
 		%JellyAnimations.play("laser_shot_use")
 	elif attack_.meta.weapon_attack_alias == &"laser_beam":
@@ -27,6 +32,12 @@ func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 		
 func _on_animation_finished() -> void:
 	%JellyAnimations.play("idle")
+
+func _on_laser_beam_started() -> void:
+	%JellyAnimations.play("laser_beam_start")
+	
+func _on_laser_beam_stopped() -> void:
+	%JellyAnimations.play("laser_beam_stop")
 		
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)
@@ -40,6 +51,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 		has_laser_beam = false
 		has_jorb = false
 		equiped_weapon = &"laser_shot"
+		_current_attack = null
 		
 func _process(delta_: float) -> void:
 	super._process(delta_)

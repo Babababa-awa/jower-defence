@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh2dmg66au2sp"]
+[gd_scene load_steps=7 format=3 uid="uid://dh2dmg66au2sp"]
 
 [ext_resource type="Script" uid="uid://c8l4dfj6fq1vg" path="res://scenes/unit/weapon/laser.gd" id="1_apy7y"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/component/laser_2d.tscn" id="2_ovepf"]
@@ -8,6 +8,10 @@
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53doh"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3b726"]
+resource_local_to_scene = true
 
 [node name="Laser" type="CharacterBody2D"]
 collision_layer = 0
@@ -25,20 +29,32 @@ beam_width = 12.0
 color = Color(0.3882353, 0.60784316, 1, 1)
 particles_color = Color(0.9411765, 0.9137255, 0.35686275, 1)
 
+[node name="Area2DAttackShot" parent="Laser2DShot" instance=ExtResource("3_nvlsd")]
+unique_name_in_owner = true
+collision_layer = 4194304
+collision_mask = 1048576
+damage = 75.0
+independent = true
+groups = Array[StringName]([&"enemy"])
+
+[node name="CollisionShape2DShot" type="CollisionShape2D" parent="Laser2DShot/Area2DAttackShot"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_53doh")
+
 [node name="Laser2DBeam" parent="." instance=ExtResource("2_ovepf")]
 unique_name_in_owner = true
 beam_speed = 4000.0
 color = Color(0.3882353, 0.60784316, 1, 1)
 particles_color = Color(0.9411765, 0.9137255, 0.35686275, 1)
 
-[node name="Area2DAttack" parent="." instance=ExtResource("3_nvlsd")]
+[node name="Area2DAttackBeam" parent="Laser2DBeam" instance=ExtResource("3_nvlsd")]
 unique_name_in_owner = true
 collision_layer = 4194304
 collision_mask = 1048576
-damage = 45.0
+damage = 200.0
 independent = true
 groups = Array[StringName]([&"enemy"])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DAttack"]
+[node name="CollisionShape2DBeam" type="CollisionShape2D" parent="Laser2DBeam/Area2DAttackBeam"]
 unique_name_in_owner = true
-shape = SubResource("RectangleShape2D_53doh")
+shape = SubResource("RectangleShape2D_3b726")

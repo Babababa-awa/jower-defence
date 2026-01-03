@@ -258,7 +258,7 @@ animations = [{
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_4qmc7")
 }, {
-"duration": 10.0,
+"duration": 4.0,
 "texture": SubResource("AtlasTexture_c7fwp")
 }],
 "loop": false,
@@ -268,7 +268,5 @@ animations = [{
 
 [node name="NityaAnimations" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_j1ew8")
-animation = &"large_bat_use"
+animation = &"tail_idle"
 autoplay = "tail_idle"
-frame = 4
-frame_progress = 1.0
