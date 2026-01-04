@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.75)
+color = Color(0.9019608, 0.93333334, 0.9490196, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -47,10 +47,6 @@ size_flags_vertical = 3
 [node name="UIMarginContainerTitle" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_lv6fa")]
 layout_mode = 2
 style = &"title"
-
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/UIMarginContainerTitle"]
-visible = false
-layout_mode = 2
 
 [node name="UILabelTitle" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/UIMarginContainerTitle" instance=ExtResource("2_pqmjv")]
 layout_mode = 2

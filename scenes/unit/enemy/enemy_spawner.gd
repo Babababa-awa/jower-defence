@@ -34,7 +34,7 @@ func _physics_process(delta_: float) -> void:
 	if not is_running():
 		return
 		
-	if not Core.level is TowerDefenceLevel or not Core.level.is_game_started:
+	if not Core.level is TowerDefenceLevel or not Core.level.is_game_started or Core.game.is_win:
 		return
 		
 	for enemy: UnitSpawner in enemies:
