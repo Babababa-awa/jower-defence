@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by3i83jlyslu"]
+[gd_scene load_steps=7 format=3 uid="uid://by3i83jlyslu"]
 
 [ext_resource type="Script" uid="uid://8argvaq6h41o" path="res://scenes/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://c18xx1wuw4jhb" path="res://addons/retrograde/scenes/control/target_camera_2d.tscn" id="2_p57ef"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bbfew1a1w6f3" path="res://addons/retrograde/scenes/ambiance/day_night_cycle.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dhmnr36jtyk7s" path="res://addons/retrograde/scenes/controller/hud_controller.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://boga34tcg8dgs" path="res://addons/retrograde/scenes/controller/ui_controller.tscn" id="6_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://c5yc05hctc0m8" path="res://scenes/cutscene/scene_1.tscn" id="7_u5sy4"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_p57ef")
@@ -72,7 +71,3 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
-
-[node name="Scene1" parent="CutScenes" instance=ExtResource("7_u5sy4")]
-unique_name_in_owner = true
-visible = false

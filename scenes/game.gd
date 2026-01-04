@@ -21,10 +21,6 @@ func _ready() -> void:
 	day_night_cycle = %DayNightCycle
 	day_night_cycle.pause_time = true
 	cutscenes = %CutScenes
-	for child_: Node in cutscenes.get_children():
-		if child_ is BaseCutscene:
-			child_.cutscene_stopped.connect(_on_cutscene_stopped)
-			child_.start()
 
 	super._ready()
 
@@ -65,35 +61,23 @@ func _handle_pause() -> void:
 
 	super._handle_pause()
 
-func get_cutscene(cutscene_: StringName) -> BaseCutscene:
-	for child_: Node in cutscenes.get_children():
-		if child_ is BaseCutscene and child_.alias == cutscene_:
-			return child_
-	
-	return null
-	
 func start_cutscene(cutscene_: StringName) -> void:
-	var found_: bool = false
-	
-	for child_: Node in cutscenes.get_children():
-		if child_ is BaseCutscene:
-			if child_.alias == cutscene_:
-				child_.visible = true
-				child_.start_cutscene()
-				found_ = true
-			else:
-				child_.visible = false
-				child_.stop_cutscene()
-	
-	cutscenes.visible = found_
+	var cutscene_node_ = await load("res://scenes/cutscene/" + cutscene_ + ".tscn").instantiate()
+	cutscenes.add_child(cutscene_node_)
+	cutscene_node_.cutscene_stopped.connect(_on_cutscene_stopped)
+	cutscene_node_.start()
+	cutscene_node_.start_cutscene()
+	cutscenes.visible = true
 
 func stop_cutscene() -> void:
 	for child_: Node in cutscenes.get_children():
 		if child_ is BaseCutscene:
 			if child_.is_cutscene_started:
 				child_.stop_cutscene()
+			child_.queue_free()
 	
 	cutscenes.visible = false
+	
 func add_level_child(node: Node2D) -> void:
 	if node is TowerDefenceEnemyUnit or node is Sakana:
 		%Enemies.add_child(node)

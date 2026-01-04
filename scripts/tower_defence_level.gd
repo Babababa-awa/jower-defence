@@ -37,7 +37,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 		Core.hud.get_hud(&"start").refresh()
 		show_game_huds()
 		
-		if start_cutscene != null:
+		if start_cutscene != null and reset_type_ == Core.ResetType.START:
 			Core.game.start_cutscene(start_cutscene)
 
 func hide_game_huds() -> void:
