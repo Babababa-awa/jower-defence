@@ -9,6 +9,7 @@ class_name UnitSpawner
 @export_group("Unit Settings")
 @export var unit_settings: UnitSettings = UnitSettings.new()
 
+var current_count: int = 0
 var current_delta: float = 0.0
 var total_delta: float = 0.0
 
@@ -16,15 +17,20 @@ signal spawn(unit: Node2D)
 
 func reset() -> void:
 	current_delta = 0.0
+	current_count = 0
 	total_delta = 0.0
 
 func process(delta_: float) -> void:
-	if unit == null:
+	if unit == null or count == 0:
+		return
+		
+	if count > 0 and current_count >= count:
 		return
 		
 	if total_delta >= delay:
 		if current_delta <= 0.0:
 			spawn_unit()
+			current_count += 1
 			current_delta = spawn_rate + current_delta
 		
 		current_delta -= delta_

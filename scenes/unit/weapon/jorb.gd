@@ -77,6 +77,11 @@ func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 func _update_weapon_modifier() -> void:
 	pass
 
+func _update_attack_modifier() -> void:
+	%Area2DAttack1.meta.set(&"attack_modifier", attack_modifier)
+	%Area2DAttack2.meta.set(&"attack_modifier", attack_modifier)
+	%Area2DAttack3.meta.set(&"attack_modifier", attack_modifier)
+	
 func _physics_process(delta_: float) -> void:
 	super._physics_process(delta_)
 

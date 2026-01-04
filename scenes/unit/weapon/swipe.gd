@@ -9,13 +9,13 @@ var swipe_cooldown_first_end_delta: float = 0.75
 var swipe_cooldown_second_start_delta: float = 0.25
 var swipe_cooldown_second_end_delta: float = 1.0
 
-var tail_delta: float = 2.35
-var tail_delta_fast: float = 2.0
+var tail_delta: float = 2.15
+var tail_delta_fast: float = 1.9
 
-var bat_delta: float = 2.35
+var bat_delta: float = 2.25
 var bat_delta_fast: float = 2.00
 
-var large_bat_delta: float = 2.35
+var large_bat_delta: float = 2.25
 var large_bat_delta_fast: float = 2.00
 
 var _current_attack: AttackValue = null
@@ -98,6 +98,16 @@ func _update_weapon_modifier() -> void:
 		attacks[1].delta = bat_delta
 		attacks[2].delta = large_bat_delta
 
+func _update_attack_modifier() -> void:
+	%Area2DAttackTailSlash1.meta.set(&"attack_modifier", attack_modifier)
+	%Area2DAttackTailSlash2.meta.set(&"attack_modifier", attack_modifier)
+	
+	%Area2DAttackBatSlash1.meta.set(&"attack_modifier", attack_modifier)
+	%Area2DAttackBatSlash2.meta.set(&"attack_modifier", attack_modifier)
+
+	%Area2DAttackLargeBatSlash1.meta.set(&"attack_modifier", attack_modifier)
+	%Area2DAttackLargeBatSlash2.meta.set(&"attack_modifier", attack_modifier)
+	
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 	_current_attack = attack_
 	

@@ -30,7 +30,6 @@ func _on_ui_button_continue_pressed() -> void:
 	hide_ui()
 	Core.game.toggle_pause()
 
-
 func _on_ui_button_restart_pressed() -> void:
 	hide_ui()
 	Core.game.restart()

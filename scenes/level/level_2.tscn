@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_2g46k"]
 script = ExtResource("2_u7l0e")
-start_money = 500
+start_money = 1800
 metadata/_custom_type_script = "uid://daug4hllmm77h"
 
 [node name="Level2" type="Node2D"]

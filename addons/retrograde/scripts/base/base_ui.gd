@@ -20,6 +20,10 @@ func _input(event_: InputEvent) -> void:
 		return
 		
 	if event_ is InputEventKey and event_.pressed and event_.keycode == KEY_ESCAPE:
+		if alias == &"pause":
+			accept_event()
+			return
+			
 		var button_: UIButton = _get_escape_button(self)
 		if button_ != null:
 			button_.emit_signal(&"pressed")

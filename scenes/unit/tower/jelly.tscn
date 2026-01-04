@@ -26,7 +26,6 @@ visible = false
 
 [node name="Weapon" parent="." instance=ExtResource("2_1gxid")]
 unique_name_in_owner = true
-position = Vector2(0, -16)
 
 [node name="TargetLine2D" parent="." instance=ExtResource("4_1gxid")]
 unique_name_in_owner = true
@@ -50,7 +49,6 @@ shadow_type = 2
 
 [node name="Weapon2" parent="." instance=ExtResource("2_b4yga")]
 unique_name_in_owner = true
-position = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_em548")

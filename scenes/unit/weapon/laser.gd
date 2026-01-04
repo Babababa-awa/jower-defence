@@ -15,8 +15,8 @@ var laser_beam_cooldown_shoot_delta: float = 0.7
 
 var laser_shot_delta: float = 1.75
 var laser_shot_delta_fast: float = 1.25
-var laser_beam_delta: float = 4.5
-var laser_beam_delta_fast: float = 1.5
+var laser_beam_delta: float = 4.8
+var laser_beam_delta_fast: float = 4.3
 
 var _current_attack: AttackValue = null
 var _current_attack_angle: float = 0.0
@@ -95,7 +95,11 @@ func _update_weapon_modifier() -> void:
 	
 	%Laser2DShot.rotation = to_local(target_position).angle()
 	%Laser2DBeam.rotation = to_local(target_position).angle()
-	
+
+func _update_attack_modifier() -> void:
+	%Area2DAttackShot.meta.set(&"attack_modifier", attack_modifier)
+	%Area2DAttackBeam.meta.set(&"attack_modifier", attack_modifier)
+
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 	_current_attack = attack_
 	_current_target_position = to_local(target_position)

@@ -34,7 +34,7 @@ func _update_weapon_modifier() -> void:
 	pass
 
 func _update_attack_modifier() -> void:
-	pass		
+	pass
 
 func _update_damage_modifier() -> void:
 	pass

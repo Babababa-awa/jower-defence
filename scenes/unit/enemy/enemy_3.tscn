@@ -44,7 +44,7 @@ unique_name_in_owner = true
 position = Vector2(6, 6)
 collision_layer = 4194304
 collision_mask = 8388608
-damage = 10.0
+damage = 50.0
 independent = true
 groups = Array[StringName]([&"command_tower"])
 

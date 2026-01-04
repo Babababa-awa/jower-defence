@@ -261,7 +261,7 @@ label = "Rifle"
 
 [node name="TowerCommandButtonMachineGun" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 300
+price = 400
 label = "Minigun"
 
 [node name="LaserUpgrades" parent="." instance=ExtResource("3_1sy3o")]
@@ -276,12 +276,12 @@ label = "Laser Shot"
 
 [node name="TowerCommandButtonLaserBeam" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 100
+price = 200
 label = "Laser Beam"
 
 [node name="TowerCommandButtonJorb" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 200
+price = 400
 label = "Jorb"
 
 [node name="SwipeUpgrades" parent="." instance=ExtResource("3_1sy3o")]
@@ -295,12 +295,12 @@ label = "Tail Swipe"
 
 [node name="TowerCommandButtonBat" parent="SwipeUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 100
+price = 200
 label = "Wooden Bun Kisser"
 
 [node name="TowerCommandButtonLargeBat" parent="SwipeUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 200
+price = 400
 label = "Metal Bun Kisser"
 
 [node name="WeaponModifiers" parent="." instance=ExtResource("3_1sy3o")]
@@ -315,12 +315,12 @@ label = "Speed"
 
 [node name="TowerCommandButtonWeaponSpread" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 200
+price = 250
 label = "Spread"
 
 [node name="TowerCommandButtonWeaponCluster" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 300
+price = 250
 label = "Cluster"
 
 [node name="AttackModifiers" parent="." instance=ExtResource("3_1sy3o")]
@@ -330,18 +330,18 @@ position = Vector2(-136, -40)
 
 [node name="TowerCommandButtonAttackSlow" parent="AttackModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 100
+price = 300
 label = "Slow"
 
 [node name="TowerCommandButtonAttackStun" parent="AttackModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-price = 200
+price = 500
 label = "Stun"
 
 [node name="TowerCommandButtonAttackPoison" parent="AttackModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
 position = Vector2(32, 40)
-price = 300
+price = 200
 label = "Poison"
 
 [node name="DamageModifiers" parent="." instance=ExtResource("3_1sy3o")]

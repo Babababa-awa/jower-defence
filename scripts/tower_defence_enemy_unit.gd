@@ -161,7 +161,7 @@ func _process(delta_: float) -> void:
 	elif _slow_cooldown.is_complete:
 		_slow_cooldown.stop()
 	
-	if _slow_cooldown.is_on_step(&"duration"):
+	if _stun_cooldown.is_on_step(&"duration"):
 		is_stunned = false
 	elif _stun_cooldown.is_complete:
 		_slow_cooldown.stop()

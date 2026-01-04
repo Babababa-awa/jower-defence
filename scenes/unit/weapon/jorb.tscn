@@ -65,7 +65,7 @@ particles_color = Color(0.9411765, 0.9137255, 0.35686275, 1)
 unique_name_in_owner = true
 collision_layer = 4194304
 collision_mask = 1048576
-damage = 50.0
+damage = 150.0
 independent = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jorb/Laser2D1/Area2DAttack1"]
@@ -83,7 +83,7 @@ particles_color = Color(0.9411765, 0.9137255, 0.35686275, 1)
 unique_name_in_owner = true
 collision_layer = 4194304
 collision_mask = 1048576
-damage = 50.0
+damage = 150.0
 independent = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jorb/Laser2D2/Area2DAttack2"]
@@ -101,7 +101,7 @@ particles_color = Color(0.9411765, 0.9137255, 0.35686275, 1)
 unique_name_in_owner = true
 collision_layer = 4194304
 collision_mask = 1048576
-damage = 50.0
+damage = 150.0
 independent = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jorb/Laser2D3/Area2DAttack3"]

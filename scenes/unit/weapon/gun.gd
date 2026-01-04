@@ -6,8 +6,8 @@ var pistol_delta: float = 1.45
 var pistol_delta_fast: float = 0.95
 var semi_automatic_delta: float = 1.75
 var semi_automatic_delta_fast: float = 1.25
-var machine_gun_delta: float = 0.2
-var machine_gun_delta_fast: float = 0.125
+var machine_gun_delta: float = 0.225
+var machine_gun_delta_fast: float = 0.175
 
 var _semi_automatic_cooldown: CooldownTimer = CooldownTimer.new()
 var semi_automatic_cooldown_delta: float = 0.2
