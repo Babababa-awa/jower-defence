@@ -1,21 +1,142 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5yc05hctc0m8"]
+[gd_scene load_steps=17 format=3 uid="uid://c5yc05hctc0m8"]
 
 [ext_resource type="Script" uid="uid://owxjov6efb20" path="res://scenes/cutscene/scene_1.gd" id="1_ser6c"]
-[ext_resource type="Script" uid="uid://57ea3rpalh1n" path="res://scripts/cutscene_scene.gd" id="2_6sf2i"]
-[ext_resource type="Texture2D" uid="uid://dmaw1grlhg4o7" path="res://assets/unit/enemy/fish_monster_2.png" id="2_v0xrl"]
+[ext_resource type="Texture2D" uid="uid://ctyjur8h1x3dk" path="res://assets/cgs/texturedWhite.PNG" id="3_rhql8"]
+[ext_resource type="Texture2D" uid="uid://daukmti71o858" path="res://assets/cgs/1-1.PNG" id="3_tge62"]
+[ext_resource type="Texture2D" uid="uid://p7bea3ii7yjw" path="res://assets/cgs/1-2.PNG" id="4_4n4kg"]
+[ext_resource type="Texture2D" uid="uid://co2snbfh1kkfa" path="res://assets/cgs/texturedBlack.PNG" id="4_ma34y"]
+[ext_resource type="Texture2D" uid="uid://k1mllgfjkvb2" path="res://assets/cgs/2-1.PNG" id="5_rhql8"]
+[ext_resource type="Texture2D" uid="uid://d2vprlwa5xaqy" path="res://assets/cgs/2-2.PNG" id="6_ma34y"]
+[ext_resource type="Texture2D" uid="uid://df3lcculgmn80" path="res://assets/cgs/2-3.PNG" id="7_lo0ap"]
+[ext_resource type="Texture2D" uid="uid://cqq8ffeycbdr1" path="res://assets/cgs/3-1.PNG" id="8_f1tv4"]
+[ext_resource type="Texture2D" uid="uid://dfejlnd2w0ay4" path="res://assets/cgs/4-1.PNG" id="9_h03bk"]
+[ext_resource type="Texture2D" uid="uid://vn4ooqx4c47j" path="res://assets/cgs/4-2.PNG" id="10_htjpo"]
+[ext_resource type="Texture2D" uid="uid://bwkvvk18aj3fc" path="res://assets/cgs/4-3.PNG" id="11_o1kyy"]
+[ext_resource type="Texture2D" uid="uid://c2mkr8lnwrp53" path="res://assets/cgs/4-4.PNG" id="12_whib7"]
+[ext_resource type="Texture2D" uid="uid://bsrbs34tcwaeb" path="res://assets/cgs/4-5.PNG" id="13_nwlyp"]
+[ext_resource type="Texture2D" uid="uid://n6e512etl7bp" path="res://assets/cgs/5-1.png" id="14_l6qwg"]
+[ext_resource type="Texture2D" uid="uid://t5uhc5dhiq2k" path="res://assets/cgs/4-6.PNG" id="14_rhql8"]
 
-[sub_resource type="Resource" id="Resource_q6bcr"]
-script = ExtResource("2_6sf2i")
-name = &"Prologue"
-metadata/_custom_type_script = "uid://57ea3rpalh1n"
-
-[node name="Scene1" type="Node2D"]
+[node name="Scene1" type="Node2D" node_paths=PackedStringArray("textureContainer", "whiteFade", "blackFade")]
 script = ExtResource("1_ser6c")
-scenes = Array[ExtResource("2_6sf2i")]([SubResource("Resource_q6bcr")])
+textureContainer = NodePath("Scenes/CSContainer")
+whiteFade = NodePath("Scenes/TexturedWhiteFade")
+blackFade = NodePath("Scenes/TexturedBlackFade")
 
 [node name="Scenes" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Scenes"]
-scale = Vector2(4, 4)
-texture = ExtResource("2_v0xrl")
+[node name="Background" type="TextureRect" parent="Scenes"]
+offset_left = -1406.0
+offset_top = -727.0
+offset_right = 3500.4443
+offset_bottom = 1969.0
+texture = ExtResource("3_rhql8")
+metadata/_edit_lock_ = true
+
+[node name="CSContainer" type="Node2D" parent="Scenes"]
+
+[node name="1-1" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_tge62")
+metadata/_edit_lock_ = true
+
+[node name="1-2" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_4n4kg")
+metadata/_edit_lock_ = true
+
+[node name="2-1" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("5_rhql8")
+metadata/_edit_lock_ = true
+
+[node name="2-2" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_ma34y")
+metadata/_edit_lock_ = true
+
+[node name="2-3" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_lo0ap")
+metadata/_edit_lock_ = true
+
+[node name="3-1" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("8_f1tv4")
+metadata/_edit_lock_ = true
+
+[node name="4-1" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("9_h03bk")
+metadata/_edit_lock_ = true
+
+[node name="4-2" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("10_htjpo")
+metadata/_edit_lock_ = true
+
+[node name="4-3" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("11_o1kyy")
+metadata/_edit_lock_ = true
+
+[node name="4-4" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("12_whib7")
+metadata/_edit_lock_ = true
+
+[node name="4-5" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("13_nwlyp")
+metadata/_edit_lock_ = true
+
+[node name="4-6" type="TextureRect" parent="Scenes/CSContainer"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("14_rhql8")
+metadata/_edit_lock_ = true
+
+[node name="5-1" type="TextureRect" parent="Scenes/CSContainer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(894, 538)
+texture = ExtResource("14_l6qwg")
+metadata/_edit_lock_ = true
+
+[node name="TexturedWhiteFade" type="TextureRect" parent="Scenes"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_rhql8")
+metadata/_edit_lock_ = true
+
+[node name="TexturedBlackFade" type="TextureRect" parent="Scenes"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_ma34y")
+metadata/_edit_lock_ = true

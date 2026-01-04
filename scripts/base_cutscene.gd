@@ -63,7 +63,7 @@ func _process(delta_: float) -> void:
 	if not is_cutscene_started:
 		return
 
-	if scenes[current_scene_index].time_seconds < 0:
+	if scenes.size() == 0 or scenes[current_scene_index].time_seconds < 0:
 		return
 
 	if current_scene_delta > scenes[current_scene_index].time_seconds:
