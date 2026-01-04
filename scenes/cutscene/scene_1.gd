@@ -70,7 +70,7 @@ func start_cutscene() -> void:
 	await wait_for_seconds(3)
 	moveContainer(0, 0, 1, 1)	
 	
-	#TODO: play click/keyboard sfx
+	Core.audio.play_sfx(&"MouseClick")
 	await next(1) #show 1-2
 	await wait_for_seconds(3)
 	
@@ -93,10 +93,10 @@ func start_cutscene() -> void:
 	await wait_for_seconds(3)
 	
 	moveContainer(-1429.0, -822, 1.7, 1)
-	#TODO: play 
+	Core.audio.play_sfx(&"WaterSplash1")
 	await next(1)#show 4-2
 	await wait_for_seconds(3)
-	#TODO: play water splash sfx 2
+	Core.audio.play_sfx(&"RopeTug")
 	await next()#show 4-3
 	await wait_for_seconds(1)
 	moveContainer(0, 0, 1, 1)
@@ -105,9 +105,9 @@ func start_cutscene() -> void:
 	await next()#show 4-5
 	await wait_for_seconds(1.5)
 	await next()#show 4-6
-	await wait_for_seconds(3)
+	await wait_for_seconds(1.5)
 	
-	#TODO: play water splash sfx 3
+	Core.audio.play_sfx(&"WaterSplash2")
 	await fadeOut(0.05, false) #flash white
 	await fadeIn(0.0, false)
 	await wait_for_seconds(0.05)
@@ -120,12 +120,12 @@ func start_cutscene() -> void:
 	await next(0)#show 5-1
 	await fadeIn(0.0, true)
 	
-	#TODO: play roar sfx
+	Core.audio.play_sfx(&"Roar")
 	await camZoomShake(1, 1.1)
 	
 	await wait_for_seconds(0.1)
 	await moveContainer(0, 0, 1, 1)
-	await wait_for_seconds(5.5)
+	await wait_for_seconds(4.5)
 	await fadeOut(2, true)
 	
 	await fadeIn(0, false) #resetting this, unsure if this is necessary 
