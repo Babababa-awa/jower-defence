@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx2si5kq6jq6x"]
+
+[ext_resource type="PackedScene" uid="uid://xf5ercvaskk6" path="res://scenes/cutscene/base_cutscene.tscn" id="1_v0xrl"]
+[ext_resource type="Script" uid="uid://57ea3rpalh1n" path="res://scripts/cutscene_scene.gd" id="2_6sf2i"]
+
+[sub_resource type="Resource" id="Resource_q6bcr"]
+script = ExtResource("2_6sf2i")
+name = &"Prologue"
+metadata/_custom_type_script = "uid://57ea3rpalh1n"
+
+[node name="Scene1" instance=ExtResource("1_v0xrl")]
+scenes = Array[ExtResource("2_6sf2i")]([SubResource("Resource_q6bcr")])
