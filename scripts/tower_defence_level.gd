@@ -37,7 +37,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 		Core.hud.get_hud(&"start").refresh()
 		show_game_huds()
 		
-		if start_cutscene != null and reset_type_ == Core.ResetType.START:
+		if start_cutscene != &"" and reset_type_ == Core.ResetType.START:
 			Core.game.start_cutscene(start_cutscene)
 
 func hide_game_huds() -> void:
@@ -125,8 +125,9 @@ func can_place_tower_at_coords(coords_: Vector2i) -> bool:
 	return area.can_place_tower_at_coords(coords_)
 
 func start_game() -> void:
+	Core.audio.play_sfx(&"Roar")
 	Core.hud.hide_hud(&"start")
-	Core.hud.get_hud(&"survival_timer").start_timer()
+	Core.hud.get_hudd(&"survival_timer").start_timer()
 	start_play_time()
 	is_game_started = true
 

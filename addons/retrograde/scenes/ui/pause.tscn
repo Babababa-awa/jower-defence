@@ -88,6 +88,7 @@ style = &"menu_large"
 text = "BUTTON_SETTINGS"
 
 [node name="UIButtonControls" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_r0tlc")]
+visible = false
 layout_mode = 2
 goto_ui_alias = &"controls"
 style = &"menu_large"

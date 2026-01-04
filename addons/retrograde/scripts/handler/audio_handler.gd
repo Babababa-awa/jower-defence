@@ -36,7 +36,8 @@ func reset_audio() -> void:
 	
 func reset_sfx() -> void:
 	for name: StringName in sfx:
-		Core.game.remove_child(sfx[name])
+		if name != &"button_pressed":
+			Core.game.remove_child(sfx[name])
 	sfx = {}
 	
 func reset_music() -> void:

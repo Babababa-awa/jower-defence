@@ -114,7 +114,7 @@ func get_parent_ui() -> BaseUI:
 func _on_pressed() -> void:
 	if goto_ui_alias == &"":
 		return
-
+	
 	var parent: BaseUI = get_parent_ui()
 	if parent != null:
 		_play_sfx(&"pressed")

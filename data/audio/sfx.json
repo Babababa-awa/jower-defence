@@ -1,8 +1,8 @@
 {
 	"button_entered": {
-		"format": "wav",
-		"count": 0,
-		"rand": true,
+		"format": "mp3",
+		"count": 3,
+		"rand": false,
 		"pitch": true
 	},
 	"button_exited": {
@@ -12,9 +12,9 @@
 		"pitch": true
 	},
 	"button_pressed": {
-		"format": "wav",
-		"count": 0,
-		"rand": true,
-		"pitch": false
+		"format": "mp3",
+		"count": 1,
+		"rand": false,
+		"pitch": true
 	}
 }
