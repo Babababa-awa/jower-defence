@@ -5,6 +5,14 @@ var is_placing_tower: bool = false
 var active_tower: TowerDefenceTowerUnit = null
 var tower_coords: Array[Vector2i] = []
 
+func reset(reset_type_: Core.ResetType) -> void:
+	super.reset(reset_type_)
+	
+	if (reset_type_ == Core.ResetType.START or
+		reset_type_ == Core.ResetType.RESTART
+	):
+		%Place.visible = false
+		
 func _ready() -> void:
 	for child_: Node2D in get_children():
 		if child_ is EnemySpawner:

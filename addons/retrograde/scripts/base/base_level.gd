@@ -129,6 +129,12 @@ func get_play_time() -> int:
 
 	return _stop_time - _start_time - round(_pause_delta)
 	
+func start_play_time() -> void:
+	_start_time = Time.get_ticks_msec()
+
+func stop_play_time() -> void:
+	_stop_time = Time.get_ticks_msec()
+
 func set_play_time(time_miliseconds_: int) -> void:
 	_stop_time = time_miliseconds_ + _start_time + round(_pause_delta)
 

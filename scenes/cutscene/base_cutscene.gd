@@ -7,7 +7,7 @@ var is_cutscene_started: bool = false
 var current_scene_index: int = 0
 var current_scene_delta: float = 0.0
 
-signal cutscene_end(cutscene: BaseCutscene)
+signal cutscene_stopped(cutscene: BaseCutscene)
 
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)
@@ -19,9 +19,9 @@ func reset(reset_type_: Core.ResetType) -> void:
 		current_scene_index = 0
 		current_scene_delta = 0.0
 	elif reset_type_ == Core.ResetType.STOP:
-		stop_scene()
+		stop_cutscene()
 
-func start_scene() -> void:
+func start_cutscene() -> void:
 	current_scene_index = 0
 	current_scene_delta = 0.0
 	
@@ -29,13 +29,13 @@ func start_scene() -> void:
 		is_cutscene_started = true
 		show_scene(0, scenes[0].name)
 
-func stop_scene() -> void:
+func stop_cutscene() -> void:
 	is_cutscene_started = false
-	cutscene_end.emit()
+	cutscene_stopped.emit()
 	
 func next_scene() -> void:
 	if current_scene_index == scenes.size() - 1:
-		stop_scene()
+		stop_cutscene()
 		return
 	
 	current_scene_index += 1

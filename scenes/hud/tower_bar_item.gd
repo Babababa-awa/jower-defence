@@ -27,10 +27,10 @@ func _update() -> void:
 	%UILabel.position.y = %Sprite2D.position.y - (%UILabel.size.y / 2) - 2
 
 func _on_area_2d_rect_mouse_entered() -> void:
-	pass # Replace with function body.
+	%AnimatedSprite2D.play(tower + "_hover")
 
 func _on_area_2d_rect_mouse_exited() -> void:
-	pass # Replace with function body.
+	%AnimatedSprite2D.play(tower)
 
 func _on_area_2d_rect_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Core.level == null or not Core.level is TowerDefenceLevel:

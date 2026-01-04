@@ -3,6 +3,11 @@ class_name TowerDefenceLevel
 
 @export var settings: LevelSettings = LevelSettings.new()
 
+@export_group("Cut Scenes")
+@export var start_cutscene: BaseCutscene = null
+@export var end_cutscene: BaseCutscene = null
+
+var is_game_started: bool = false
 var current_money: int = 0
 
 var is_placing_tower: bool:
@@ -14,18 +19,60 @@ var is_placing_tower: bool:
 func _init(alias_: StringName) -> void:
 	super._init(alias_)
 	
+	auto_start_play_time = false
+	
+func ready() -> void:
+	if start_cutscene != null:
+		start_cutscene.cutscene_stopped.connect(_on_start_cutscene_stopped)
+		
+	if start_cutscene != null:
+		end_cutscene.cutscene_stopped.connect(_on_end_cutscene_stopped)
+		
+func _on_start_cutscene_stopped(cutscene: BaseCutscene) -> void:
+	Core.player.unit_mode = Core.UnitMode.NORMAL
+
+func _on_end_cutscene_stopped(cutscene: BaseCutscene) -> void:
+	Core.game.is_win = true
+	
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)
 	
 	if (reset_type_ == Core.ResetType.START or
 		reset_type_ == Core.ResetType.RESTART
 	):
+		is_game_started = false
 		current_money = settings.start_money
 		Core.hud.get_hud(&"money").set_money(current_money)
 		Core.hud.get_hud(&"tower_bar").refresh()
 		Core.hud.get_hud(&"command_tower_health").refresh()
+		Core.hud.get_hud(&"survival_timer").stop_timer()
 		Core.hud.get_hud(&"survival_timer").set_survival_time(roundi(Core.level.settings.survival_time * 60))
+		Core.hud.get_hud(&"start").refresh()
 		
+		if start_cutscene != null:
+			hide_game_huds()
+			Core.player.unit_mode = Core.UnitMode.NONE
+			Core.player.position = Vector2.ZERO
+			start_cutscene.start_cutscene()
+		else:
+			show_game_huds()
+
+func hide_game_huds() -> void:
+	Core.hud.hide_hud(&"money")
+	Core.hud.hide_hud(&"tower_bar")
+	Core.hud.hide_hud(&"command_tower_health")
+	Core.hud.hide_hud(&"survival_timer")
+	Core.hud.hide_hud(&"start")
+	
+func show_game_huds() -> void:
+	Core.hud.show_hud(&"money")
+	Core.hud.show_hud(&"tower_bar")
+	Core.hud.show_hud(&"command_tower_health")
+	Core.hud.show_hud(&"survival_timer")
+	if not is_game_started:
+		Core.hud.show_hud(&"start")
+	
+
 func add_money(amount_: int) -> void:
 	current_money += amount_
 	Core.hud.get_hud(&"money").set_money(current_money)
@@ -33,7 +80,6 @@ func add_money(amount_: int) -> void:
 func remove_money(amount_: int) -> void:
 	current_money -= amount_
 	Core.hud.get_hud(&"money").set_money(current_money)
-
 
 func get_command_tower() -> TowerDefenceCommandTowerUnit:
 	if area == null:
@@ -95,3 +141,15 @@ func refund_tower(alias_: StringName) -> void:
 
 func can_place_tower_at_coords(coords_: Vector2i) -> bool:
 	return area.can_place_tower_at_coords(coords_)
+
+func start_game() -> void:
+	Core.hud.hide_hud(&"start")
+	Core.hud.get_hud(&"survival_timer").start_timer()
+	start_play_time()
+	is_game_started = true
+
+func win() -> void:
+	if end_cutscene != null:
+		pass
+	else: 
+		Core.game.is_win = true

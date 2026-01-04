@@ -19,6 +19,12 @@ func reset(reset_type_: Core.ResetType) -> void:
 func set_survival_time(survival_time_seconds_: int) -> void:
 	survival_time_seconds = survival_time_seconds_
 	_update()
+	
+func start_timer() -> void:
+	%Timer.start()
+
+func stop_timer() -> void:
+	%Timer.stop()
 
 func _update() -> void:
 	if not Core.level is TowerDefenceLevel or survival_time_seconds == 0:
@@ -39,7 +45,7 @@ func _update() -> void:
 			%UILabel.text = "%2d:%02d" % [minutes, seconds]
 			
 		if remaining_seconds_ == 0:
-			Core.game.is_win = true
+			Core.level.win()
 		
 	%UILabel.position = Vector2(
 		256 - %UILabel.size.x,

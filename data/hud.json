@@ -3,13 +3,15 @@
 		"money",
 		"tower_bar",
 		"command_tower_health",
-		"survival_timer"
+		"survival_timer",
+		"start"
 	],
 	"huds": {
 		"money": "res://scenes/hud/money.tscn",
 		"tower_bar": "res://scenes/hud/tower_bar.tscn",
 		"command_tower_health": "res://scenes/hud/command_tower_health.tscn",
-		"survival_timer": "res://scenes/hud/survival_timer.tscn"
+		"survival_timer": "res://scenes/hud/survival_timer.tscn",
+		"start": "res://scenes/hud/start.tscn"
 	},
 	"default": {
 		"money": {
@@ -30,6 +32,11 @@
 		"survival_timer": {
 			"offset": [-32, 32],
 			"alignment": ["right", "top"],
+			"visible": true
+		},
+		"start": {
+			"offset": [-32, -32],
+			"alignment": ["right", "bottom"],
 			"visible": true
 		}
 	}
