@@ -61,7 +61,9 @@ style = &"header"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(720, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="UISeparatorFooter" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_kwcj0")]
 layout_mode = 2

@@ -11,6 +11,11 @@ func show_ui() -> void:
 	
 	_update_button_state()
 
+	if Core.level != null and Core.level.level_mode == Core.LevelMode.GAME:
+		%ColorRect.visible = true
+	else:
+		%ColorRect.visible = false
+
 func _update_button_state() -> void:
 	for child_: Node in %GridContainer.get_children():
 		if not child_ is UIButton:

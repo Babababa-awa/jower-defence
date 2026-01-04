@@ -62,19 +62,19 @@ func _load_from_data(data_: Dictionary) -> void:
 				Core.audio.set_volume(Core.AudioType.MASTER, default_data[alias_])
 		elif alias_ == &"audio_music":
 			if data_.has(alias_):
-				Core.audio.set_volume(Core.AudioType.MASTER, data_[alias_])
+				Core.audio.set_volume(Core.AudioType.MUSIC, data_[alias_])
 			else:
-				Core.audio.set_volume(Core.AudioType.MASTER, default_data[alias_])
+				Core.audio.set_volume(Core.AudioType.MUSIC, default_data[alias_])
 		elif alias_ == &"audio_sfx":
 			if data_.has(alias_):
-				Core.audio.set_volume(Core.AudioType.MASTER, data_[alias_])
+				Core.audio.set_volume(Core.AudioType.SFX, data_[alias_])
 			else:
-				Core.audio.set_volume(Core.AudioType.MASTER, default_data[alias_])
+				Core.audio.set_volume(Core.AudioType.SFX, default_data[alias_])
 		elif alias_ == &"audio_ambiance":
 			if data_.has(alias_):
-				Core.audio.set_volume(Core.AudioType.MASTER, data_[alias_])
+				Core.audio.set_volume(Core.AudioType.AMBIANCE, data_[alias_])
 			else:
-				Core.audio.set_volume(Core.AudioType.MASTER, default_data[alias_])
+				Core.audio.set_volume(Core.AudioType.AMBIANCE, default_data[alias_])
 		else:
 			if data_.has(alias_):
 				Core[alias_] = data_[alias_]

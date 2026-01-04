@@ -127,7 +127,7 @@ func can_place_tower_at_coords(coords_: Vector2i) -> bool:
 func start_game() -> void:
 	Core.audio.play_sfx(&"Roar")
 	Core.hud.hide_hud(&"start")
-	Core.hud.get_hudd(&"survival_timer").start_timer()
+	Core.hud.get_hud(&"survival_timer").start_timer()
 	start_play_time()
 	is_game_started = true
 

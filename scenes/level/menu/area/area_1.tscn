@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://dqedfggssk2u2"]
+[gd_scene load_steps=9 format=4 uid="uid://dqedfggssk2u2"]
 
 [ext_resource type="Script" uid="uid://b7l1vo1nbxfbr" path="res://scenes/level/menu/area/area_1.gd" id="1_fp3uf"]
 [ext_resource type="TileSet" uid="uid://b00x7koobduiw" path="res://resources/tile_sets/physics.tres" id="2_3e0cu"]
 [ext_resource type="TileSet" uid="uid://btw6jcw4fugmu" path="res://resources/tile_sets/snow.tres" id="3_hut1r"]
 [ext_resource type="TileSet" uid="uid://dnc7e64myy7tg" path="res://resources/tile_sets/shadows.tres" id="4_nipl8"]
+[ext_resource type="PackedScene" uid="uid://clemqshyiau6d" path="res://scenes/unit/tower/animations/jelly_animations.tscn" id="5_70wnc"]
+[ext_resource type="PackedScene" uid="uid://dxjtgfm3nk7ii" path="res://scenes/unit/tower/animations/nitya_animations.tscn" id="6_mv8lo"]
+[ext_resource type="PackedScene" uid="uid://6cso0wlg3pc5" path="res://scenes/unit/tower/animations/pippa_animations.tscn" id="7_k1hwc"]
+[ext_resource type="PackedScene" uid="uid://bbr8jrlur6ewg" path="res://scenes/unit/tower/animations/sakana_animations.tscn" id="8_hnluj"]
 
 [node name="Area1" type="Node2D"]
 script = ExtResource("1_fp3uf")
@@ -35,3 +39,21 @@ tile_set = ExtResource("3_hut1r")
 
 [node name="Snow" type="TileMapLayer" parent="SetDressing/Layer1"]
 tile_set = ExtResource("3_hut1r")
+
+[node name="JellyAnimations" parent="." instance=ExtResource("5_70wnc")]
+position = Vector2(389, 171)
+scale = Vector2(-4, 4)
+animation = &"idle"
+frame = 0
+
+[node name="NityaAnimations" parent="." instance=ExtResource("6_mv8lo")]
+position = Vector2(-347, 161)
+scale = Vector2(4, 4)
+
+[node name="PippaAnimations" parent="." instance=ExtResource("7_k1hwc")]
+position = Vector2(551, -46)
+scale = Vector2(-4, 4)
+
+[node name="SakanaAnimations" parent="." instance=ExtResource("8_hnluj")]
+position = Vector2(-436, -94)
+scale = Vector2(4, 4)
