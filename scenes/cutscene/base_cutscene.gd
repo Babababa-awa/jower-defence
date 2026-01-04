@@ -33,6 +33,15 @@ func stop() -> void:
 	is_cutscene_started = false
 	cutscene_end.emit()
 	
+func next() -> void:
+	if current_scene_index == scenes.size() - 1:
+		stop()
+		return
+	
+	current_scene_index += 1
+	current_scene_delta = 0.0
+	show_scene(current_scene_index, scenes[current_scene_index].name)
+			
 func show_scene(index_: int, name_: StringName) -> void:
 	for i: int in %Scenes.get_children().size():
 		if i == index_:
@@ -49,11 +58,10 @@ func _process(delta_: float) -> void:
 	if not is_cutscene_started:
 		return
 
-	if current_scene_delta > scenes[current_scene_index].time_seconds:
-		current_scene_index += 1
-		if current_scene_index == scenes.size():
-			stop()
-		else:
-			show_scene(current_scene_index, scenes[current_scene_index].name)
+	if scenes[current_scene_index].time_seconds < 0:
+		return
 
-	current_scene_delta += delta_
+	if current_scene_delta > scenes[current_scene_index].time_seconds:
+		next()
+	else:
+		current_scene_delta += delta_
