@@ -19,9 +19,9 @@ func reset(reset_type_: Core.ResetType) -> void:
 		current_scene_index = 0
 		current_scene_delta = 0.0
 	elif reset_type_ == Core.ResetType.STOP:
-		stop()
+		stop_scene()
 
-func start() -> void:
+func start_scene() -> void:
 	current_scene_index = 0
 	current_scene_delta = 0.0
 	
@@ -29,13 +29,13 @@ func start() -> void:
 		is_cutscene_started = true
 		show_scene(0, scenes[0].name)
 
-func stop() -> void:
+func stop_scene() -> void:
 	is_cutscene_started = false
 	cutscene_end.emit()
 	
-func next() -> void:
+func next_scene() -> void:
 	if current_scene_index == scenes.size() - 1:
-		stop()
+		stop_scene()
 		return
 	
 	current_scene_index += 1
@@ -62,6 +62,6 @@ func _process(delta_: float) -> void:
 		return
 
 	if current_scene_delta > scenes[current_scene_index].time_seconds:
-		next()
+		next_scene()
 	else:
 		current_scene_delta += delta_
