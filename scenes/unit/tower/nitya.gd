@@ -55,6 +55,9 @@ func _process(delta_: float) -> void:
 	
 	if is_placing:
 		return
+		
+	if not Core.level.is_game_started:
+		return
 	
 	if target_set:
 		%Weapon.attack_from_alias(equiped_weapon)

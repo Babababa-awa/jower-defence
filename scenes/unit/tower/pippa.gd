@@ -40,6 +40,9 @@ func _process(delta_: float) -> void:
 		
 	if not is_running():
 		return
+		
+	if not Core.level.is_game_started:
+		return
 	
 	if is_placing:
 		return

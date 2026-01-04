@@ -5,6 +5,7 @@ var day_night_cycle: DayNightCycle = null
 var mouse_action: StringName = &""
 var mouse_action_delay: float = 0.1
 var mouse_action_delta: float = 0.0
+var cutscenes: Node = null
 
 signal tower_command_changed(tower_: TowerDefenceTowerUnit)
 
@@ -19,9 +20,18 @@ func reset(reset_type_: Core.ResetType) -> void:
 func _ready() -> void:
 	day_night_cycle = %DayNightCycle
 	day_night_cycle.pause_time = true
+	cutscenes = %CutScenes
+	for child_: Node in cutscenes.get_children():
+		if child_ is BaseCutscene:
+			child_.cutscene_stopped.connect(_on_cutscene_stopped)
+			child_.start()
 
 	super._ready()
-	
+
+func _on_cutscene_stopped(cutscene_: BaseCutscene) -> void:
+	cutscene_.visible = false
+	cutscenes.visible = false
+
 func _process(delta_: float) -> void:
 	super._process(delta_)
 
@@ -34,6 +44,9 @@ func _process(delta_: float) -> void:
 func _input(event_: InputEvent) -> void:
 	super._input(event_)
 	
+	if Core.game.cutscenes.visible:
+		return
+	
 	if not is_tower_command_visible():
 		return
 		
@@ -43,8 +56,44 @@ func _input(event_: InputEvent) -> void:
 	if event_ is InputEventMouseButton and event_.pressed:
 		if event_.button_index == MouseButton.MOUSE_BUTTON_RIGHT:
 			hide_tower_command()
-			
-			
+
+func _handle_pause() -> void:
+	if cutscenes.visible:
+		if Input.is_action_just_pressed(&"pause"):
+			stop_cutscene()
+		return
+
+	super._handle_pause()
+
+func get_cutscene(cutscene_: StringName) -> BaseCutscene:
+	for child_: Node in cutscenes.get_children():
+		if child_ is BaseCutscene and child_.alias == cutscene_:
+			return child_
+	
+	return null
+	
+func start_cutscene(cutscene_: StringName) -> void:
+	var found_: bool = false
+	
+	for child_: Node in cutscenes.get_children():
+		if child_ is BaseCutscene:
+			if child_.alias == cutscene_:
+				child_.visible = true
+				child_.start_cutscene()
+				found_ = true
+			else:
+				child_.visible = false
+				child_.stop_cutscene()
+	
+	cutscenes.visible = found_
+
+func stop_cutscene() -> void:
+	for child_: Node in cutscenes.get_children():
+		if child_ is BaseCutscene:
+			if child_.is_cutscene_started:
+				child_.stop_cutscene()
+	
+	cutscenes.visible = false
 func add_level_child(node: Node2D) -> void:
 	if node is TowerDefenceEnemyUnit or node is Sakana:
 		%Enemies.add_child(node)

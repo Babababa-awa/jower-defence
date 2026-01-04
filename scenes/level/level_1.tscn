@@ -1,23 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7u8knvpduu6"]
+[gd_scene load_steps=4 format=3 uid="uid://b7u8knvpduu6"]
 
 [ext_resource type="Script" uid="uid://piak3x8rvy2t" path="res://scenes/level/level_1.gd" id="1_cfjva"]
 [ext_resource type="Script" uid="uid://daug4hllmm77h" path="res://scripts/level_settings.gd" id="2_2lb6k"]
-[ext_resource type="PackedScene" uid="uid://bx2si5kq6jq6x" path="res://scenes/cutscene/scene_1.tscn" id="3_ybxn4"]
 
 [sub_resource type="Resource" id="Resource_ybxn4"]
 script = ExtResource("2_2lb6k")
 start_money = 650
-survival_time = 0.1
 metadata/_custom_type_script = "uid://daug4hllmm77h"
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("start_cutscene", "end_cutscene")]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_cfjva")
 settings = SubResource("Resource_ybxn4")
-start_cutscene = NodePath("Scene1")
-end_cutscene = NodePath("Scene2")
-
-[node name="Scene1" parent="." instance=ExtResource("3_ybxn4")]
-visible = false
-
-[node name="Scene2" parent="." instance=ExtResource("3_ybxn4")]
-visible = false
+start_cutscene = &"scene_1"

@@ -3,12 +3,16 @@ class_name BaseCutscene
 
 @export var scenes: Array[CutsceneScene] = []
 
+var alias: StringName
 var is_cutscene_started: bool = false
 var current_scene_index: int = 0
 var current_scene_delta: float = 0.0
 
-signal cutscene_stopped(cutscene: BaseCutscene)
+signal cutscene_stopped(cutscene_: BaseCutscene)
 
+func _init(alias_: StringName) -> void:
+	alias = alias_
+	
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)
 	
@@ -30,8 +34,9 @@ func start_cutscene() -> void:
 		show_scene(0, scenes[0].name)
 
 func stop_cutscene() -> void:
-	is_cutscene_started = false
-	cutscene_stopped.emit()
+	if is_cutscene_started:
+		is_cutscene_started = false
+		cutscene_stopped.emit(self)
 	
 func next_scene() -> void:
 	if current_scene_index == scenes.size() - 1:

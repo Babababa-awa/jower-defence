@@ -51,6 +51,7 @@ horizontal_alignment = 1
 style = &"title"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_horizontal = 4

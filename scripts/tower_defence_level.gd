@@ -4,8 +4,8 @@ class_name TowerDefenceLevel
 @export var settings: LevelSettings = LevelSettings.new()
 
 @export_group("Cut Scenes")
-@export var start_cutscene: BaseCutscene = null
-@export var end_cutscene: BaseCutscene = null
+@export var start_cutscene: StringName = &""
+@export var end_cutscene: StringName = &""
 
 var is_game_started: bool = false
 var current_money: int = 0
@@ -21,19 +21,6 @@ func _init(alias_: StringName) -> void:
 	
 	auto_start_play_time = false
 	
-func ready() -> void:
-	if start_cutscene != null:
-		start_cutscene.cutscene_stopped.connect(_on_start_cutscene_stopped)
-		
-	if start_cutscene != null:
-		end_cutscene.cutscene_stopped.connect(_on_end_cutscene_stopped)
-		
-func _on_start_cutscene_stopped(cutscene: BaseCutscene) -> void:
-	Core.player.unit_mode = Core.UnitMode.NORMAL
-
-func _on_end_cutscene_stopped(cutscene: BaseCutscene) -> void:
-	Core.game.is_win = true
-	
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)
 	
@@ -48,14 +35,10 @@ func reset(reset_type_: Core.ResetType) -> void:
 		Core.hud.get_hud(&"survival_timer").stop_timer()
 		Core.hud.get_hud(&"survival_timer").set_survival_time(roundi(Core.level.settings.survival_time * 60))
 		Core.hud.get_hud(&"start").refresh()
+		show_game_huds()
 		
 		if start_cutscene != null:
-			hide_game_huds()
-			Core.player.unit_mode = Core.UnitMode.NONE
-			Core.player.position = Vector2.ZERO
-			start_cutscene.start_cutscene()
-		else:
-			show_game_huds()
+			Core.game.start_cutscene(start_cutscene)
 
 func hide_game_huds() -> void:
 	Core.hud.hide_hud(&"money")
@@ -72,7 +55,6 @@ func show_game_huds() -> void:
 	if not is_game_started:
 		Core.hud.show_hud(&"start")
 	
-
 func add_money(amount_: int) -> void:
 	current_money += amount_
 	Core.hud.get_hud(&"money").set_money(current_money)
@@ -149,7 +131,8 @@ func start_game() -> void:
 	is_game_started = true
 
 func win() -> void:
-	if end_cutscene != null:
-		pass
-	else: 
-		Core.game.is_win = true
+	Core.game.is_win = true
+	hide_game_huds()
+	
+	if end_cutscene != &"":
+		Core.game.start_cutscene(end_cutscene)

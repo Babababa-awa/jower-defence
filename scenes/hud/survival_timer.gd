@@ -45,13 +45,13 @@ func _update() -> void:
 			%UILabel.text = "%2d:%02d" % [minutes, seconds]
 			
 		if remaining_seconds_ == 0:
+			stop_timer()
 			Core.level.win()
 		
 	%UILabel.position = Vector2(
 		256 - %UILabel.size.x,
 		(64 - %UILabel.size.y) / 2
 	)
-	
 
 func _on_timer_timeout() -> void:
 	_update()

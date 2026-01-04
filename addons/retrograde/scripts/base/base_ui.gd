@@ -16,7 +16,7 @@ func _ready() -> void:
 		process_mode = Node.PROCESS_MODE_INHERIT
 
 func _input(event_: InputEvent) -> void:
-	if not visible:
+	if not visible or Core.game.cutscenes.visible:
 		return
 		
 	if event_ is InputEventKey and event_.pressed and event_.keycode == KEY_ESCAPE:

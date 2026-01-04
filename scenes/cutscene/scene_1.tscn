@@ -1,17 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx2si5kq6jq6x"]
+[gd_scene load_steps=5 format=3 uid="uid://c5yc05hctc0m8"]
 
-[ext_resource type="PackedScene" uid="uid://xf5ercvaskk6" path="res://scenes/cutscene/base_cutscene.tscn" id="1_v0xrl"]
+[ext_resource type="Script" uid="uid://owxjov6efb20" path="res://scenes/cutscene/scene_1.gd" id="1_ser6c"]
 [ext_resource type="Script" uid="uid://57ea3rpalh1n" path="res://scripts/cutscene_scene.gd" id="2_6sf2i"]
-[ext_resource type="Texture2D" uid="uid://dylw3t1cwvnnf" path="res://assets/unit/enemy/fish_monster_1.png" id="3_6sf2i"]
+[ext_resource type="Texture2D" uid="uid://dmaw1grlhg4o7" path="res://assets/unit/enemy/fish_monster_2.png" id="2_v0xrl"]
 
 [sub_resource type="Resource" id="Resource_q6bcr"]
 script = ExtResource("2_6sf2i")
 name = &"Prologue"
 metadata/_custom_type_script = "uid://57ea3rpalh1n"
 
-[node name="Scene1" instance=ExtResource("1_v0xrl")]
+[node name="Scene1" type="Node2D"]
+script = ExtResource("1_ser6c")
 scenes = Array[ExtResource("2_6sf2i")]([SubResource("Resource_q6bcr")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Scenes" index="0"]
+[node name="Scenes" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenes"]
 scale = Vector2(4, 4)
-texture = ExtResource("3_6sf2i")
+texture = ExtResource("2_v0xrl")

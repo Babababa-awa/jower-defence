@@ -52,6 +52,7 @@ func reset(reset_type_: Core.ResetType) -> void:
 		has_jorb = false
 		equiped_weapon = &"laser_shot"
 		_current_attack = null
+		%JellyAnimations.play(&"idle")
 		
 func _process(delta_: float) -> void:
 	super._process(delta_)
@@ -60,6 +61,9 @@ func _process(delta_: float) -> void:
 		return
 	
 	if is_placing:
+		return
+		
+	if not Core.level.is_game_started:
 		return
 	
 	if equiped_weapon == &"jorb":
