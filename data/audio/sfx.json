@@ -16,5 +16,17 @@
 		"count": 1,
 		"rand": false,
 		"pitch": true
-	}
+	},
+	"pistol": {
+		"count": 3,
+		"rand": true
+	},
+	"semi_automatic": {
+		"count": 3,
+		"rand": true
+	},
+	"machine_gun": {
+		"count": 3,
+		"rand": true
+ 	}
 }

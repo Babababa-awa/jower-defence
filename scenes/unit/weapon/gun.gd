@@ -119,7 +119,7 @@ func _update_attack_angle(weapon_alias: StringName) -> void:
 		_current_attack_angle = 0.0
 
 func shoot_gun() -> void:
-	#TODO Play sfx
+	Core.audio.play_sfx(_current_attack.meta.weapon_attack_alias)
 	
 	var node: TowerDefenceProjectileUnit = await Core.nodes.get_node("res://scenes/unit/projectile/bullet.tscn")
 	node.add_to_group(owner_group)

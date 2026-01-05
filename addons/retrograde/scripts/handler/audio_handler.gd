@@ -219,6 +219,7 @@ func _load(type: Core.AudioType, name: StringName, suffix: StringName = &"") -> 
 	match type:
 		Core.AudioType.SFX:
 			audio_player.bus = &"SFX"
+			audio_player.max_polyphony = 16
 		Core.AudioType.MUSIC:
 			audio_player.bus = &"Music"
 		Core.AudioType.AMBIANCE:
