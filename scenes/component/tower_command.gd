@@ -81,6 +81,7 @@ func _on_area_2d_upgrade_input_event(viewport: Node, event: InputEvent, shape_id
 		
 		%Menu.hide()
 		
+		Core.audio.play_sfx(&"click")
 		if tower.alias == &"pippa":
 			_show_gun_upgrades()
 		elif tower.alias == &"jelly":
@@ -186,6 +187,8 @@ func _on_area_2d_weapon_modifier_input_event(viewport: Node, event: InputEvent, 
 		event.button_index == MouseButton.MOUSE_BUTTON_LEFT and 
 		event.pressed
 	):
+		Core.audio.play_sfx(&"click")
+		
 		Core.game.clear_mouse_action(&"button_hover", true)
 		
 		%Menu.hide()
@@ -227,6 +230,8 @@ func _on_area_2d_attack_modifier_input_event(viewport: Node, event: InputEvent, 
 		event.button_index == MouseButton.MOUSE_BUTTON_LEFT and 
 		event.pressed
 	):
+		Core.audio.play_sfx(&"click")
+		
 		Core.game.clear_mouse_action(&"button_hover", true)
 		
 		%Menu.hide()
@@ -273,6 +278,8 @@ func _on_area_2d_damage_modifier_input_event(viewport: Node, event: InputEvent, 
 		event.button_index == MouseButton.MOUSE_BUTTON_LEFT and 
 		event.pressed
 	):
+		Core.audio.play_sfx(&"click")
+		
 		Core.game.clear_mouse_action(&"button_hover", true)
 		
 		%Menu.hide()
@@ -314,6 +321,7 @@ func _on_area_2d_target_input_event(viewport: Node, event: InputEvent, shape_idx
 		event.button_index == MouseButton.MOUSE_BUTTON_LEFT and 
 		event.pressed
 	):
+		Core.audio.play_sfx(&"click")
 		Core.game.clear_mouse_action(&"button_hover", true)
 		tower.set_target()
 
@@ -321,6 +329,7 @@ func _on_tower_command_button_pistol_pressed() -> void:
 	if tower == null:
 		return
 
+	Core.audio.play_sfx(&"click")
 	if tower.equiped_weapon == &"pistol":
 		%GunUpgrades.hide()
 		%Menu.show()
@@ -333,6 +342,7 @@ func _on_tower_command_button_semi_automatic_pressed() -> void:
 		return
 		
 	if tower.has_semi_automatic:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon == &"semi_automatic":
 			%GunUpgrades.hide()
 			%Menu.show()
@@ -345,14 +355,14 @@ func _on_tower_command_button_semi_automatic_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonSemiAutomatic.price)
 		_show_gun_upgrades() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_machine_gun_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_machine_gun:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon == &"machine_gun":
 			%GunUpgrades.hide()
 			%Menu.show()
@@ -365,13 +375,13 @@ func _on_tower_command_button_machine_gun_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonMachineGun.price)
 		_show_gun_upgrades() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_laser_pressed() -> void:
 	if tower == null:
 		return
-
+	
+	Core.audio.play_sfx(&"click")
 	if tower.equiped_weapon == &"laser_shot":
 		%LaserUpgrades.hide()
 		%Menu.show()
@@ -384,6 +394,7 @@ func _on_tower_command_button_beam_pressed() -> void:
 		return
 		
 	if tower.has_laser_beam:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon == &"laser_beam":
 			%LaserUpgrades.hide()
 			%Menu.show()
@@ -396,14 +407,14 @@ func _on_tower_command_button_beam_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonLaserBeam.price)
 		_show_laser_upgrades() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_jorb_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_jorb:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon == &"jorb":
 			%LaserUpgrades.hide()
 			%Menu.show()
@@ -416,14 +427,13 @@ func _on_tower_command_button_jorb_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonJorb.price)
 		_show_laser_upgrades() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
-
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_tail_pressed() -> void:
 	if tower == null:
 		return
 
+	Core.audio.play_sfx(&"click")
 	if tower.equiped_weapon == &"tail":
 		%SwipeUpgrades.hide()
 		%Menu.show()
@@ -431,12 +441,12 @@ func _on_tower_command_button_tail_pressed() -> void:
 		tower.equiped_weapon = &"tail"
 		_show_swipe_upgrades() # Rrefresh
 
-
 func _on_tower_command_button_bat_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_bat:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon == &"bat":
 			%SwipeUpgrades.hide()
 			%Menu.show()
@@ -449,15 +459,14 @@ func _on_tower_command_button_bat_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonBat.price)
 		_show_swipe_upgrades() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
-
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_large_bat_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_large_bat:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon == &"large_bat":
 			%SwipeUpgrades.hide()
 			%Menu.show()
@@ -470,14 +479,14 @@ func _on_tower_command_button_large_bat_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonLargeBat.price)
 		_show_swipe_upgrades() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_weapon_speed_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_weapon_modifier_speed:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon_modifier == Core.WeaponModifier.SPEED:
 			%WeaponModifiers.hide()
 			%Menu.show()
@@ -490,14 +499,14 @@ func _on_tower_command_button_weapon_speed_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonWeaponSpeed.price)
 		_show_weapon_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_weapon_spread_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_weapon_modifier_spread:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon_modifier == Core.WeaponModifier.SPREAD:
 			%WeaponModifiers.hide()
 			%Menu.show()
@@ -510,14 +519,14 @@ func _on_tower_command_button_weapon_spread_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonWeaponSpread.price)
 		_show_weapon_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_weapon_cluster_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_weapon_modifier_cluster:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_weapon_modifier == Core.WeaponModifier.CLUSTER:
 			%WeaponModifiers.hide()
 			%Menu.show()
@@ -530,14 +539,14 @@ func _on_tower_command_button_weapon_cluster_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonWeaponCluster.price)
 		_show_weapon_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_attack_slow_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_attack_modifier_slow:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_attack_modifier == Core.AttackModifier.SLOW:
 			%AttackModifiers.hide()
 			%Menu.show()
@@ -550,14 +559,14 @@ func _on_tower_command_button_attack_slow_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonAttackSlow.price)
 		_show_attack_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_attack_stun_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_attack_modifier_stun:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_attack_modifier == Core.AttackModifier.STUN:
 			%AttackModifiers.hide()
 			%Menu.show()
@@ -570,14 +579,14 @@ func _on_tower_command_button_attack_stun_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonAttackStun.price)
 		_show_attack_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 		
 func _on_tower_command_button_attack_poison_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_attack_modifier_poison:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_attack_modifier == Core.AttackModifier.POISON:
 			%AttackModifiers.hide()
 			%Menu.show()
@@ -590,14 +599,14 @@ func _on_tower_command_button_attack_poison_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonAttackPoison.price)
 		_show_attack_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_damage_heavy_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_damage_modifier_heavy:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_damage_modifier == Core.DamageModifier.HEAVY:
 			%DamageModifiers.hide()
 			%Menu.show()
@@ -610,14 +619,14 @@ func _on_tower_command_button_damage_heavy_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonDamageHeavy.price)
 		_show_damage_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_damage_piercing_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_damage_modifier_piercing:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_damage_modifier == Core.DamageModifier.PIERCING:
 			%DamageModifiers.hide()
 			%Menu.show()
@@ -630,14 +639,14 @@ func _on_tower_command_button_damage_piercing_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonDamagePiercing.price)
 		_show_damage_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")
 
 func _on_tower_command_button_damage_explosive_pressed() -> void:
 	if tower == null:
 		return
 		
 	if tower.has_damage_modifier_explosive:
+		Core.audio.play_sfx(&"click")
 		if tower.equiped_damage_modifier == Core.DamageModifier.EXPLOSIVE:
 			%DamageModifiers.hide()
 			%Menu.show()
@@ -650,5 +659,4 @@ func _on_tower_command_button_damage_explosive_pressed() -> void:
 		Core.level.remove_money(%TowerCommandButtonDamageExplosive.price)
 		_show_damage_modifiers() # Rrefresh
 	else:
-		# TODO: Play failure sfx
-		pass
+		Core.audio.play_sfx(&"fail")

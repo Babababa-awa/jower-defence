@@ -46,4 +46,5 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		event.button_index == MouseButton.MOUSE_BUTTON_LEFT and 
 		event.pressed
 	):
+		Core.audio.play_sfx(&"click")
 		Core.level.start_game()

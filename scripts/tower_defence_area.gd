@@ -29,6 +29,7 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 			var coords_: Vector2i = Vector2i(active_tower.position.round())
 			if can_place_tower_at_coords(coords_):
+				Core.audio.play_sfx(&"place")
 				is_placing_tower = false
 				%Place.visible = false
 				active_tower.stop_place()

@@ -60,6 +60,7 @@ func add_money(amount_: int) -> void:
 	Core.hud.get_hud(&"money").set_money(current_money)
 	
 func remove_money(amount_: int) -> void:
+	Core.audio.play_sfx(&"buy")
 	current_money -= amount_
 	Core.hud.get_hud(&"money").set_money(current_money)
 
@@ -111,6 +112,7 @@ func get_tower_price(alias_: StringName) -> int:
 	
 func purchase_tower(alias_: StringName) -> void:
 	if not can_purchase_tower(alias_):
+		Core.audio.play_sfx(&"fail")
 		return
 	
 	remove_money(get_tower_price(alias_))
