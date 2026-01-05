@@ -36,7 +36,6 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(152, 0)
 layout_mode = 2
-size_flags_horizontal = 4
 
 [node name="UIMarginContainerTitle" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_wnk1g")]
 layout_mode = 2
@@ -78,6 +77,10 @@ focus_neighbor_bottom = NodePath("../UIButtonParent")
 goto_ui_alias = &"level_select"
 style = &"menu_large"
 text = "DIFFICULTY_HARD"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="UISeparatorButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_pjpfv")]
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://cr17itatonnu5"]
+[gd_scene load_steps=40 format=4 uid="uid://cr17itatonnu5"]
 
 [ext_resource type="Script" uid="uid://diosqabt48ph0" path="res://scenes/level/level_3/area/area_1.gd" id="1_v7dya"]
 [ext_resource type="TileSet" uid="uid://dnillm7uh0c7o" path="res://resources/tile_sets/camera_bounds.tres" id="2_gxdr0"]
@@ -22,7 +22,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_fngyv"]
+[sub_resource type="Resource" id="Resource_fwmg6"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("10_sj7eu")
@@ -37,7 +37,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_wl2n0"]
+[sub_resource type="Resource" id="Resource_5u1re"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 count = 40
@@ -52,7 +52,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_13ooc"]
+[sub_resource type="Resource" id="Resource_dv50q"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("12_m8fwe")
@@ -68,7 +68,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_hkpus"]
+[sub_resource type="Resource" id="Resource_7vn64"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("12_m8fwe")
@@ -83,7 +83,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_34yg6"]
+[sub_resource type="Resource" id="Resource_ouly6"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_m8fwe")
@@ -98,7 +98,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_rkxv5"]
+[sub_resource type="Resource" id="Resource_7mtsp"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_m8fwe")
@@ -113,10 +113,11 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_bessj"]
+[sub_resource type="Resource" id="Resource_l34g7"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
 delay = 200.0
 unit_settings = SubResource("Resource_fbxm4")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
@@ -128,10 +129,11 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_u37aa"]
+[sub_resource type="Resource" id="Resource_j1hie"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
 delay = 262.0
 unit_settings = SubResource("Resource_wvbjx")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
@@ -144,7 +146,7 @@ attack_poison = true
 poison_damage = 25.0
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_maclq"]
+[sub_resource type="Resource" id="Resource_th5b3"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("15_fngyv")
@@ -161,7 +163,7 @@ attack_poison = true
 poison_damage = 25.0
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_o2phj"]
+[sub_resource type="Resource" id="Resource_rtad5"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("15_fngyv")
@@ -177,10 +179,11 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_0sxko"]
+[sub_resource type="Resource" id="Resource_o2jgw"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
 delay = 465.0
 unit_settings = SubResource("Resource_5jhio")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
@@ -192,307 +195,11 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_cycwy"]
+[sub_resource type="Resource" id="Resource_dv456"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
-delay = 511.0
-unit_settings = SubResource("Resource_0k38s")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_ot4wg"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("10_sj7eu")
-count = 40
-unit_settings = SubResource("Resource_viwtt")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_waxtu"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-count = 40
-delay = 42.0
-unit_settings = SubResource("Resource_tonr4")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_vexvb"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("12_m8fwe")
-count = 40
-delay = 61.0
-unit_settings = SubResource("Resource_fg13d")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_d0lg2"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("12_m8fwe")
-delay = 79.0
-unit_settings = SubResource("Resource_7c1xi")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_afgno"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_m8fwe")
-delay = 120.0
-unit_settings = SubResource("Resource_gwkfy")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_20fvp"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_m8fwe")
-delay = 170.0
-unit_settings = SubResource("Resource_fucob")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_qulo0"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 200.0
-unit_settings = SubResource("Resource_fbxm4")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_xisri"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 262.0
-unit_settings = SubResource("Resource_wvbjx")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_g014s"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("15_fngyv")
-spawn_rate = 32.0
-delay = 296.0
-unit_settings = SubResource("Resource_qsb6y")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_4egd6"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("15_fngyv")
-spawn_rate = 16.0
-delay = 428.0
-unit_settings = SubResource("Resource_fxtte")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_62i54"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 465.0
-unit_settings = SubResource("Resource_5jhio")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_vcc55"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 511.0
-unit_settings = SubResource("Resource_0k38s")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_pjl72"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("10_sj7eu")
-count = 40
-unit_settings = SubResource("Resource_viwtt")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_yahjp"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-count = 40
-delay = 42.0
-unit_settings = SubResource("Resource_tonr4")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_k1u2r"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("12_m8fwe")
-count = 40
-delay = 61.0
-unit_settings = SubResource("Resource_fg13d")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_12df4"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("12_m8fwe")
-delay = 79.0
-unit_settings = SubResource("Resource_7c1xi")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_52ign"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_m8fwe")
-delay = 120.0
-unit_settings = SubResource("Resource_gwkfy")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_yx3w4"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_m8fwe")
-delay = 170.0
-unit_settings = SubResource("Resource_fucob")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_i730g"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 200.0
-unit_settings = SubResource("Resource_fbxm4")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_fxviu"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 262.0
-unit_settings = SubResource("Resource_wvbjx")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_oeg1q"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("15_fngyv")
-spawn_rate = 32.0
-delay = 296.0
-unit_settings = SubResource("Resource_qsb6y")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_teu0c"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("15_fngyv")
-spawn_rate = 16.0
-delay = 428.0
-unit_settings = SubResource("Resource_fxtte")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_sxvv7"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 465.0
-unit_settings = SubResource("Resource_5jhio")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_uu05j"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 511.0
-unit_settings = SubResource("Resource_0k38s")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_6a2jd"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("10_sj7eu")
-count = 40
-unit_settings = SubResource("Resource_viwtt")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_x3acw"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-count = 40
-delay = 42.0
-unit_settings = SubResource("Resource_tonr4")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_agguv"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("12_m8fwe")
-count = 40
-delay = 61.0
-unit_settings = SubResource("Resource_fg13d")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_acuj0"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("12_m8fwe")
-delay = 79.0
-unit_settings = SubResource("Resource_7c1xi")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_a3prc"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_m8fwe")
-delay = 120.0
-unit_settings = SubResource("Resource_gwkfy")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_ymwva"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_m8fwe")
-delay = 170.0
-unit_settings = SubResource("Resource_fucob")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_gjaj1"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 200.0
-unit_settings = SubResource("Resource_fbxm4")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_o0p0u"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 262.0
-unit_settings = SubResource("Resource_wvbjx")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_i4yjr"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("15_fngyv")
-spawn_rate = 32.0
-delay = 296.0
-unit_settings = SubResource("Resource_qsb6y")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_6q6dc"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("15_fngyv")
-spawn_rate = 16.0
-delay = 428.0
-unit_settings = SubResource("Resource_fxtte")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_ia4r0"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
-delay = 465.0
-unit_settings = SubResource("Resource_5jhio")
-metadata/_custom_type_script = "uid://dqvdlkpknoelw"
-
-[sub_resource type="Resource" id="Resource_nshww"]
-resource_local_to_scene = true
-script = ExtResource("9_rdbk4")
-unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
 delay = 511.0
 unit_settings = SubResource("Resource_0k38s")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
@@ -519,6 +226,7 @@ position = Vector2(64, 64)
 
 [node name="Place" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 tile_map_data = PackedByteArray("AAD3//f/AAAAAAAAAAD///f/AAABAAAAAAAHAPf/AAAAAAAAAAD7/+//AAAAAAAAAADv/+//AAAAAAAAAAALAO//AAAAAAAAAAAPAPv/AAAAAAAAAAAPAAsAAAAAAAAAAAD7/w8AAAAAAAAAAADv/wsAAAAAAAAAAADv//v/AAAAAAAAAAD3/wcAAAAAAAEAAAD3////AAAAAAAAAAAHAP//AAAAAAEAAAAHAAcAAAABAAAAAAD//wcAAAAAAAAAAAAAAAcAAAABAAAAAAAIAAcAAAACAAAAAAAIAP//AAACAAEAAAAIAPf/AAACAAAAAAAAAPf/AAACAAAAAAD4//f/AAABAAAAAAD4////AAACAAAAAAD4/wcAAAACAAEAAADw/wsAAAACAAAAAADw//v/AAACAAAAAAD0/+//AAACAAAAAAAEAO//AAACAAAAAAAQAO//AAACAAAAAAAQAPv/AAACAAAAAAAQAAsAAAACAAAAAAAEAA8AAAACAAAAAAD0/w8AAAACAAAAAADv/xAAAAAAAAIAAADv/wQAAAAAAAIAAADv//T/AAAAAAIAAAD7//D/AAAAAAIAAAALAPD/AAAAAAIAAAAPAPT/AAAAAAIAAAAPAAQAAAAAAAIAAAALABAAAAAAAAIAAAAHAAgAAAABAAIAAAAHAAAAAAAAAAIAAAAHAPj/AAAAAAEAAAD///j/AAABAAIAAAD3//j/AAAAAAIAAAD3/wAAAAAAAAEAAAD3/wgAAAAAAAIAAAD//wgAAAAAAAIAAAAQABAAAAACAAIAAAAQAAQAAAACAAIAAAAQAPT/AAACAAIAAAAEAPD/AAACAAIAAAD0//D/AAACAAIAAADw//T/AAACAAIAAADw/wQAAAACAAIAAAD0/xAAAAACAAIAAAAEABAAAAACAAIAAAAAAAgAAAABAAIAAAD4/wgAAAACAAIAAAD4/wAAAAACAAEAAAD4//j/AAABAAIAAAAAAPj/AAACAAIAAAAIAPj/AAACAAEAAAAIAAAAAAACAAIAAAAIAAgAAAACAAIAAAD7/xAAAAAAAAIAAADw/+//AAABAAAAAADx/+//AAABAAAAAADy/+//AAABAAAAAADz/+//AAABAAAAAAD8/+//AAABAAAAAAD9/+//AAABAAAAAAD+/+//AAABAAAAAAD//+//AAABAAAAAAAAAO//AAABAAAAAAABAO//AAABAAAAAAACAO//AAABAAAAAAADAO//AAABAAAAAAAMAO//AAABAAAAAAANAO//AAABAAAAAAAOAO//AAABAAAAAAAPAO//AAABAAAAAAD8/w8AAAABAAAAAAD9/w8AAAABAAAAAAD+/w8AAAABAAAAAAD//w8AAAABAAAAAAAAAA8AAAABAAAAAAABAA8AAAABAAAAAAACAA8AAAABAAAAAAADAA8AAAABAAAAAAALAA8AAAABAAAAAAAMAA8AAAABAAAAAAANAA8AAAABAAAAAAAOAA8AAAABAAAAAADx/w8AAAABAAAAAADy/w8AAAABAAAAAADz/w8AAAABAAAAAAAPAA8AAAADAAAAAADw/w8AAAAEAAAAAAAPAPD/AAADAAEAAADw//D/AAAEAAEAAADx//D/AAABAAIAAADy//D/AAABAAIAAADz//D/AAABAAIAAAD8//D/AAABAAIAAAD9//D/AAABAAIAAAD+//D/AAABAAIAAAD///D/AAABAAIAAAAAAPD/AAABAAIAAAABAPD/AAABAAIAAAACAPD/AAABAAIAAAADAPD/AAABAAIAAAAMAPD/AAABAAIAAAANAPD/AAABAAIAAAAOAPD/AAABAAIAAAAMABAAAAABAAIAAAANABAAAAABAAIAAAAOABAAAAABAAIAAAAPABAAAAABAAIAAAD8/xAAAAABAAIAAAD9/xAAAAABAAIAAAD+/xAAAAABAAIAAAD//xAAAAABAAIAAAAAABAAAAABAAIAAAABABAAAAABAAIAAAACABAAAAABAAIAAAADABAAAAABAAIAAADw/xAAAAABAAIAAADx/xAAAAABAAIAAADy/xAAAAABAAIAAADz/xAAAAABAAIAAAAQAAwAAAACAAEAAAAQAA0AAAACAAEAAAAQAA4AAAACAAEAAAAQAA8AAAACAAEAAAAQAPz/AAACAAEAAAAQAP3/AAACAAEAAAAQAP7/AAACAAEAAAAQAP//AAACAAEAAAAQAAAAAAACAAEAAAAQAAEAAAACAAEAAAAQAAIAAAACAAEAAAAQAAMAAAACAAEAAAAQAPD/AAACAAEAAAAQAPH/AAACAAEAAAAQAPL/AAACAAEAAAAQAPP/AAACAAEAAADw//z/AAACAAEAAADw//3/AAACAAEAAADw//7/AAACAAEAAADw////AAACAAEAAADw/wAAAAACAAEAAADw/wEAAAACAAEAAADw/wIAAAACAAEAAADw/wMAAAACAAEAAADw//H/AAACAAEAAADw//L/AAACAAEAAADw//P/AAACAAEAAADw/wwAAAACAAEAAADw/w0AAAACAAEAAADw/w4AAAACAAEAAAAPAAwAAAAAAAEAAAAPAA0AAAAAAAEAAAAPAA4AAAAAAAEAAAAPAPz/AAAAAAEAAAAPAP3/AAAAAAEAAAAPAP7/AAAAAAEAAAAPAP//AAAAAAEAAAAPAAAAAAAAAAEAAAAPAAEAAAAAAAEAAAAPAAIAAAAAAAEAAAAPAAMAAAAAAAEAAAAPAPH/AAAAAAEAAAAPAPL/AAAAAAEAAAAPAPP/AAAAAAEAAADv//D/AAAAAAEAAADv//H/AAAAAAEAAADv//L/AAAAAAEAAADv//P/AAAAAAEAAADv//z/AAAAAAEAAADv//3/AAAAAAEAAADv//7/AAAAAAEAAADv////AAAAAAEAAADv/wAAAAAAAAEAAADv/wEAAAAAAAEAAADv/wIAAAAAAAEAAADv/wMAAAAAAAEAAADv/wwAAAAAAAEAAADv/w0AAAAAAAEAAADv/w4AAAAAAAEAAADv/w8AAAAAAAEAAAD5//f/AAABAAAAAAD6//f/AAABAAAAAAD7//f/AAABAAAAAAD8//f/AAABAAAAAAD9//f/AAABAAAAAAD+//f/AAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAADAAcAAAABAAAAAAAEAAcAAAABAAAAAAAFAAcAAAABAAAAAAAGAAcAAAABAAAAAAABAAgAAAABAAIAAAACAAgAAAABAAIAAAADAAgAAAABAAIAAAAEAAgAAAABAAIAAAAFAAgAAAABAAIAAAAGAAgAAAABAAIAAAD5//j/AAABAAIAAAD6//j/AAABAAIAAAD7//j/AAABAAIAAAD8//j/AAABAAIAAAD9//j/AAABAAIAAAD+//j/AAABAAIAAAAIAPn/AAACAAEAAAAIAPr/AAACAAEAAAAIAPv/AAACAAEAAAAIAPz/AAACAAEAAAAIAP3/AAACAAEAAAAIAP7/AAACAAEAAAAHAPn/AAAAAAEAAAAHAPr/AAAAAAEAAAAHAPv/AAAAAAEAAAAHAPz/AAAAAAEAAAAHAP3/AAAAAAEAAAAHAP7/AAAAAAEAAAD3/wEAAAAAAAEAAAD3/wIAAAAAAAEAAAD3/wMAAAAAAAEAAAD3/wQAAAAAAAEAAAD3/wUAAAAAAAEAAAD3/wYAAAAAAAEAAAD4/wEAAAACAAEAAAD4/wIAAAACAAEAAAD4/wMAAAACAAEAAAD4/wQAAAACAAEAAAD4/wUAAAACAAEAAAD4/wYAAAACAAEAAAA=")
 tile_set = ExtResource("3_kgqwn")
 
@@ -526,22 +234,22 @@ tile_set = ExtResource("3_kgqwn")
 
 [node name="EnemySpawnerBalancedLevel31" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(1280, 1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fngyv"), SubResource("Resource_wl2n0"), SubResource("Resource_13ooc"), SubResource("Resource_hkpus"), SubResource("Resource_34yg6"), SubResource("Resource_rkxv5"), SubResource("Resource_bessj"), SubResource("Resource_u37aa"), SubResource("Resource_maclq"), SubResource("Resource_o2phj"), SubResource("Resource_0sxko"), SubResource("Resource_cycwy")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
 paths = NodePath("../Paths1")
 
 [node name="EnemySpawnerBalancedLevel32" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(1280, -1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_ot4wg"), SubResource("Resource_waxtu"), SubResource("Resource_vexvb"), SubResource("Resource_d0lg2"), SubResource("Resource_afgno"), SubResource("Resource_20fvp"), SubResource("Resource_qulo0"), SubResource("Resource_xisri"), SubResource("Resource_g014s"), SubResource("Resource_4egd6"), SubResource("Resource_62i54"), SubResource("Resource_vcc55")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
 paths = NodePath("../Paths2")
 
 [node name="EnemySpawnerBalancedLevel33" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(-1280, 1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_pjl72"), SubResource("Resource_yahjp"), SubResource("Resource_k1u2r"), SubResource("Resource_12df4"), SubResource("Resource_52ign"), SubResource("Resource_yx3w4"), SubResource("Resource_i730g"), SubResource("Resource_fxviu"), SubResource("Resource_oeg1q"), SubResource("Resource_teu0c"), SubResource("Resource_sxvv7"), SubResource("Resource_uu05j")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
 paths = NodePath("../Paths3")
 
 [node name="EnemySpawnerBalancedLevel34" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(-1280, -1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_6a2jd"), SubResource("Resource_x3acw"), SubResource("Resource_agguv"), SubResource("Resource_acuj0"), SubResource("Resource_a3prc"), SubResource("Resource_ymwva"), SubResource("Resource_gjaj1"), SubResource("Resource_o0p0u"), SubResource("Resource_i4yjr"), SubResource("Resource_6q6dc"), SubResource("Resource_ia4r0"), SubResource("Resource_nshww")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
 paths = NodePath("../Paths4")
 
 [node name="Paths1" type="Node2D" parent="."]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://coyy4gorpq7c6"]
+[gd_scene load_steps=8 format=3 uid="uid://coyy4gorpq7c6"]
 
 [ext_resource type="Script" uid="uid://byq6ci0kx14ks" path="res://addons/retrograde/scenes/ui/menu.gd" id="1_rvltp"]
 [ext_resource type="PackedScene" uid="uid://bbssswrytbmd4" path="res://addons/retrograde/scenes/ui/component/ui_button.tscn" id="2_a0qvn"]
+[ext_resource type="Texture2D" uid="uid://cla3xk65lyvvp" path="res://assets/title_en.png" id="2_k8xdd"]
 [ext_resource type="PackedScene" uid="uid://b33ohs7o6hg3l" path="res://addons/retrograde/scenes/ui/component/ui_separator.tscn" id="5_kqp2e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iewiv"]
-region = Rect2(0, 0, 304, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iip8c"]
+atlas = ExtResource("2_k8xdd")
+region = Rect2(0, 0, 1474, 186)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kqp2e"]
 region = Rect2(0, 0, 304, 48)
@@ -14,7 +16,7 @@ region = Rect2(0, 0, 304, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iewiv")
+"texture": SubResource("AtlasTexture_iip8c")
 }],
 "loop": true,
 "name": &"en",
@@ -64,7 +66,7 @@ autoplay = "en"
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 4
 
 [node name="UIButtonStart" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_a0qvn")]
 layout_mode = 2

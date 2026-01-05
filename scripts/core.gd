@@ -16,7 +16,7 @@ func _init() -> void:
 	ENABLE_PLAY_AGAIN = true
 	
 	LEVEL_CAMERA_ZOOM = 0.8
-	MENU_CAMERA_ZOOM = 0.8
+	MENU_CAMERA_ZOOM = 1.0
 
 enum WeaponModifier {
 	NONE,

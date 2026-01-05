@@ -19,8 +19,7 @@ func _update_title_position() -> void:
 		return
 		
 	var available_space_: Vector2 = get_viewport().get_visible_rect().size
-	
-	sprite_title.position = Vector2(round(available_space_.x / 2), 32.0)
+	sprite_title.position = Vector2(round(available_space_.x / 2), 186)
 		
 func _update_locale() -> void:
 	sprite_title.play(Core.locale)
