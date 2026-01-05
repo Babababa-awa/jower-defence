@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bcjvm0hb7yvtf"]
+[gd_scene load_steps=46 format=4 uid="uid://bcjvm0hb7yvtf"]
 
 [ext_resource type="Script" uid="uid://ddhijfmoc61fq" path="res://scenes/level/level_1/area/area_1.gd" id="1_mashh"]
 [ext_resource type="TileSet" uid="uid://b00x7koobduiw" path="res://resources/tile_sets/physics.tres" id="2_ief27"]
@@ -16,6 +16,20 @@
 [ext_resource type="PackedScene" uid="uid://bpm7mky5txtxv" path="res://scenes/unit/enemy/enemy_3.tscn" id="14_7lp54"]
 [ext_resource type="PackedScene" uid="uid://6u5vwcm5arr8" path="res://scenes/unit/enemy/enemy_4.tscn" id="15_gnjcu"]
 
+[sub_resource type="Resource" id="Resource_v4q5b"]
+script = ExtResource("11_dm7wy")
+attack_slow = true
+attack_stun = true
+attack_poison = true
+metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
+
+[sub_resource type="Resource" id="Resource_217dg"]
+script = ExtResource("5_sx5m4")
+unit = ExtResource("6_sx5m4")
+count = 1
+unit_settings = SubResource("Resource_v4q5b")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
 [sub_resource type="Resource" id="Resource_viwtt"]
 script = ExtResource("11_dm7wy")
 attack_slow = true
@@ -23,11 +37,12 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_fwmg6"]
+[sub_resource type="Resource" id="Resource_c2aol"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("10_c2aol")
 count = 60
+delay = 4.0
 unit_settings = SubResource("Resource_viwtt")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
 
@@ -38,7 +53,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_5u1re"]
+[sub_resource type="Resource" id="Resource_dm7wy"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 count = 60
@@ -53,7 +68,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_dv50q"]
+[sub_resource type="Resource" id="Resource_2m1ly"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("6_sx5m4")
@@ -68,7 +83,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_7vn64"]
+[sub_resource type="Resource" id="Resource_7lp54"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("6_sx5m4")
@@ -83,7 +98,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_ouly6"]
+[sub_resource type="Resource" id="Resource_gnjcu"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("13_2m1ly")
@@ -98,7 +113,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_7mtsp"]
+[sub_resource type="Resource" id="Resource_78h2x"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("13_2m1ly")
@@ -113,7 +128,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_l34g7"]
+[sub_resource type="Resource" id="Resource_3o1m7"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("14_7lp54")
@@ -129,7 +144,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_j1hie"]
+[sub_resource type="Resource" id="Resource_e3vdk"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("14_7lp54")
@@ -145,7 +160,7 @@ attack_poison = true
 poison_damage = 25.0
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_th5b3"]
+[sub_resource type="Resource" id="Resource_l3hc8"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("15_gnjcu")
@@ -162,7 +177,7 @@ attack_poison = true
 poison_damage = 25.0
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_rtad5"]
+[sub_resource type="Resource" id="Resource_jkqfa"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("15_gnjcu")
@@ -178,7 +193,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_o2jgw"]
+[sub_resource type="Resource" id="Resource_nmr5m"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("14_7lp54")
@@ -193,7 +208,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_dv456"]
+[sub_resource type="Resource" id="Resource_yt40j"]
 resource_local_to_scene = true
 script = ExtResource("5_sx5m4")
 unit = ExtResource("14_7lp54")
@@ -276,9 +291,9 @@ unique_name_in_owner = true
 position = Vector2(-1096, 0)
 sakana_offset = Vector2(-32, 0)
 
-[node name="EnemySpawnerBalancedMultiple" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("8_h3hhn")]
+[node name="EnemySpawnerBalancedLevel1" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("8_h3hhn")]
 position = Vector2(1096, 0)
-enemies = Array[ExtResource("5_sx5m4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
+enemies = Array[ExtResource("5_sx5m4")]([SubResource("Resource_217dg"), SubResource("Resource_c2aol"), SubResource("Resource_dm7wy"), SubResource("Resource_2m1ly"), SubResource("Resource_7lp54"), SubResource("Resource_gnjcu"), SubResource("Resource_78h2x"), SubResource("Resource_3o1m7"), SubResource("Resource_e3vdk"), SubResource("Resource_l3hc8"), SubResource("Resource_jkqfa"), SubResource("Resource_nmr5m"), SubResource("Resource_yt40j")])
 paths = NodePath("../Paths")
 
 [node name="Paths" type="Node2D" parent="."]

@@ -24,9 +24,9 @@ func _update() -> void:
 	var health_actor: HealthActor = command_tower_.health
 	
 	# 768 = width of bar, -8 with borders
-	var x: float = round(760.0 * health_actor.health / health_actor.max_health)
+	var x: float = round(504.0 * health_actor.health / health_actor.max_health)
 	
 	%Line2DCurrent.points[1].x = x
 	
 func get_rect() -> Rect2:
-	return Rect2(Vector2.ZERO, Vector2(768, 64))
+	return Rect2(Vector2.ZERO, Vector2(512, 48))

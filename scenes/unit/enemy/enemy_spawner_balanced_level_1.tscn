@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b0fift3p50ysq"]
+[gd_scene load_steps=35 format=3 uid="uid://b0fift3p50ysq"]
 
 [ext_resource type="PackedScene" uid="uid://cqkprjk4po4sh" path="res://scenes/unit/enemy/enemy_spawner.tscn" id="1_il71r"]
 [ext_resource type="Script" uid="uid://dqvdlkpknoelw" path="res://scripts/unit_spawner.gd" id="2_l6cty"]
@@ -8,6 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://cyrg63qm03tfx" path="res://scenes/unit/enemy/enemy_2.tscn" id="6_ay2ri"]
 [ext_resource type="PackedScene" uid="uid://bpm7mky5txtxv" path="res://scenes/unit/enemy/enemy_3.tscn" id="7_iiahc"]
 [ext_resource type="PackedScene" uid="uid://6u5vwcm5arr8" path="res://scenes/unit/enemy/enemy_4.tscn" id="8_blxhs"]
+
+[sub_resource type="Resource" id="Resource_v4q5b"]
+script = ExtResource("4_sqwsu")
+attack_slow = true
+attack_stun = true
+attack_poison = true
+metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
+
+[sub_resource type="Resource" id="Resource_217dg"]
+script = ExtResource("2_l6cty")
+unit = ExtResource("5_ba2k8")
+count = 1
+unit_settings = SubResource("Resource_v4q5b")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
 
 [sub_resource type="Resource" id="Resource_viwtt"]
 script = ExtResource("4_sqwsu")
@@ -21,6 +35,7 @@ resource_local_to_scene = true
 script = ExtResource("2_l6cty")
 unit = ExtResource("3_y3sj3")
 count = 60
+delay = 4.0
 unit_settings = SubResource("Resource_viwtt")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
 
@@ -195,4 +210,4 @@ unit_settings = SubResource("Resource_0k38s")
 metadata/_custom_type_script = "uid://dqvdlkpknoelw"
 
 [node name="EnemySpawnerBalancedLevel1" instance=ExtResource("1_il71r")]
-enemies = Array[ExtResource("2_l6cty")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
+enemies = Array[ExtResource("2_l6cty")]([SubResource("Resource_217dg"), SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])

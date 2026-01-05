@@ -22,7 +22,7 @@ func _update() -> void:
 	var texture_size_: Vector2 = texture_.get_size()
 	
 	%UILabel.position.x = texture_size_.x + texture_size_.x / 8
-	%UILabel.position.y = (texture_size_.y / 2) - (%UILabel.size.y / 2)
+	%UILabel.position.y = (texture_size_.y / 2) - (%UILabel.size.y / 2) - 3
 	
 	_size = Vector2(
 		texture_size_.x + (texture_size_.x / 4) + %UILabel.size.y,

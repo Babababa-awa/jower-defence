@@ -4,7 +4,10 @@ var target_set: bool = false
 
 var has_semi_automatic: bool = false
 var has_machine_gun: bool = false
-var equiped_weapon: StringName = &"pistol"
+var equiped_weapon: StringName = &"pistol":
+	set(value):
+		equiped_weapon = value
+		_update_equiped_weapon()
 
 func _init() -> void:
 	super._init(&"pippa")
@@ -21,7 +24,11 @@ func _on_bullet_after(weapon_: WeaponUnit, attack_: AttackValue) -> void:
 		%PippaAnimations.play(&"semi_automatic_use")
 	elif attack_.meta.weapon_attack_alias == &"machine_gun":
 		%PippaAnimations.play(&"machine_gun_use")
-	
+
+func _update_equiped_weapon() -> void:
+	if not Core.level.is_game_started:
+		%PippaAnimations.play(equiped_weapon + &"_idle")
+		
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)
 	

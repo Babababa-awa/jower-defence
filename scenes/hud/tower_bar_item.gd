@@ -24,7 +24,7 @@ func _update() -> void:
 	var texture_size_: Vector2 = %Sprite2D.texture.get_size()
 
 	%UILabel.position.x = ((%Sprite2D.position.x - (texture_size_.x / 2)) * 2) + texture_size_.x
-	%UILabel.position.y = %Sprite2D.position.y - (%UILabel.size.y / 2) - 2
+	%UILabel.position.y = %Sprite2D.position.y - (%UILabel.size.y / 2) - 3
 
 func _on_area_2d_rect_mouse_entered() -> void:
 	%AnimatedSprite2D.play(tower + "_hover")

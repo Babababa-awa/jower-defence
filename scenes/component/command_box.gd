@@ -12,21 +12,21 @@ func _on_visibility_changed() -> void:
 	Core.game.set_mouse_action(&"command_box_hover")
 
 func refresh() -> void:
-	var top_: float = 12
+	var top_: float = 5
 	
 	for child_: Node in get_children():
 		if child_ is CommandButton:
 			if not child_.visible:
 				continue
-			child_.position = Vector2(12, top_)
-			top_ += 52
+			child_.position = Vector2(5, top_)
+			top_ += 48
 
-	top_ += 8
+	top_ += 5
 	
 	%NinePatchRect.position.x = 0
-	%NinePatchRect.size = Vector2(272, top_)
-	%Area2DCommandBox.position = Vector2(136, top_ / 2)
-	%CollisionShape2D.shape.size = Vector2(272, top_)
+	%NinePatchRect.size = Vector2(320, top_)
+	%Area2DCommandBox.position = Vector2(160, top_ / 2)
+	%CollisionShape2D.shape.size = Vector2(320, top_)
 	
 func _on_area_2d_command_box_mouse_entered() -> void:
 	Core.game.set_mouse_action(&"command_box_hover")

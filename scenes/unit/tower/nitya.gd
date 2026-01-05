@@ -8,6 +8,7 @@ var equiped_weapon: StringName = &"tail":
 	set(value):
 		equiped_weapon = value
 		_update_target_cone()
+		_update_equiped_weapon()
 
 func _init() -> void:
 	super._init(&"nitya")
@@ -20,11 +21,11 @@ func _ready() -> void:
 
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 	if attack_.meta.weapon_attack_alias == &"tail":
-		%NityaAnimations.play("tail_use")
+		%NityaAnimations.play(&"tail_use")
 	elif attack_.meta.weapon_attack_alias == &"bat":
-		%NityaAnimations.play("bat_use")
+		%NityaAnimations.play(&"bat_use")
 	elif attack_.meta.weapon_attack_alias == &"large_bat":
-		%NityaAnimations.play("large_bat_use")
+		%NityaAnimations.play(&"large_bat_use")
 		
 func _on_animation_finished() -> void:
 	if equiped_weapon == &"tail":
@@ -33,6 +34,10 @@ func _on_animation_finished() -> void:
 		%NityaAnimations.play("bat_idle")
 	elif equiped_weapon == &"large_bat":
 		%NityaAnimations.play("large_bat_idle")
+		
+func _update_equiped_weapon() -> void:
+	if not Core.level.is_game_started:
+		%NityaAnimations.play(equiped_weapon + &"_idle")
 		
 func reset(reset_type_: Core.ResetType) -> void:
 	super.reset(reset_type_)

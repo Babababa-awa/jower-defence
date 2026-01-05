@@ -17,10 +17,10 @@ material = SubResource("CanvasItemMaterial_8807d")
 offset_right = 163.0
 offset_bottom = 96.0
 texture = ExtResource("2_8807d")
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="Area2DCommandBox" type="Area2D" parent="."]
 unique_name_in_owner = true

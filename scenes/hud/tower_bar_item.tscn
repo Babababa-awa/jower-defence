@@ -96,7 +96,7 @@ animation = &"pippa_hover"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(16, 80)
+position = Vector2(18, 78)
 texture = ExtResource("6_er51y")
 
 [node name="UILabel" type="Label" parent="."]

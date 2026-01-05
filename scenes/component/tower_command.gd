@@ -8,6 +8,8 @@ var tower: TowerDefenceTowerUnit = null:
 func _ready() -> void:
 	super._ready()
 	
+	scale = Vector2.ONE / Core.LEVEL_CAMERA_ZOOM
+	
 	%GunUpgrades.closed.connect(_close_command_box)
 	%LaserUpgrades.closed.connect(_close_command_box)
 	%SwipeUpgrades.closed.connect(_close_command_box)

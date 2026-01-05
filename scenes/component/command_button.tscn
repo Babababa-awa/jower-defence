@@ -11,11 +11,11 @@ light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_as5t4"]
 atlas = ExtResource("2_l6wky")
-region = Rect2(0, 0, 248, 48)
+region = Rect2(0, 0, 310, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6wky"]
 atlas = ExtResource("2_l6wky")
-region = Rect2(0, 48, 248, 48)
+region = Rect2(0, 48, 310, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_npf6l"]
 animations = [{
@@ -73,7 +73,7 @@ light_mode = 1
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a33vc"]
-size = Vector2(248, 48)
+size = Vector2(310, 48)
 
 [node name="TowerCommandButton" type="Node2D"]
 script = ExtResource("1_as5t4")
@@ -81,14 +81,14 @@ script = ExtResource("1_as5t4")
 [node name="AnimatedSprite2DButton" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_as5t4")
-position = Vector2(124, 24)
+position = Vector2(155, 24)
 sprite_frames = SubResource("SpriteFrames_npf6l")
 autoplay = "default"
 
 [node name="AnimatedSprite2DIcon" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_l6wky")
-position = Vector2(16, 24)
+position = Vector2(24, 24)
 sprite_frames = SubResource("SpriteFrames_jua76")
 animation = &"money"
 autoplay = "money"
@@ -100,6 +100,7 @@ offset_left = 32.0
 offset_top = 6.0
 offset_right = 72.0
 offset_bottom = 24.0
+theme_override_font_sizes/font_size = 24
 script = ExtResource("5_p6j7g")
 metadata/_custom_type_script = "uid://bvexadi7j5afp"
 
@@ -108,11 +109,12 @@ unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_m14wx")
 offset_right = 40.0
 offset_bottom = 18.0
+theme_override_font_sizes/font_size = 24
 script = ExtResource("5_p6j7g")
 metadata/_custom_type_script = "uid://bvexadi7j5afp"
 
 [node name="Area2DButton" type="Area2D" parent="."]
-position = Vector2(124, 24)
+position = Vector2(155, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DButton"]
 shape = SubResource("RectangleShape2D_a33vc")

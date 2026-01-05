@@ -5,7 +5,10 @@ var jorb_target_set: bool = false
 
 var has_laser_beam: bool = false
 var has_jorb: bool = false
-var equiped_weapon: StringName = &"laser_shot"
+var equiped_weapon: StringName = &"laser_shot":
+	set(value):
+		equiped_weapon = value
+		_update_equiped_weapon()
 
 var _current_attack: AttackValue = null
 
@@ -21,17 +24,21 @@ func _ready() -> void:
 	%Weapon.laser_beam_started.connect(_on_laser_beam_started)
 	%Weapon.laser_beam_stopped.connect(_on_laser_beam_stopped)
 
+func _update_equiped_weapon() -> void:
+	if not Core.level.is_game_started:
+		%JellyAnimations.play(&"idle")
+		
 func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 	_current_attack = attack_
 	if attack_.meta.weapon_attack_alias == &"laser_shot":
-		%JellyAnimations.play("laser_shot_use")
+		%JellyAnimations.play(&"laser_shot_use")
 	elif attack_.meta.weapon_attack_alias == &"laser_beam":
-		%JellyAnimations.play("laser_beam_use")
+		%JellyAnimations.play(&"laser_beam_use")
 	elif attack_.meta.weapon_attack_alias == &"jorb":
-		%JellyAnimations.play("jorb_use")
+		%JellyAnimations.play(&"jorb_use")
 		
 func _on_animation_finished() -> void:
-	%JellyAnimations.play("idle")
+	%JellyAnimations.play(&"idle")
 
 func _on_laser_beam_started() -> void:
 	%JellyAnimations.play("laser_beam_start")

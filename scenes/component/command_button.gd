@@ -28,7 +28,7 @@ func _ready() -> void:
 	_update()
 
 func _update() -> void:
-	var offset_x: float = 32.0
+	var offset_x: float = 48.0
 	
 	if icon == &"money":
 		%AnimatedSprite2DIcon.play(&"money")
@@ -44,11 +44,11 @@ func _update() -> void:
 	else:
 		%UILabelPrice.visible = true
 		%UILabelPrice.position.x = offset_x
-		%UILabelPrice.position.y = (48.0 - %UILabelPrice.size.y) / 2
-		offset_x += %UILabelPrice.size.x + 4
+		%UILabelPrice.position.y = ((48.0 - %UILabelPrice.size.y) / 2) - 3
+		offset_x += %UILabelPrice.size.x + 8
 	
 	%UILabelName.position.x = offset_x
-	%UILabelName.position.y = (48.0 - %UILabelName.size.y) / 2
+	%UILabelName.position.y = ((48.0 - %UILabelName.size.y) / 2) - 3
 	
 
 

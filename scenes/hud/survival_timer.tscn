@@ -10,7 +10,7 @@ script = ExtResource("1_f88e2")
 unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 18.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 64
 script = ExtResource("1_mq8x6")
 metadata/_custom_type_script = "uid://bvexadi7j5afp"
 

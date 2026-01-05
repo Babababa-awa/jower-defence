@@ -22,7 +22,7 @@ func _update() -> void:
 	var texture_size_: Vector2 = texture_.get_size()
 	
 	%UILabel.position.x = (texture_size_.x / 2) - (%UILabel.size.x / 2)
-	%UILabel.position.y = (texture_size_.y / 2) - (%UILabel.size.y / 2)
+	%UILabel.position.y = texture_size_.y  - %UILabel.size.y - 5
 	
 	_size = texture_size_
 	
@@ -33,10 +33,10 @@ func get_rect() -> Rect2:
 
 
 func _on_area_2d_mouse_entered() -> void:
-	%AnimatedSprite2D.play(&"default")
+	%AnimatedSprite2D.play(&"hover")
 
 func _on_area_2d_mouse_exited() -> void:
-	%AnimatedSprite2D.play(&"hover")
+	%AnimatedSprite2D.play(&"default")
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Core.level == null or not Core.level is TowerDefenceLevel:

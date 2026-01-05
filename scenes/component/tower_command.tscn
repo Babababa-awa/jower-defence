@@ -171,6 +171,7 @@ size = Vector2(64, 64)
 size = Vector2(64, 64)
 
 [node name="TowerCommand" type="Node2D"]
+scale = Vector2(1.25, 1.25)
 script = ExtResource("1_dm4w8")
 
 [node name="Menu" type="Node2D" parent="."]
@@ -247,7 +248,7 @@ shape = SubResource("RectangleShape2D_1sy3o")
 [node name="GunUpgrades" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-64, -40)
+position = Vector2(-88, -40)
 
 [node name="TowerCommandButtonPistol" parent="GunUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -267,7 +268,7 @@ label = "Minigun"
 [node name="LaserUpgrades" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-64, -40)
+position = Vector2(-88, -40)
 
 [node name="TowerCommandButtonLaserShot" parent="LaserUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -287,7 +288,7 @@ label = "Jorb"
 [node name="SwipeUpgrades" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-64, -40)
+position = Vector2(-88, -40)
 
 [node name="TowerCommandButtonTail" parent="SwipeUpgrades" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -306,7 +307,7 @@ label = "Metal Bun Kisser"
 [node name="WeaponModifiers" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-208, -40)
+position = Vector2(-232, -40)
 
 [node name="TowerCommandButtonWeaponSpeed" parent="WeaponModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -326,7 +327,7 @@ label = "Cluster"
 [node name="AttackModifiers" parent="." instance=ExtResource("3_1sy3o")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-136, -40)
+position = Vector2(-160, -40)
 
 [node name="TowerCommandButtonAttackSlow" parent="AttackModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
@@ -340,7 +341,6 @@ label = "Stun"
 
 [node name="TowerCommandButtonAttackPoison" parent="AttackModifiers" instance=ExtResource("3_n3e8h")]
 unique_name_in_owner = true
-position = Vector2(32, 40)
 price = 200
 label = "Poison"
 
