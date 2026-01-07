@@ -141,7 +141,7 @@ func free_all(reset_method_: Callable = Callable()) -> void:
 				await node.stop()
 				
 			node.position = Core.DEAD_ZONE
-			
+	
 	_in_use = []
 
 func _threaded_load(path: String, count: int) -> Dictionary:

@@ -27,7 +27,7 @@ retrograde_image={
 
 [application]
 
-config/name="Jelly Defence"
+config/name="Phase Ice Fishing Trip"
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"

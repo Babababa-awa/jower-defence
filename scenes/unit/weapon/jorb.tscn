@@ -67,6 +67,7 @@ collision_layer = 4194304
 collision_mask = 1048576
 damage = 150.0
 independent = true
+groups = Array[StringName]([&"enemy"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jorb/Laser2D1/Area2DAttack1"]
 shape = SubResource("CircleShape2D_q02kq")
@@ -85,6 +86,7 @@ collision_layer = 4194304
 collision_mask = 1048576
 damage = 150.0
 independent = true
+groups = Array[StringName]([&"enemy"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jorb/Laser2D2/Area2DAttack2"]
 shape = SubResource("CircleShape2D_3hp5j")
@@ -103,6 +105,7 @@ collision_layer = 4194304
 collision_mask = 1048576
 damage = 150.0
 independent = true
+groups = Array[StringName]([&"enemy"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jorb/Laser2D3/Area2DAttack3"]
 shape = SubResource("CircleShape2D_bmrti")

@@ -195,6 +195,3 @@ metadata/_custom_type_script = "uid://dqvdlkpknoelw"
 
 [node name="EnemySpawnerBalancedLevel2" instance=ExtResource("1_1idej")]
 enemies = Array[ExtResource("2_kfgq1")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
-
-[node name="AnimatedSprite2D" parent="." index="0"]
-visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cr17itatonnu5"]
+[gd_scene load_steps=76 format=4 uid="uid://cr17itatonnu5"]
 
 [ext_resource type="Script" uid="uid://diosqabt48ph0" path="res://scenes/level/level_3/area/area_1.gd" id="1_v7dya"]
 [ext_resource type="TileSet" uid="uid://dnillm7uh0c7o" path="res://resources/tile_sets/camera_bounds.tres" id="2_gxdr0"]
@@ -22,7 +22,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_fwmg6"]
+[sub_resource type="Resource" id="Resource_k2nun"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("10_sj7eu")
@@ -37,7 +37,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_5u1re"]
+[sub_resource type="Resource" id="Resource_fngyv"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 count = 40
@@ -52,7 +52,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_dv50q"]
+[sub_resource type="Resource" id="Resource_wl2n0"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("12_m8fwe")
@@ -68,7 +68,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_7vn64"]
+[sub_resource type="Resource" id="Resource_13ooc"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("12_m8fwe")
@@ -83,7 +83,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_ouly6"]
+[sub_resource type="Resource" id="Resource_hkpus"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_m8fwe")
@@ -98,7 +98,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_7mtsp"]
+[sub_resource type="Resource" id="Resource_34yg6"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_m8fwe")
@@ -113,7 +113,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_l34g7"]
+[sub_resource type="Resource" id="Resource_rkxv5"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
@@ -129,7 +129,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_j1hie"]
+[sub_resource type="Resource" id="Resource_bessj"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
@@ -146,7 +146,7 @@ attack_poison = true
 poison_damage = 25.0
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_th5b3"]
+[sub_resource type="Resource" id="Resource_u37aa"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("15_fngyv")
@@ -163,7 +163,7 @@ attack_poison = true
 poison_damage = 25.0
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_rtad5"]
+[sub_resource type="Resource" id="Resource_maclq"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("15_fngyv")
@@ -179,7 +179,7 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_o2jgw"]
+[sub_resource type="Resource" id="Resource_o2phj"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
@@ -195,7 +195,316 @@ attack_stun = true
 attack_poison = true
 metadata/_custom_type_script = "uid://cb4q0qvmkoe8b"
 
-[sub_resource type="Resource" id="Resource_dv456"]
+[sub_resource type="Resource" id="Resource_0sxko"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 511.0
+unit_settings = SubResource("Resource_0k38s")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_cycwy"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("10_sj7eu")
+count = 40
+unit_settings = SubResource("Resource_viwtt")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_ot4wg"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+count = 40
+delay = 42.0
+unit_settings = SubResource("Resource_tonr4")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_waxtu"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+count = 40
+delay = 61.0
+unit_settings = SubResource("Resource_fg13d")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_vexvb"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+delay = 79.0
+unit_settings = SubResource("Resource_7c1xi")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_d0lg2"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_m8fwe")
+delay = 120.0
+unit_settings = SubResource("Resource_gwkfy")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_afgno"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_m8fwe")
+delay = 170.0
+unit_settings = SubResource("Resource_fucob")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_20fvp"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 200.0
+unit_settings = SubResource("Resource_fbxm4")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_qulo0"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 262.0
+unit_settings = SubResource("Resource_wvbjx")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_xisri"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("15_fngyv")
+spawn_rate = 32.0
+delay = 296.0
+unit_settings = SubResource("Resource_qsb6y")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_g014s"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("15_fngyv")
+spawn_rate = 16.0
+delay = 428.0
+unit_settings = SubResource("Resource_fxtte")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_4egd6"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 465.0
+unit_settings = SubResource("Resource_5jhio")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_62i54"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 511.0
+unit_settings = SubResource("Resource_0k38s")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_vcc55"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("10_sj7eu")
+count = 40
+unit_settings = SubResource("Resource_viwtt")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_pjl72"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+count = 40
+delay = 42.0
+unit_settings = SubResource("Resource_tonr4")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_yahjp"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+count = 40
+delay = 61.0
+unit_settings = SubResource("Resource_fg13d")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_k1u2r"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+delay = 79.0
+unit_settings = SubResource("Resource_7c1xi")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_12df4"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_m8fwe")
+delay = 120.0
+unit_settings = SubResource("Resource_gwkfy")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_52ign"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_m8fwe")
+delay = 170.0
+unit_settings = SubResource("Resource_fucob")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_yx3w4"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 200.0
+unit_settings = SubResource("Resource_fbxm4")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_i730g"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 262.0
+unit_settings = SubResource("Resource_wvbjx")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_fxviu"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("15_fngyv")
+spawn_rate = 32.0
+delay = 296.0
+unit_settings = SubResource("Resource_qsb6y")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_oeg1q"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("15_fngyv")
+spawn_rate = 16.0
+delay = 428.0
+unit_settings = SubResource("Resource_fxtte")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_teu0c"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 465.0
+unit_settings = SubResource("Resource_5jhio")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_sxvv7"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 511.0
+unit_settings = SubResource("Resource_0k38s")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_uu05j"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("10_sj7eu")
+count = 40
+unit_settings = SubResource("Resource_viwtt")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_6a2jd"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+count = 40
+delay = 42.0
+unit_settings = SubResource("Resource_tonr4")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_x3acw"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+count = 40
+delay = 61.0
+unit_settings = SubResource("Resource_fg13d")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_agguv"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("12_m8fwe")
+delay = 79.0
+unit_settings = SubResource("Resource_7c1xi")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_acuj0"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_m8fwe")
+delay = 120.0
+unit_settings = SubResource("Resource_gwkfy")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_a3prc"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_m8fwe")
+delay = 170.0
+unit_settings = SubResource("Resource_fucob")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_ymwva"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 200.0
+unit_settings = SubResource("Resource_fbxm4")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_gjaj1"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 262.0
+unit_settings = SubResource("Resource_wvbjx")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_o0p0u"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("15_fngyv")
+spawn_rate = 32.0
+delay = 296.0
+unit_settings = SubResource("Resource_qsb6y")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_i4yjr"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("15_fngyv")
+spawn_rate = 16.0
+delay = 428.0
+unit_settings = SubResource("Resource_fxtte")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_6q6dc"]
+resource_local_to_scene = true
+script = ExtResource("9_rdbk4")
+unit = ExtResource("13_k2nun")
+spawn_rate = 8.0
+delay = 465.0
+unit_settings = SubResource("Resource_5jhio")
+metadata/_custom_type_script = "uid://dqvdlkpknoelw"
+
+[sub_resource type="Resource" id="Resource_ia4r0"]
 resource_local_to_scene = true
 script = ExtResource("9_rdbk4")
 unit = ExtResource("13_k2nun")
@@ -231,25 +540,26 @@ tile_map_data = PackedByteArray("AAD3//f/AAAAAAAAAAD///f/AAABAAAAAAAHAPf/AAAAAAA
 tile_set = ExtResource("3_kgqwn")
 
 [node name="CommandTower" parent="." instance=ExtResource("4_kgqwn")]
+unique_name_in_owner = true
 
 [node name="EnemySpawnerBalancedLevel31" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(1280, 1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_k2nun"), SubResource("Resource_fngyv"), SubResource("Resource_wl2n0"), SubResource("Resource_13ooc"), SubResource("Resource_hkpus"), SubResource("Resource_34yg6"), SubResource("Resource_rkxv5"), SubResource("Resource_bessj"), SubResource("Resource_u37aa"), SubResource("Resource_maclq"), SubResource("Resource_o2phj"), SubResource("Resource_0sxko")])
 paths = NodePath("../Paths1")
 
 [node name="EnemySpawnerBalancedLevel32" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(1280, -1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_cycwy"), SubResource("Resource_ot4wg"), SubResource("Resource_waxtu"), SubResource("Resource_vexvb"), SubResource("Resource_d0lg2"), SubResource("Resource_afgno"), SubResource("Resource_20fvp"), SubResource("Resource_qulo0"), SubResource("Resource_xisri"), SubResource("Resource_g014s"), SubResource("Resource_4egd6"), SubResource("Resource_62i54")])
 paths = NodePath("../Paths2")
 
 [node name="EnemySpawnerBalancedLevel33" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(-1280, 1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_vcc55"), SubResource("Resource_pjl72"), SubResource("Resource_yahjp"), SubResource("Resource_k1u2r"), SubResource("Resource_12df4"), SubResource("Resource_52ign"), SubResource("Resource_yx3w4"), SubResource("Resource_i730g"), SubResource("Resource_fxviu"), SubResource("Resource_oeg1q"), SubResource("Resource_teu0c"), SubResource("Resource_sxvv7")])
 paths = NodePath("../Paths3")
 
 [node name="EnemySpawnerBalancedLevel34" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("16_wl2n0")]
 position = Vector2(-1280, -1280)
-enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_fwmg6"), SubResource("Resource_5u1re"), SubResource("Resource_dv50q"), SubResource("Resource_7vn64"), SubResource("Resource_ouly6"), SubResource("Resource_7mtsp"), SubResource("Resource_l34g7"), SubResource("Resource_j1hie"), SubResource("Resource_th5b3"), SubResource("Resource_rtad5"), SubResource("Resource_o2jgw"), SubResource("Resource_dv456")])
+enemies = Array[ExtResource("9_rdbk4")]([SubResource("Resource_uu05j"), SubResource("Resource_6a2jd"), SubResource("Resource_x3acw"), SubResource("Resource_agguv"), SubResource("Resource_acuj0"), SubResource("Resource_a3prc"), SubResource("Resource_ymwva"), SubResource("Resource_gjaj1"), SubResource("Resource_o0p0u"), SubResource("Resource_i4yjr"), SubResource("Resource_6q6dc"), SubResource("Resource_ia4r0")])
 paths = NodePath("../Paths4")
 
 [node name="Paths1" type="Node2D" parent="."]

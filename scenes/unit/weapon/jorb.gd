@@ -38,6 +38,13 @@ func reset(reset_type_: Core.ResetType) -> void:
 		stop_lasers()
 		target_points.clear()
 		
+		%Area2DAttack1.monitorable = false
+		%Area2DAttack1.monitoring = false
+		%Area2DAttack2.monitorable = false
+		%Area2DAttack2.monitoring = false
+		%Area2DAttack3.monitorable = false
+		%Area2DAttack3.monitoring = false
+		
 	elif reset_type_ == Core.ResetType.STOP:
 		stop_lasers()
 		%Jorb.visible = false
@@ -71,7 +78,7 @@ func _on_attack_after(_weapon: WeaponUnit, attack_: AttackValue) -> void:
 		%Area2DAttack1.position = Vector2(128.0, 0)
 		%Area2DAttack2.position = Vector2(128.0, 0)
 		%Area2DAttack3.position = Vector2(128.0, 0)
-		
+	
 	start_jorb()
 
 func _update_weapon_modifier() -> void:
@@ -188,6 +195,7 @@ func start_jorb() -> void:
 	progress = 0.0
 	%Jorb.scale = Vector2(0.1, 0.1)
 	%Jorb.visible = true
+	
 	_jorb_active = true
 
 func stop_jorb() -> void:
